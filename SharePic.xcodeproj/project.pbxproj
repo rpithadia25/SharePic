@@ -1,0 +1,639 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		033F55A21A2C2D4700E35E87 /* libFlickrKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 033F559F1A2C2D3200E35E87 /* libFlickrKit.a */; };
+		034515191A2C0632008E091D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515181A2C0632008E091D /* main.m */; };
+		0345151C1A2C0632008E091D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151B1A2C0632008E091D /* AppDelegate.m */; };
+		0345151F1A2C0632008E091D /* HRProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */; };
+		034515221A2C0632008E091D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515211A2C0632008E091D /* SecondViewController.m */; };
+		034515251A2C0632008E091D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034515231A2C0632008E091D /* Main.storyboard */; };
+		034515271A2C0632008E091D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034515261A2C0632008E091D /* Images.xcassets */; };
+		0345152A1A2C0632008E091D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034515281A2C0632008E091D /* LaunchScreen.xib */; };
+		034515361A2C0632008E091D /* SharePicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515351A2C0632008E091D /* SharePicTests.m */; };
+		0345154C1A2C0680008E091D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0345154B1A2C0680008E091D /* AssetsLibrary.framework */; };
+		0345154E1A2C0687008E091D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0345154D1A2C0687008E091D /* SystemConfiguration.framework */; };
+		034515651A2C08DD008E091D /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515511A2C08DD008E091D /* ELCAlbumPickerController.m */; };
+		034515661A2C08DD008E091D /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515531A2C08DD008E091D /* ELCAsset.m */; };
+		034515671A2C08DD008E091D /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515551A2C08DD008E091D /* ELCAssetCell.m */; };
+		034515681A2C08DD008E091D /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515591A2C08DD008E091D /* ELCAssetTablePicker.m */; };
+		034515691A2C08DD008E091D /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345155B1A2C08DD008E091D /* ELCConsole.m */; };
+		0345156A1A2C08DD008E091D /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345155D1A2C08DD008E091D /* ELCImagePickerController.m */; };
+		0345156B1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345155F1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m */; };
+		0345156C1A2C08DD008E091D /* ELCImagePickerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515611A2C08DD008E091D /* ELCImagePickerDemoViewController.m */; };
+		0345156D1A2C08DD008E091D /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515641A2C08DD008E091D /* ELCOverlayImageView.m */; };
+		034515741A2C08F8008E091D /* ELCAlbumPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0345156F1A2C08F8008E091D /* ELCAlbumPickerController.xib */; };
+		034515751A2C08F8008E091D /* ELCAssetPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034515701A2C08F8008E091D /* ELCAssetPicker.xib */; };
+		034515761A2C08F8008E091D /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034515711A2C08F8008E091D /* ELCAssetTablePicker.xib */; };
+		034515771A2C08F8008E091D /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 034515721A2C08F8008E091D /* Overlay.png */; };
+		034515781A2C08F8008E091D /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 034515731A2C08F8008E091D /* Overlay@2x.png */; };
+		0345157C1A2C094C008E091D /* HRAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157B1A2C094C008E091D /* HRAlbum.m */; };
+		0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */; };
+		034515821A2C0EA1008E091D /* HRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515811A2C0EA1008E091D /* HRConstants.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		033F559E1A2C2D3200E35E87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 033F55991A2C2D3200E35E87 /* FlickrKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 552D918C1753F8EF00BE3FEA;
+			remoteInfo = FlickrKit;
+		};
+		033F55A01A2C2D3200E35E87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 033F55991A2C2D3200E35E87 /* FlickrKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 552D919A1753F8F000BE3FEA;
+			remoteInfo = FlickrKitTests;
+		};
+		033F55A31A2C2D4C00E35E87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 033F55991A2C2D3200E35E87 /* FlickrKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 552D918B1753F8EF00BE3FEA;
+			remoteInfo = FlickrKit;
+		};
+		034515301A2C0632008E091D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0345150B1A2C0632008E091D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 034515121A2C0632008E091D;
+			remoteInfo = SharePic;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		033F55991A2C2D3200E35E87 /* FlickrKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FlickrKit.xcodeproj; path = FlickrKit/FlickrKit.xcodeproj; sourceTree = "<group>"; };
+		034515131A2C0632008E091D /* SharePic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharePic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		034515171A2C0632008E091D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		034515181A2C0632008E091D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0345151A1A2C0632008E091D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0345151B1A2C0632008E091D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0345151D1A2C0632008E091D /* HRProfileDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRProfileDetailViewController.h; sourceTree = "<group>"; };
+		0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRProfileDetailViewController.m; sourceTree = "<group>"; };
+		034515201A2C0632008E091D /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		034515211A2C0632008E091D /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		034515241A2C0632008E091D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		034515261A2C0632008E091D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		034515291A2C0632008E091D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		0345152F1A2C0632008E091D /* SharePicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharePicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		034515341A2C0632008E091D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		034515351A2C0632008E091D /* SharePicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharePicTests.m; sourceTree = "<group>"; };
+		0345154B1A2C0680008E091D /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		0345154D1A2C0687008E091D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		034515501A2C08DD008E091D /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
+		034515511A2C08DD008E091D /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
+		034515521A2C08DD008E091D /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
+		034515531A2C08DD008E091D /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
+		034515541A2C08DD008E091D /* ELCAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetCell.h; sourceTree = "<group>"; };
+		034515551A2C08DD008E091D /* ELCAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetCell.m; sourceTree = "<group>"; };
+		034515561A2C08DD008E091D /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
+		034515571A2C08DD008E091D /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
+		034515581A2C08DD008E091D /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetTablePicker.h; sourceTree = "<group>"; };
+		034515591A2C08DD008E091D /* ELCAssetTablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetTablePicker.m; sourceTree = "<group>"; };
+		0345155A1A2C08DD008E091D /* ELCConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCConsole.h; sourceTree = "<group>"; };
+		0345155B1A2C08DD008E091D /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
+		0345155C1A2C08DD008E091D /* ELCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerController.h; sourceTree = "<group>"; };
+		0345155D1A2C08DD008E091D /* ELCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerController.m; sourceTree = "<group>"; };
+		0345155E1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerDemoAppDelegate.h; sourceTree = "<group>"; };
+		0345155F1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerDemoAppDelegate.m; sourceTree = "<group>"; };
+		034515601A2C08DD008E091D /* ELCImagePickerDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerDemoViewController.h; sourceTree = "<group>"; };
+		034515611A2C08DD008E091D /* ELCImagePickerDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerDemoViewController.m; sourceTree = "<group>"; };
+		034515621A2C08DD008E091D /* ELCImagePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerHeader.h; sourceTree = "<group>"; };
+		034515631A2C08DD008E091D /* ELCOverlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCOverlayImageView.h; sourceTree = "<group>"; };
+		034515641A2C08DD008E091D /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCOverlayImageView.m; sourceTree = "<group>"; };
+		0345156F1A2C08F8008E091D /* ELCAlbumPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAlbumPickerController.xib; sourceTree = "<group>"; };
+		034515701A2C08F8008E091D /* ELCAssetPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetPicker.xib; sourceTree = "<group>"; };
+		034515711A2C08F8008E091D /* ELCAssetTablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetTablePicker.xib; sourceTree = "<group>"; };
+		034515721A2C08F8008E091D /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
+		034515731A2C08F8008E091D /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
+		0345157A1A2C094C008E091D /* HRAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAlbum.h; sourceTree = "<group>"; };
+		0345157B1A2C094C008E091D /* HRAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAlbum.m; sourceTree = "<group>"; };
+		0345157D1A2C0CA2008E091D /* HRPatternViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRPatternViewCell.h; sourceTree = "<group>"; };
+		0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPatternViewCell.m; sourceTree = "<group>"; };
+		034515801A2C0EA1008E091D /* HRConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRConstants.h; sourceTree = "<group>"; };
+		034515811A2C0EA1008E091D /* HRConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRConstants.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		034515101A2C0632008E091D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				033F55A21A2C2D4700E35E87 /* libFlickrKit.a in Frameworks */,
+				0345154E1A2C0687008E091D /* SystemConfiguration.framework in Frameworks */,
+				0345154C1A2C0680008E091D /* AssetsLibrary.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0345152C1A2C0632008E091D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		033F559A1A2C2D3200E35E87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				033F559F1A2C2D3200E35E87 /* libFlickrKit.a */,
+				033F55A11A2C2D3200E35E87 /* FlickrKitTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0345150A1A2C0632008E091D = {
+			isa = PBXGroup;
+			children = (
+				033F55991A2C2D3200E35E87 /* FlickrKit.xcodeproj */,
+				0345154D1A2C0687008E091D /* SystemConfiguration.framework */,
+				0345154B1A2C0680008E091D /* AssetsLibrary.framework */,
+				034515151A2C0632008E091D /* SharePic */,
+				034515321A2C0632008E091D /* SharePicTests */,
+				034515141A2C0632008E091D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		034515141A2C0632008E091D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				034515131A2C0632008E091D /* SharePic.app */,
+				0345152F1A2C0632008E091D /* SharePicTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		034515151A2C0632008E091D /* SharePic */ = {
+			isa = PBXGroup;
+			children = (
+				034515791A2C0938008E091D /* Classes */,
+				0345154F1A2C08A8008E091D /* ImagePicker */,
+				0345151A1A2C0632008E091D /* AppDelegate.h */,
+				0345151B1A2C0632008E091D /* AppDelegate.m */,
+				034515801A2C0EA1008E091D /* HRConstants.h */,
+				034515811A2C0EA1008E091D /* HRConstants.m */,
+				0345151D1A2C0632008E091D /* HRProfileDetailViewController.h */,
+				0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */,
+				034515201A2C0632008E091D /* SecondViewController.h */,
+				034515211A2C0632008E091D /* SecondViewController.m */,
+				0345157D1A2C0CA2008E091D /* HRPatternViewCell.h */,
+				0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */,
+				034515231A2C0632008E091D /* Main.storyboard */,
+				034515261A2C0632008E091D /* Images.xcassets */,
+				034515281A2C0632008E091D /* LaunchScreen.xib */,
+				034515161A2C0632008E091D /* Supporting Files */,
+			);
+			path = SharePic;
+			sourceTree = "<group>";
+		};
+		034515161A2C0632008E091D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				034515171A2C0632008E091D /* Info.plist */,
+				034515181A2C0632008E091D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		034515321A2C0632008E091D /* SharePicTests */ = {
+			isa = PBXGroup;
+			children = (
+				034515351A2C0632008E091D /* SharePicTests.m */,
+				034515331A2C0632008E091D /* Supporting Files */,
+			);
+			path = SharePicTests;
+			sourceTree = "<group>";
+		};
+		034515331A2C0632008E091D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				034515341A2C0632008E091D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0345154F1A2C08A8008E091D /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				0345156E1A2C08F8008E091D /* Resources */,
+				034515501A2C08DD008E091D /* ELCAlbumPickerController.h */,
+				034515511A2C08DD008E091D /* ELCAlbumPickerController.m */,
+				034515521A2C08DD008E091D /* ELCAsset.h */,
+				034515531A2C08DD008E091D /* ELCAsset.m */,
+				034515541A2C08DD008E091D /* ELCAssetCell.h */,
+				034515551A2C08DD008E091D /* ELCAssetCell.m */,
+				034515561A2C08DD008E091D /* ELCAssetPickerFilterDelegate.h */,
+				034515571A2C08DD008E091D /* ELCAssetSelectionDelegate.h */,
+				034515581A2C08DD008E091D /* ELCAssetTablePicker.h */,
+				034515591A2C08DD008E091D /* ELCAssetTablePicker.m */,
+				0345155A1A2C08DD008E091D /* ELCConsole.h */,
+				0345155B1A2C08DD008E091D /* ELCConsole.m */,
+				0345155C1A2C08DD008E091D /* ELCImagePickerController.h */,
+				0345155D1A2C08DD008E091D /* ELCImagePickerController.m */,
+				0345155E1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.h */,
+				0345155F1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m */,
+				034515601A2C08DD008E091D /* ELCImagePickerDemoViewController.h */,
+				034515611A2C08DD008E091D /* ELCImagePickerDemoViewController.m */,
+				034515621A2C08DD008E091D /* ELCImagePickerHeader.h */,
+				034515631A2C08DD008E091D /* ELCOverlayImageView.h */,
+				034515641A2C08DD008E091D /* ELCOverlayImageView.m */,
+			);
+			name = ImagePicker;
+			sourceTree = "<group>";
+		};
+		0345156E1A2C08F8008E091D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0345156F1A2C08F8008E091D /* ELCAlbumPickerController.xib */,
+				034515701A2C08F8008E091D /* ELCAssetPicker.xib */,
+				034515711A2C08F8008E091D /* ELCAssetTablePicker.xib */,
+				034515721A2C08F8008E091D /* Overlay.png */,
+				034515731A2C08F8008E091D /* Overlay@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		034515791A2C0938008E091D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0345157A1A2C094C008E091D /* HRAlbum.h */,
+				0345157B1A2C094C008E091D /* HRAlbum.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		034515121A2C0632008E091D /* SharePic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 034515391A2C0632008E091D /* Build configuration list for PBXNativeTarget "SharePic" */;
+			buildPhases = (
+				0345150F1A2C0632008E091D /* Sources */,
+				034515101A2C0632008E091D /* Frameworks */,
+				034515111A2C0632008E091D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				033F55A41A2C2D4C00E35E87 /* PBXTargetDependency */,
+			);
+			name = SharePic;
+			productName = SharePic;
+			productReference = 034515131A2C0632008E091D /* SharePic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0345152E1A2C0632008E091D /* SharePicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0345153C1A2C0632008E091D /* Build configuration list for PBXNativeTarget "SharePicTests" */;
+			buildPhases = (
+				0345152B1A2C0632008E091D /* Sources */,
+				0345152C1A2C0632008E091D /* Frameworks */,
+				0345152D1A2C0632008E091D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				034515311A2C0632008E091D /* PBXTargetDependency */,
+			);
+			name = SharePicTests;
+			productName = SharePicTests;
+			productReference = 0345152F1A2C0632008E091D /* SharePicTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0345150B1A2C0632008E091D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Harsh Shah, Rakshit Pithadia";
+				TargetAttributes = {
+					034515121A2C0632008E091D = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					0345152E1A2C0632008E091D = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 034515121A2C0632008E091D;
+					};
+				};
+			};
+			buildConfigurationList = 0345150E1A2C0632008E091D /* Build configuration list for PBXProject "SharePic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0345150A1A2C0632008E091D;
+			productRefGroup = 034515141A2C0632008E091D /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 033F559A1A2C2D3200E35E87 /* Products */;
+					ProjectRef = 033F55991A2C2D3200E35E87 /* FlickrKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				034515121A2C0632008E091D /* SharePic */,
+				0345152E1A2C0632008E091D /* SharePicTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		033F559F1A2C2D3200E35E87 /* libFlickrKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFlickrKit.a;
+			remoteRef = 033F559E1A2C2D3200E35E87 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		033F55A11A2C2D3200E35E87 /* FlickrKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			name = FlickrKitTests.octest;
+			path = FlickrKitTests.xctest;
+			remoteRef = 033F55A01A2C2D3200E35E87 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		034515111A2C0632008E091D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				034515761A2C08F8008E091D /* ELCAssetTablePicker.xib in Resources */,
+				034515741A2C08F8008E091D /* ELCAlbumPickerController.xib in Resources */,
+				034515771A2C08F8008E091D /* Overlay.png in Resources */,
+				034515251A2C0632008E091D /* Main.storyboard in Resources */,
+				0345152A1A2C0632008E091D /* LaunchScreen.xib in Resources */,
+				034515781A2C08F8008E091D /* Overlay@2x.png in Resources */,
+				034515271A2C0632008E091D /* Images.xcassets in Resources */,
+				034515751A2C08F8008E091D /* ELCAssetPicker.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0345152D1A2C0632008E091D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0345150F1A2C0632008E091D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0345156B1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m in Sources */,
+				034515671A2C08DD008E091D /* ELCAssetCell.m in Sources */,
+				0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */,
+				034515821A2C0EA1008E091D /* HRConstants.m in Sources */,
+				034515651A2C08DD008E091D /* ELCAlbumPickerController.m in Sources */,
+				0345156D1A2C08DD008E091D /* ELCOverlayImageView.m in Sources */,
+				0345156A1A2C08DD008E091D /* ELCImagePickerController.m in Sources */,
+				0345157C1A2C094C008E091D /* HRAlbum.m in Sources */,
+				034515691A2C08DD008E091D /* ELCConsole.m in Sources */,
+				034515681A2C08DD008E091D /* ELCAssetTablePicker.m in Sources */,
+				034515661A2C08DD008E091D /* ELCAsset.m in Sources */,
+				034515221A2C0632008E091D /* SecondViewController.m in Sources */,
+				0345151C1A2C0632008E091D /* AppDelegate.m in Sources */,
+				0345151F1A2C0632008E091D /* HRProfileDetailViewController.m in Sources */,
+				0345156C1A2C08DD008E091D /* ELCImagePickerDemoViewController.m in Sources */,
+				034515191A2C0632008E091D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0345152B1A2C0632008E091D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				034515361A2C0632008E091D /* SharePicTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		033F55A41A2C2D4C00E35E87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlickrKit;
+			targetProxy = 033F55A31A2C2D4C00E35E87 /* PBXContainerItemProxy */;
+		};
+		034515311A2C0632008E091D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 034515121A2C0632008E091D /* SharePic */;
+			targetProxy = 034515301A2C0632008E091D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		034515231A2C0632008E091D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				034515241A2C0632008E091D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		034515281A2C0632008E091D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				034515291A2C0632008E091D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		034515371A2C0632008E091D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		034515381A2C0632008E091D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0345153A1A2C0632008E091D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"FlickrKit/Classes/**",
+				);
+				INFOPLIST_FILE = SharePic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0345153B1A2C0632008E091D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"FlickrKit/Classes/**",
+				);
+				INFOPLIST_FILE = SharePic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0345153D1A2C0632008E091D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SharePicTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharePic.app/SharePic";
+			};
+			name = Debug;
+		};
+		0345153E1A2C0632008E091D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SharePicTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharePic.app/SharePic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0345150E1A2C0632008E091D /* Build configuration list for PBXProject "SharePic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034515371A2C0632008E091D /* Debug */,
+				034515381A2C0632008E091D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		034515391A2C0632008E091D /* Build configuration list for PBXNativeTarget "SharePic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0345153A1A2C0632008E091D /* Debug */,
+				0345153B1A2C0632008E091D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0345153C1A2C0632008E091D /* Build configuration list for PBXNativeTarget "SharePicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0345153D1A2C0632008E091D /* Debug */,
+				0345153E1A2C0632008E091D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0345150B1A2C0632008E091D /* Project object */;
+}
