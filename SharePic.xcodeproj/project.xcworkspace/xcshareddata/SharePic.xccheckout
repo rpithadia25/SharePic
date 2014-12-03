@@ -22,7 +22,7 @@
 		<key>4E828E00487B64B227AF4372B9377060CA7CB2C8</key>
 		<string>../..</string>
 		<key>4FF8CB72FEE4450A37215FC1DECE8C03C3468912</key>
-		<string>../..FlickrKit/</string>
+		<string>../..FlickrKit</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:shahmharsh/SharePic.git</string>
@@ -36,17 +36,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4FF8CB72FEE4450A37215FC1DECE8C03C3468912</string>
+			<string>4E828E00487B64B227AF4372B9377060CA7CB2C8</string>
 			<key>IDESourceControlWCCName</key>
-			<string>FlickrKit</string>
+			<string>SharePic</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4E828E00487B64B227AF4372B9377060CA7CB2C8</string>
+			<string>4FF8CB72FEE4450A37215FC1DECE8C03C3468912</string>
 			<key>IDESourceControlWCCName</key>
-			<string>SharePic</string>
+			<string>SharePicFlickrKit</string>
 		</dict>
 	</array>
 </dict>
