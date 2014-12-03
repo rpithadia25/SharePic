@@ -10,6 +10,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>SharePic</string>
+				<string>db-l00snssp2vqeghc</string>
 			</array>
 		</dict>
 	</array>

@@ -205,20 +205,21 @@
         NSLog(@"%@",_currentAlbum.name);
         NSLog(@"%@",_currentAlbum.albumDescription);
         
-        
-        NSDictionary *uploadArgs = @{@"rakshit": @"Test Photo", @"description": @"A Test Photo via photoshareapp", @"is_public": @"0", @"is_friend": @"0", @"is_family": @"0", @"hidden": @"2"};
-        
-        self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:[_chosenImages objectAtIndex:0] args:uploadArgs completion:^(NSString *imageID, NSError *error) {
-            if (error) {
-                NSLog(@"Could not upload");
-            } else {
-                NSString *msg = [NSString stringWithFormat:@"Uploaded image ID %@", imageID];
-                NSLog(@"%@ uploaded", msg);
-            }
-        }];
-
+        int imageNumber = 0;
+        for (UIImage *image in _chosenImages) {
+            NSString *imageTitle = [NSString stringWithFormat:@"Image %d", ++imageNumber];
+            NSDictionary *uploadArgs = @{@"title": imageTitle, @"description": @"A Photo via Share-a-Pic App", @"is_public": @"0", @"is_friend": @"0", @"is_family": @"0", @"hidden": @"2"};
+            
+            self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:image args:uploadArgs completion:^(NSString *imageID, NSError *error) {
+                if (error) {
+                    NSLog(@"Could not upload");
+                } else {
+                    NSString *msg = [NSString stringWithFormat:@"Uploaded image ID %@", imageID];
+                    NSLog(@"%@ uploaded", msg);
+                }
+            }];
+        }
     }
-    
 }
 
 

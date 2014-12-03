@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import <DropboxSDK/DropboxSDK.h>
 
 @interface SecondViewController ()
 @property (nonatomic, retain) FKDUNetworkOperation *authOp;
@@ -27,17 +28,35 @@
 
 - (IBAction)flickrLoginPressed:(id)sender {
     
-    // Begin the authentication process
-    self.authOp = [[FlickrKit sharedFlickrKit] beginAuthWithCallbackURL:[NSURL URLWithString:HRFlickrCallbackURL] permission:FKPermissionWrite completion:^(NSURL *flickrLoginPageURL, NSError *error) {
+    self.checkAuthOp = [[FlickrKit sharedFlickrKit] checkAuthorizationOnCompletion:^(NSString *userName, NSString *userId, NSString *fullName, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!error) {
-                [[UIApplication sharedApplication] openURL:flickrLoginPageURL];
+                NSLog(@"Flickr logged in");
             } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                [alert show];
-            }
-        });
-    }];
+                // Begin the authentication process
+                self.authOp = [[FlickrKit sharedFlickrKit] beginAuthWithCallbackURL:[NSURL URLWithString:HRFlickrCallbackURL] permission:FKPermissionWrite completion:^(NSURL *flickrLoginPageURL, NSError *error) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (!error) {
+                            [[UIApplication sharedApplication] openURL:flickrLoginPageURL];
+                        } else {
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                            [alert show];
+                        }
+                    });
+                }];
 
+            }
+        });		
+    }];
+    
 }
+
+- (IBAction)dropboxLoginPressed:(id)sender {
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:self];
+    } else {
+        NSLog(@"Dropbox logged in");
+    }
+}
+
 @end
