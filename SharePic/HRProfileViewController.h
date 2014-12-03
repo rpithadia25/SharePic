@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "HRConstants.h"
 #import "HRProfile.h"
+#import "HRCreateProfileViewController.h"
 
-@interface HRProfileViewController : UITableViewController
+@interface HRProfileViewController : UITableViewController<UIAlertViewDelegate>
 
 @property HRProfile *profile;
 @property NSMutableArray *profiles;

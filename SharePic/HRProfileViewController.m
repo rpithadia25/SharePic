@@ -21,9 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _profile = [[HRProfile alloc]init];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewProfile:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushNewViewController)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
@@ -36,6 +37,13 @@
     if (!self.profiles) {
         self.profiles = [[NSMutableArray alloc] init];
     }
+    
+    UIAlertView *profileNameAlert = [[UIAlertView alloc]initWithTitle:@"Please Enter Profile Name" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    profileNameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [profileNameAlert show];
+    UITextField *textfield = [profileNameAlert textFieldAtIndex:0];
+    NSLog(@"%@",textfield.text);
+
     [self.profiles insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -81,6 +89,14 @@
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
+}
+
+-(IBAction)pushNewViewController{
+    
+    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HRCreateProfile"];
+    [self.navigationController pushViewController:viewController animated:YES];
+
+    //[self presentViewController:viewController animated:YES completion:nil];
 }
 
 
