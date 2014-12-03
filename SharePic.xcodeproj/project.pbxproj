@@ -35,6 +35,7 @@
 		0345157C1A2C094C008E091D /* HRAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157B1A2C094C008E091D /* HRAlbum.m */; };
 		0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */; };
 		034515821A2C0EA1008E091D /* HRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515811A2C0EA1008E091D /* HRConstants.m */; };
+		BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6691A2EAC3700C66920 /* HRProfile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPatternViewCell.m; sourceTree = "<group>"; };
 		034515801A2C0EA1008E091D /* HRConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRConstants.h; sourceTree = "<group>"; };
 		034515811A2C0EA1008E091D /* HRConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRConstants.m; sourceTree = "<group>"; };
+		BA14E6681A2EAC3700C66920 /* HRProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRProfile.h; sourceTree = "<group>"; };
+		BA14E6691A2EAC3700C66920 /* HRProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRProfile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				033F559F1A2C2D3200E35E87 /* libFlickrKit.a */,
-				033F55A11A2C2D3200E35E87 /* FlickrKitTests.octest */,
+				033F55A11A2C2D3200E35E87 /* FlickrKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -267,6 +270,8 @@
 			children = (
 				0345157A1A2C094C008E091D /* HRAlbum.h */,
 				0345157B1A2C094C008E091D /* HRAlbum.m */,
+				BA14E6681A2EAC3700C66920 /* HRProfile.h */,
+				BA14E6691A2EAC3700C66920 /* HRProfile.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -362,7 +367,7 @@
 			remoteRef = 033F559E1A2C2D3200E35E87 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		033F55A11A2C2D3200E35E87 /* FlickrKitTests.octest */ = {
+		033F55A11A2C2D3200E35E87 /* FlickrKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = FlickrKitTests.xctest;
@@ -406,6 +411,7 @@
 				0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */,
 				034515821A2C0EA1008E091D /* HRConstants.m in Sources */,
 				034515651A2C08DD008E091D /* ELCAlbumPickerController.m in Sources */,
+				BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */,
 				0345156D1A2C08DD008E091D /* ELCOverlayImageView.m in Sources */,
 				0345156A1A2C08DD008E091D /* ELCImagePickerController.m in Sources */,
 				0345157C1A2C094C008E091D /* HRAlbum.m in Sources */,

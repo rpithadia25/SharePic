@@ -32,7 +32,7 @@
                                     <action selector="launchPicker" destination="9pv-A4-QxB" eventType="touchUpInside" id="Cif-cU-JE0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdx-Zy-hZL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdx-Zy-hZL">
                                 <rect key="frame" x="138" y="481" width="50" height="30"/>
                                 <state key="normal" title="Upload">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tLC-V9-bEu">
-                                <rect key="frame" x="0.0" y="325" width="320" height="158"/>
+                                <rect key="frame" x="0.0" y="325" width="320" height="148"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HRAlbumDescriptionCell" textLabel="vnt-TM-kgh" detailTextLabel="odo-6j-alj" style="IBUITableViewCellStyleValue2" id="VQu-yw-6e7">
@@ -115,18 +115,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="centerX" secondItem="W5o-GM-e72" secondAttribute="centerX" id="7zu-dh-CyA"/>
-                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="top" secondItem="W5o-GM-e72" secondAttribute="bottom" constant="90" id="EZG-kc-SwO"/>
-                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="trailing" secondItem="Z1i-ob-Zc7" secondAttribute="trailing" id="HXY-xs-Lhi"/>
-                            <constraint firstItem="W5o-GM-e72" firstAttribute="top" secondItem="Z1i-ob-Zc7" secondAttribute="bottom" constant="8" id="RMI-Sp-2Eb"/>
-                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="leading" secondItem="tLC-V9-bEu" secondAttribute="leading" id="Ufv-B0-XYr"/>
-                            <constraint firstItem="tLC-V9-bEu" firstAttribute="top" secondItem="bKG-Cj-AWm" secondAttribute="bottom" constant="36" id="ghu-rV-2XP"/>
-                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="leading" secondItem="CY3-V8-QkD" secondAttribute="leading" id="kzG-ht-PrK"/>
-                            <constraint firstItem="Z1i-ob-Zc7" firstAttribute="top" secondItem="MtH-55-xgW" secondAttribute="bottom" id="lId-1F-ViA"/>
-                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="trailing" secondItem="tLC-V9-bEu" secondAttribute="trailing" id="nIt-rD-H82"/>
-                            <constraint firstItem="gSh-PW-lzK" firstAttribute="top" secondItem="tLC-V9-bEu" secondAttribute="bottom" constant="36" id="psM-VL-qcZ"/>
-                            <constraint firstAttribute="trailing" secondItem="bKG-Cj-AWm" secondAttribute="trailing" id="ryP-f9-tbN"/>
-                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="leading" secondItem="Z1i-ob-Zc7" secondAttribute="leading" id="xT8-WY-dhV"/>
+                            <constraint firstItem="Sdx-Zy-hZL" firstAttribute="top" secondItem="tLC-V9-bEu" secondAttribute="bottom" constant="8" symbolic="YES" id="2LK-Hw-EtR"/>
+                            <constraint firstItem="tLC-V9-bEu" firstAttribute="top" secondItem="bKG-Cj-AWm" secondAttribute="bottom" constant="36" id="4Ro-1L-k3W"/>
+                            <constraint firstAttribute="trailing" secondItem="tLC-V9-bEu" secondAttribute="trailing" id="LH1-kb-xFi"/>
+                            <constraint firstItem="Z1i-ob-Zc7" firstAttribute="trailing" secondItem="bKG-Cj-AWm" secondAttribute="trailing" id="Ngq-HB-Bdp"/>
+                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="leading" secondItem="Z1i-ob-Zc7" secondAttribute="leading" id="SLS-XX-Xma"/>
+                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="trailing" secondItem="tLC-V9-bEu" secondAttribute="trailing" id="The-2g-gE5"/>
+                            <constraint firstItem="gSh-PW-lzK" firstAttribute="top" secondItem="Sdx-Zy-hZL" secondAttribute="bottom" constant="8" symbolic="YES" id="VvS-Tn-ECe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sdx-Zy-hZL" secondAttribute="trailing" constant="116" id="XBQ-qN-Dvw"/>
+                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="leading" secondItem="CY3-V8-QkD" secondAttribute="leading" id="XWd-g9-xJr"/>
+                            <constraint firstItem="tLC-V9-bEu" firstAttribute="leading" secondItem="bKG-Cj-AWm" secondAttribute="leading" id="hll-zt-DUh"/>
+                            <constraint firstItem="W5o-GM-e72" firstAttribute="top" secondItem="Z1i-ob-Zc7" secondAttribute="bottom" constant="8" id="mYt-nx-FAZ"/>
+                            <constraint firstItem="Z1i-ob-Zc7" firstAttribute="top" secondItem="MtH-55-xgW" secondAttribute="bottom" id="mcu-Ea-iXo"/>
+                            <constraint firstItem="Sdx-Zy-hZL" firstAttribute="leading" secondItem="CY3-V8-QkD" secondAttribute="leading" constant="138" id="rUG-hM-Fjk"/>
+                            <constraint firstItem="Z1i-ob-Zc7" firstAttribute="centerX" secondItem="W5o-GM-e72" secondAttribute="centerX" id="sZJ-Xq-vXa"/>
+                            <constraint firstItem="bKG-Cj-AWm" firstAttribute="top" secondItem="W5o-GM-e72" secondAttribute="bottom" constant="90" id="zjO-3x-6AP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>

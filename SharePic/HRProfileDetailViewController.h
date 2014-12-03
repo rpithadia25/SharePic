@@ -20,7 +20,7 @@
 @property HRAlbum                                       *currentAlbum;
 @property (strong, nonatomic) IBOutlet UICollectionView *gridView;
 @property (strong, nonatomic) IBOutlet UITableView      *albumDescriptionTable;
-@property (nonatomic, strong) NSMutableArray            *chosenImages;
+//@property (nonatomic, strong) NSMutableArray            *chosenImages;
 
 - (IBAction)launchPicker;
 - (IBAction)uploadButtonPressed:(id)sender;

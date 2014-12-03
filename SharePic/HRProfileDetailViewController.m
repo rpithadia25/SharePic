@@ -15,12 +15,12 @@
 @implementation HRProfileDetailViewController
 @synthesize currentAlbum = _currentAlbum;
 @synthesize gridView = _gridView;
-@synthesize chosenImages = _chosenImages;
+//@synthesize chosenImages = _chosenImages;
 @synthesize albumDescriptionTable = _albumDescriptionTable;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _chosenImages = [NSMutableArray new];
+  //  _chosenImages = [NSMutableArray new];
     _currentAlbum = [HRAlbum new];
     _gridView.delegate = self;
     _albumDescriptionTable.scrollEnabled = NO;
@@ -88,7 +88,7 @@
         }
     }
     
-    _chosenImages = [images mutableCopy];
+    _currentAlbum.photos = [images mutableCopy];
     
     [_gridView setPagingEnabled:YES];
     [_gridView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
@@ -107,13 +107,13 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _chosenImages.count;
+    return _currentAlbum.photos.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HRPatternViewCell *cell = (HRPatternViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRPatternCell forIndexPath:indexPath];
     UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRImageViewTag];
-    imageView.image = [_chosenImages objectAtIndex:indexPath.row];
+    imageView.image = [_currentAlbum.photos objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -201,7 +201,7 @@
         NSLog(@"%@",_currentAlbum.name);
         NSLog(@"%@",_currentAlbum.albumDescription);
         NSDictionary *uploadArgs = @{@"rakshit": @"Test Photo", @"description": @"A Test Photo via photoshareapp", @"is_public": @"0", @"is_friend": @"0", @"is_family": @"0", @"hidden": @"2"};
-        self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:[_chosenImages objectAtIndex:0] args:uploadArgs completion:^(NSString *imageID, NSError *error) {
+        self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:[_currentAlbum.photos objectAtIndex:0] args:uploadArgs completion:^(NSString *imageID, NSError *error) {
             if (error) {
                 NSLog(@"Could not upload");
             } else {
