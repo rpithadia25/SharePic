@@ -37,6 +37,7 @@
 		034515821A2C0EA1008E091D /* HRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515811A2C0EA1008E091D /* HRConstants.m */; };
 		BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6691A2EAC3700C66920 /* HRProfile.m */; };
 		BA14E66E1A2EAEEF00C66920 /* HRAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E66D1A2EAEEF00C66920 /* HRAccount.m */; };
+		BA14E6A91A2EC2A200C66920 /* HRProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6A81A2EC2A200C66920 /* HRProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,8 @@
 		BA14E6691A2EAC3700C66920 /* HRProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRProfile.m; sourceTree = "<group>"; };
 		BA14E66C1A2EAEEF00C66920 /* HRAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAccount.h; sourceTree = "<group>"; };
 		BA14E66D1A2EAEEF00C66920 /* HRAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAccount.m; sourceTree = "<group>"; };
+		BA14E6A71A2EC2A200C66920 /* HRProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRProfileViewController.h; sourceTree = "<group>"; };
+		BA14E6A81A2EC2A200C66920 /* HRProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,8 @@
 				0345154F1A2C08A8008E091D /* ImagePicker */,
 				0345151A1A2C0632008E091D /* AppDelegate.h */,
 				0345151B1A2C0632008E091D /* AppDelegate.m */,
+				BA14E6A71A2EC2A200C66920 /* HRProfileViewController.h */,
+				BA14E6A81A2EC2A200C66920 /* HRProfileViewController.m */,
 				034515801A2C0EA1008E091D /* HRConstants.h */,
 				034515811A2C0EA1008E091D /* HRConstants.m */,
 				0345151D1A2C0632008E091D /* HRProfileDetailViewController.h */,
@@ -416,6 +421,7 @@
 				0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */,
 				034515821A2C0EA1008E091D /* HRConstants.m in Sources */,
 				034515651A2C08DD008E091D /* ELCAlbumPickerController.m in Sources */,
+				BA14E6A91A2EC2A200C66920 /* HRProfileViewController.m in Sources */,
 				BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */,
 				0345156D1A2C08DD008E091D /* ELCOverlayImageView.m in Sources */,
 				BA14E66E1A2EAEEF00C66920 /* HRAccount.m in Sources */,

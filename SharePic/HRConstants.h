@@ -13,6 +13,7 @@ NSString *const HRAlbumName;
 NSString *const HRAlbumDescription;
 
 NSString *const HRPatternCell;
+NSString *const HRProfileCell;
 NSString *const HRAlbumDescriptionCell;
 
 NSString *const HRAlbumNamePlaceholder;

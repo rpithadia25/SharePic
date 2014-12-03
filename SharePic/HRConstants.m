@@ -35,3 +35,4 @@ BOOL const HRDisplayOrder = YES;
 NSInteger const HRTableViewRows = 2;
 NSInteger const HRCollectionViewSections = 1;
 NSInteger const HRImageViewTag = 100;
+NSString *const HRProfileCell = @"ProfileCell";
