@@ -17,7 +17,7 @@
 
 @interface HRProfileDetailViewController : UIViewController <ELCImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
-@property HRAlbum                                         *currentAlbum;
+@property HRAlbum                                       *currentAlbum;
 @property (strong, nonatomic) IBOutlet UICollectionView *gridView;
 @property (strong, nonatomic) IBOutlet UITableView      *albumDescriptionTable;
 @property (nonatomic, strong) NSMutableArray            *chosenImages;

@@ -26,3 +26,12 @@ NSString *const FlickrSecretKey;
 NSString *const FlickrMethodGetToken;
 NSString *const FlickrBaseApiRequestURL;
 NSString *const HRFlickrCallbackURL;
+
+NSInteger const HRMaximumImageCount;
+BOOL const HRReturnOriginalImage;
+BOOL const HRReturnsImage;
+BOOL const HRDisplayOrder;
+NSInteger const HRTableViewRows;
+NSInteger const HRCollectionViewSections;
+NSInteger const HRImageViewTag;
+
