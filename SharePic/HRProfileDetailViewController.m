@@ -201,7 +201,7 @@
         NSLog(@"%@",_currentAlbum.albumDescription);
         
         int imageNumber = 0;
-        for (UIImage *image in _chosenImages) {
+        for (UIImage *image in [_currentAlbum photos]) {
             NSString *imageTitle = [NSString stringWithFormat:@"Image %d", ++imageNumber];
             NSDictionary *uploadArgs = @{@"title": imageTitle, @"description": @"A Photo via Share-a-Pic App", @"is_public": @"0", @"is_friend": @"0", @"is_family": @"0", @"hidden": @"2"};
             
