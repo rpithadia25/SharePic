@@ -36,6 +36,7 @@
 		0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */; };
 		034515821A2C0EA1008E091D /* HRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515811A2C0EA1008E091D /* HRConstants.m */; };
 		BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6691A2EAC3700C66920 /* HRProfile.m */; };
+		BA14E66E1A2EAEEF00C66920 /* HRAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E66D1A2EAEEF00C66920 /* HRAccount.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,8 @@
 		034515811A2C0EA1008E091D /* HRConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRConstants.m; sourceTree = "<group>"; };
 		BA14E6681A2EAC3700C66920 /* HRProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRProfile.h; sourceTree = "<group>"; };
 		BA14E6691A2EAC3700C66920 /* HRProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRProfile.m; sourceTree = "<group>"; };
+		BA14E66C1A2EAEEF00C66920 /* HRAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAccount.h; sourceTree = "<group>"; };
+		BA14E66D1A2EAEEF00C66920 /* HRAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAccount.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +275,8 @@
 				0345157B1A2C094C008E091D /* HRAlbum.m */,
 				BA14E6681A2EAC3700C66920 /* HRProfile.h */,
 				BA14E6691A2EAC3700C66920 /* HRProfile.m */,
+				BA14E66C1A2EAEEF00C66920 /* HRAccount.h */,
+				BA14E66D1A2EAEEF00C66920 /* HRAccount.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				034515651A2C08DD008E091D /* ELCAlbumPickerController.m in Sources */,
 				BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */,
 				0345156D1A2C08DD008E091D /* ELCOverlayImageView.m in Sources */,
+				BA14E66E1A2EAEEF00C66920 /* HRAccount.m in Sources */,
 				0345156A1A2C08DD008E091D /* ELCImagePickerController.m in Sources */,
 				0345157C1A2C094C008E091D /* HRAlbum.m in Sources */,
 				034515691A2C08DD008E091D /* ELCConsole.m in Sources */,

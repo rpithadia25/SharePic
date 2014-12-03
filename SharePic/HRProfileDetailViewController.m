@@ -7,7 +7,7 @@
 //
 
 #import "HRProfileDetailViewController.h"
-
+#define kOFFSET_FOR_KEYBOARD 80.0
 @interface HRProfileDetailViewController ()
 @property (nonatomic, retain) FKImageUploadNetworkOperation *uploadOp;
 @end
@@ -15,12 +15,10 @@
 @implementation HRProfileDetailViewController
 @synthesize currentAlbum = _currentAlbum;
 @synthesize gridView = _gridView;
-//@synthesize chosenImages = _chosenImages;
 @synthesize albumDescriptionTable = _albumDescriptionTable;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  //  _chosenImages = [NSMutableArray new];
     _currentAlbum = [HRAlbum new];
     _gridView.delegate = self;
     _albumDescriptionTable.scrollEnabled = NO;
@@ -130,6 +128,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:HRAlbumDescriptionCell];
     }
+    
     UITextField *albumDetailsTextField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
     
     albumDetailsTextField.delegate = self;
@@ -213,6 +212,5 @@
     }
     
 }
-
 
 @end
