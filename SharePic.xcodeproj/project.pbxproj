@@ -35,6 +35,10 @@
 		0345157C1A2C094C008E091D /* HRAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157B1A2C094C008E091D /* HRAlbum.m */; };
 		0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */; };
 		034515821A2C0EA1008E091D /* HRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515811A2C0EA1008E091D /* HRConstants.m */; };
+		BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6691A2EAC3700C66920 /* HRProfile.m */; };
+		BA14E66E1A2EAEEF00C66920 /* HRAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E66D1A2EAEEF00C66920 /* HRAccount.m */; };
+		BA14E6A91A2EC2A200C66920 /* HRProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6A81A2EC2A200C66920 /* HRProfileViewController.m */; };
+		BAB71A221A2EFE13004327D6 /* HRCreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +123,14 @@
 		0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPatternViewCell.m; sourceTree = "<group>"; };
 		034515801A2C0EA1008E091D /* HRConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRConstants.h; sourceTree = "<group>"; };
 		034515811A2C0EA1008E091D /* HRConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRConstants.m; sourceTree = "<group>"; };
+		BA14E6681A2EAC3700C66920 /* HRProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRProfile.h; sourceTree = "<group>"; };
+		BA14E6691A2EAC3700C66920 /* HRProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRProfile.m; sourceTree = "<group>"; };
+		BA14E66C1A2EAEEF00C66920 /* HRAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAccount.h; sourceTree = "<group>"; };
+		BA14E66D1A2EAEEF00C66920 /* HRAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAccount.m; sourceTree = "<group>"; };
+		BA14E6A71A2EC2A200C66920 /* HRProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRProfileViewController.h; sourceTree = "<group>"; };
+		BA14E6A81A2EC2A200C66920 /* HRProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRProfileViewController.m; sourceTree = "<group>"; };
+		BAB71A201A2EFE13004327D6 /* HRCreateProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRCreateProfileViewController.h; sourceTree = "<group>"; };
+		BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRCreateProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				033F559F1A2C2D3200E35E87 /* libFlickrKit.a */,
-				033F55A11A2C2D3200E35E87 /* FlickrKitTests.octest */,
+				033F55A11A2C2D3200E35E87 /* FlickrKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,6 +191,10 @@
 				0345154F1A2C08A8008E091D /* ImagePicker */,
 				0345151A1A2C0632008E091D /* AppDelegate.h */,
 				0345151B1A2C0632008E091D /* AppDelegate.m */,
+				BA14E6A71A2EC2A200C66920 /* HRProfileViewController.h */,
+				BA14E6A81A2EC2A200C66920 /* HRProfileViewController.m */,
+				BAB71A201A2EFE13004327D6 /* HRCreateProfileViewController.h */,
+				BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */,
 				034515801A2C0EA1008E091D /* HRConstants.h */,
 				034515811A2C0EA1008E091D /* HRConstants.m */,
 				0345151D1A2C0632008E091D /* HRProfileDetailViewController.h */,
@@ -267,6 +283,10 @@
 			children = (
 				0345157A1A2C094C008E091D /* HRAlbum.h */,
 				0345157B1A2C094C008E091D /* HRAlbum.m */,
+				BA14E6681A2EAC3700C66920 /* HRProfile.h */,
+				BA14E6691A2EAC3700C66920 /* HRProfile.m */,
+				BA14E66C1A2EAEEF00C66920 /* HRAccount.h */,
+				BA14E66D1A2EAEEF00C66920 /* HRAccount.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -321,6 +341,7 @@
 				TargetAttributes = {
 					034515121A2C0632008E091D = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = H7739QEN48;
 					};
 					0345152E1A2C0632008E091D = {
 						CreatedOnToolsVersion = 6.1;
@@ -361,10 +382,9 @@
 			remoteRef = 033F559E1A2C2D3200E35E87 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		033F55A11A2C2D3200E35E87 /* FlickrKitTests.octest */ = {
+		033F55A11A2C2D3200E35E87 /* FlickrKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			name = FlickrKitTests.octest;
 			path = FlickrKitTests.xctest;
 			remoteRef = 033F55A01A2C2D3200E35E87 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -406,7 +426,11 @@
 				0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */,
 				034515821A2C0EA1008E091D /* HRConstants.m in Sources */,
 				034515651A2C08DD008E091D /* ELCAlbumPickerController.m in Sources */,
+				BA14E6A91A2EC2A200C66920 /* HRProfileViewController.m in Sources */,
+				BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */,
 				0345156D1A2C08DD008E091D /* ELCOverlayImageView.m in Sources */,
+				BAB71A221A2EFE13004327D6 /* HRCreateProfileViewController.m in Sources */,
+				BA14E66E1A2EAEEF00C66920 /* HRAccount.m in Sources */,
 				0345156A1A2C08DD008E091D /* ELCImagePickerController.m in Sources */,
 				0345157C1A2C094C008E091D /* HRAlbum.m in Sources */,
 				034515691A2C08DD008E091D /* ELCConsole.m in Sources */,
@@ -543,6 +567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -558,6 +583,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

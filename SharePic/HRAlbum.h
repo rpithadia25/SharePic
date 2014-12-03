@@ -9,11 +9,10 @@
 
 #import <Foundation/Foundation.h>
 
-//TODO: 1) Add MutableArray for all the images
-
 @interface HRAlbum : NSObject
 
 @property NSString *name;
 @property NSString *albumDescription;
+@property NSMutableArray *photos;
 
 @end

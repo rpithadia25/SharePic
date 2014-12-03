@@ -7,7 +7,7 @@
 //
 
 #import "HRProfileDetailViewController.h"
-
+#define kOFFSET_FOR_KEYBOARD 80.0
 @interface HRProfileDetailViewController ()
 @property (nonatomic, retain) FKImageUploadNetworkOperation *uploadOp;
 @end
@@ -15,14 +15,13 @@
 @implementation HRProfileDetailViewController
 @synthesize currentAlbum = _currentAlbum;
 @synthesize gridView = _gridView;
-@synthesize chosenImages = _chosenImages;
 @synthesize albumDescriptionTable = _albumDescriptionTable;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _chosenImages = [NSMutableArray new];
     _currentAlbum = [HRAlbum new];
     _gridView.delegate = self;
+    _albumDescriptionTable.scrollEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,14 +32,12 @@
 - (IBAction)launchPicker {
     
     ELCImagePickerController *imagePicker = [[ELCImagePickerController alloc] initImagePicker];
-    //TODO: put everything in constants, remove comments
     
-    imagePicker.maximumImagesCount = 10; //Set the maximum number of images to select to 10
-    imagePicker.returnsOriginalImage = YES; //Only return the fullScreenImage, not the fullResolutionImage
-    imagePicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
-    imagePicker.onOrder = YES; //For multiple image selection, display and return order of selected images
-    imagePicker.mediaTypes = @[(NSString *)kUTTypeImage, (NSString *)kUTTypeMovie]; //Supports image and movie types
-    
+    imagePicker.maximumImagesCount = HRMaximumImageCount;
+    imagePicker.returnsOriginalImage = HRReturnOriginalImage;
+    imagePicker.returnsImage = HRReturnsImage;
+    imagePicker.onOrder = HRDisplayOrder;
+    imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
     imagePicker.imagePickerDelegate = self;
     
     [self presentViewController:imagePicker animated:YES completion:nil];
@@ -89,11 +86,10 @@
         }
     }
     
-    _chosenImages = [images mutableCopy];
+    _currentAlbum.photos = [images mutableCopy];
     
     [_gridView setPagingEnabled:YES];
     [_gridView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
-    
     [_gridView reloadData];
     
 }
@@ -105,39 +101,36 @@
 #pragma mark Collection View Methods
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return HRCollectionViewSections;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _chosenImages.count;
+    return _currentAlbum.photos.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HRPatternViewCell *cell = (HRPatternViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRPatternCell forIndexPath:indexPath];
-    UIImageView *imageView = (UIImageView *) [cell viewWithTag:100];
-    
-    imageView.image = [_chosenImages objectAtIndex:indexPath.row];
+    UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRImageViewTag];
+    imageView.image = [_currentAlbum.photos objectAtIndex:indexPath.row];
     return cell;
 }
 
 #pragma mark Album Table View
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return HRTableViewRows;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HRAlbumDescriptionCell];
     
-    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:HRAlbumDescriptionCell];
     }
-    /////////////////
+    
     UITextField *albumDetailsTextField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
     
-    // [self.albumDetailsTextField addTarget:self action:@selector(textFieldShouldReturn:) forControlEvents:UIControlEventEditingDidEndOnExit];
     albumDetailsTextField.delegate = self;
     
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -200,15 +193,14 @@
     }
 }
 
+#pragma mark IBActions
+
 - (IBAction)uploadButtonPressed:(id)sender {
     if (![_currentAlbum.name length] == 0 && ![_currentAlbum.albumDescription length] == 0) {
         NSLog(@"%@",_currentAlbum.name);
         NSLog(@"%@",_currentAlbum.albumDescription);
-        
-        
         NSDictionary *uploadArgs = @{@"rakshit": @"Test Photo", @"description": @"A Test Photo via photoshareapp", @"is_public": @"0", @"is_friend": @"0", @"is_family": @"0", @"hidden": @"2"};
-        
-        self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:[_chosenImages objectAtIndex:0] args:uploadArgs completion:^(NSString *imageID, NSError *error) {
+        self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:[_currentAlbum.photos objectAtIndex:0] args:uploadArgs completion:^(NSString *imageID, NSError *error) {
             if (error) {
                 NSLog(@"Could not upload");
             } else {
@@ -220,6 +212,5 @@
     }
     
 }
-
 
 @end
