@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HRConstants.h"
 #import "FlickrKit.h"
+#import <DropboxSDK/DropboxSDK.h>
 
 @interface AppDelegate ()
 @property (nonatomic, retain) FKDUNetworkOperation *completeAuthOp;
@@ -18,7 +19,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[FlickrKit sharedFlickrKit] initializeWithAPIKey:FlickrApiKey sharedSecret:FlickrSecretKey];
+    [[FlickrKit sharedFlickrKit] initializeWithAPIKey:HRFlickrApiKey sharedSecret:HRFlickrSecretKey];
+    
+    DBSession *dbSession = [[DBSession alloc]
+                            initWithAppKey:HRDropBoxAppKey
+                            appSecret:HRDropBoxAppSecret
+                            root:kDBRootAppFolder]; 
+    [DBSession setSharedSession:dbSession];
+    
     return YES;
 }
 
@@ -46,19 +54,28 @@
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            NSLog(@"App linked successfully!");
+        }
+        return YES;
+    }
+    
     if (NSOrderedSame == [[url scheme] caseInsensitiveCompare:HRAppName]) {
         self.completeAuthOp = [[FlickrKit sharedFlickrKit] completeAuthWithURL:url completion:^(NSString *userName, NSString *userId, NSString *fullName, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (!error) {
-                    NSLog(@"%@ Logged in", userName);
+                    NSLog(@"Flickr %@ Logged in", userName);
                 } else {
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
                     [alert show];
                 }
             });
         }];
+        return YES;
     }
-    return YES;
+    
+    return NO;
 }
 
 

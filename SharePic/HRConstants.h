@@ -20,13 +20,13 @@ NSString *const HRAlbumNamePlaceholder;
 NSString *const HRAlbumDescriptionPlaceholder;
 
 NSString *const HRAppName;
-NSString *const FlickrBaseAuthenticationURL;
-NSString *const FlickrApiKey;
-NSString *const FlickrPermission;
-NSString *const FlickrSecretKey;
-NSString *const FlickrMethodGetToken;
-NSString *const FlickrBaseApiRequestURL;
+
+NSString *const HRFlickrApiKey;
+NSString *const HRFlickrSecretKey;
 NSString *const HRFlickrCallbackURL;
+
+NSString *const HRDropBoxAppKey;
+NSString *const HRDropBoxAppSecret;
 
 NSInteger const HRMaximumImageCount;
 BOOL const HRReturnOriginalImage;
@@ -35,4 +35,3 @@ BOOL const HRDisplayOrder;
 NSInteger const HRTableViewRows;
 NSInteger const HRCollectionViewSections;
 NSInteger const HRImageViewTag;
-

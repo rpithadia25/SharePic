@@ -13,6 +13,7 @@
 @interface SecondViewController : UIViewController
 
 - (IBAction)flickrLoginPressed:(id)sender;
+- (IBAction)dropboxLoginPressed:(id)sender;
 
 @end
 
