@@ -22,9 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _profiles = [[NSMutableArray alloc]init];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _profiles = [defaults objectForKey:HRUserDefaultsKey];
     self.navigationItem.backBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:HRBackButtonLabel
                                      style:UIBarButtonItemStylePlain

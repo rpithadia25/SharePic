@@ -37,11 +37,6 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    HRSelectProfileViewController *mainController = (HRSelectProfileViewController *) self.window.rootViewController;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *defaultValues = [NSMutableArray arrayWithArray:mainController.profiles];
-    [defaults setObject:[defaultValues objectAtIndex:0] forKey:HRUserDefaultsKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
