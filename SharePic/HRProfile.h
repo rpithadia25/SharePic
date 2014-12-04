@@ -11,6 +11,6 @@
 @interface HRProfile : NSObject
 
 @property NSString *profileName;
-@property NSMutableArray *accounts;
+@property NSArray *accounts;
 
 @end
