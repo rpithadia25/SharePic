@@ -8,17 +8,15 @@
 
 #import "SecondViewController.h"
 #import <DropboxSDK/DropboxSDK.h>
-#import "HRFlickr.h"
 
 @interface SecondViewController ()
-@property HRFlickr *flickr;
+
 @end
 
 @implementation SecondViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.flickr = [HRFlickr sharedFlickr];
 }
 
 - (void)didReceiveMemoryWarning {

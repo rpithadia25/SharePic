@@ -10,6 +10,7 @@
 #import "HRAccount.h"
 #import "HRConstants.h"
 #import "HRFlickr.h"
+#import "HRDropbox.h"
 
 #define kFlickrSwitchTag 100
 #define kDropboxSwitchTag 101
@@ -17,6 +18,7 @@
 @interface HRSettingsViewController ()
 @property NSArray *supportedAccounts;
 @property HRFlickr *flickr;
+@property HRDropbox *dropbox;
 @end
 
 @implementation HRSettingsViewController
@@ -27,6 +29,7 @@
     
     _supportedAccounts = [HRAccount supportedAccounts];
     self.flickr = [HRFlickr sharedFlickr];
+    self.dropbox = [HRDropbox sharedDropbox];
     
     self.clearsSelectionOnViewWillAppear = NO;
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:HRClose style:UIBarButtonItemStyleDone target:self action:@selector(close:)];
@@ -75,6 +78,9 @@
         }
     } else if ([account isEqualToString:HRDropboxString]){
         switchView.tag = kDropboxSwitchTag;
+        if ([self.dropbox isLoggedIn]) {
+            switchView.on = YES;
+        }
     }
     
     cell.textLabel.text = account;
@@ -89,7 +95,11 @@
             [self.flickr logout];
         }
     } else if (sender.tag == kDropboxSwitchTag) {
-        
+        if ([sender isOn]) {
+            [self.dropbox loginWithController:self];
+        } else {
+            [self.dropbox logout];
+        }
     }
 }
 

@@ -13,7 +13,6 @@
 @interface HRFlickr : NSObject
 
 + (id)sharedFlickr;
-//- (void)isLoggedInOnCompletion:(completion)completionHandler;
 - (BOOL)isLoggedIn;
 - (void)loginWithController:(UIViewController *)viewController;
 - (void)completeLoginWithURL:(NSURL *)url;
