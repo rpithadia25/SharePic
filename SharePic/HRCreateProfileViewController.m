@@ -37,11 +37,11 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return kRowProfileName;
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return kSectionProfileName;
+    return 2;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
