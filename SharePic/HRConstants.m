@@ -47,3 +47,6 @@ NSString *const HRDropbox = @"Dropbox";
 
 NSString *const HRProfileDetailsSegueIdentifier = @"profileDetails";
 
+NSInteger const kSectionProfileName = 2;
+NSInteger const kRowProfileName = 1;
+

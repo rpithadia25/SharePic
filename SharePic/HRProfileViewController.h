@@ -13,6 +13,6 @@
 @interface HRProfileViewController : UITableViewController<HRCreateProfileDelegate>
 
 @property NSMutableArray *profiles;
-- (IBAction)settingsButton:(id)sender;
+- (IBAction)settingsButtonPressed:(id)sender;
 
 @end

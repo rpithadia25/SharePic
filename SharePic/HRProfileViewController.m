@@ -65,13 +65,13 @@
 -(IBAction)pushNewViewController {
     
     HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HRCreateProfile"];
-    [viewController initSetDelegate:self];
+    [viewController callBackDelegate:self];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark HRCreateProfileDelegate Methods
 
--(void)HRCreateProfileViewWasDismissed:(HRProfile *)profile {
+-(void)HRCreateProfileViewWasDismissedWithProfile:(HRProfile *)profile {
 
     if (!_profiles) {
         _profiles = [[NSMutableArray alloc] init];
@@ -81,7 +81,7 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (IBAction)settingsButton:(id)sender {
+- (IBAction)settingsButtonPressed:(id)sender {
 }
 
 #pragma mark Segue Method

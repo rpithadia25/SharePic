@@ -10,12 +10,12 @@
 #import "HRProfile.h"
 
 @protocol HRCreateProfileDelegate
-- (void)HRCreateProfileViewWasDismissed: (HRProfile *) profile;
+- (void)HRCreateProfileViewWasDismissedWithProfile: (HRProfile *) profile;
 @end
 
 @interface HRCreateProfileViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate>
 
--(void) initSetDelegate: (id <HRCreateProfileDelegate>) delegate;
+-(void) callBackDelegate: (id <HRCreateProfileDelegate>) delegate;
 
 @property id <HRCreateProfileDelegate> delegate;
 @property HRProfile *profile;

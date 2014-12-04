@@ -49,3 +49,7 @@ NSString *const HRDropbox;
 
 NSString *const HRProfileDetailsSegueIdentifier;
 
+NSInteger const kSectionProfileName;
+NSInteger const kRowProfileName;
+
+
