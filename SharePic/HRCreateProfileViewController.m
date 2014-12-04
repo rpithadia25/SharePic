@@ -113,7 +113,7 @@
     NSString *profileName = _profileNameField.text;
     if (![profileName length] == 0 && ![_selectedAccounts count] == 0) {
         _profile.profileName = _profileNameField.text;
-        _profile.accounts = [_selectedAccounts mutableCopy];
+        _profile.accounts = [NSArray arrayWithArray:_selectedAccounts];
         [self.delegate HRCreateProfileViewWasDismissedWithProfile: _profile];
         [self.navigationController popViewControllerAnimated:YES];
     }
