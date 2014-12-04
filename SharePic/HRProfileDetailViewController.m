@@ -7,6 +7,8 @@
 //
 
 #import "HRProfileDetailViewController.h"
+#import "HRFlickr.h"
+#import "HRDropbox.h"
 #define HRImageViewTag 100
 #define HRAccountImageViewTag 101
 #define HRTableViewRows 2
@@ -149,11 +151,8 @@
         
         HRAccountImageCell *cell = (HRAccountImageCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRAccountCell forIndexPath:indexPath];
         UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRAccountImageViewTag];
-        NSMutableArray *accounts = [[NSMutableArray alloc]init];
-        for (int i = 0; i < _currentProfile.accounts.count; i++) {
-            [accounts addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[_currentProfile.accounts objectAtIndex:i]]]];
-        }
-        imageView.image = [accounts objectAtIndex:indexPath.row];
+        NSString *imageName = [_currentProfile.accounts[indexPath.row] imageName];
+        imageView.image = [UIImage imageNamed:imageName];
         return cell;
     }
     return nil;
@@ -245,6 +244,9 @@
         NSLog(@"%@",_currentAlbum.name);
         NSLog(@"%@",_currentAlbum.albumDescription);
         
+        for (HRAbstractAccount *account in _currentProfile.accounts) {
+            NSLog(@"%@", [account description]);
+        }
         //int imageNumber = 0;
         /*
         for (UIImage *image in [_currentAlbum photos]) {
@@ -259,7 +261,7 @@
                     NSLog(@"%@ uploaded", msg);
                 }
             }];
-        }*/
+        }
         
         NSData *data = UIImagePNGRepresentation([[_currentAlbum photos] objectAtIndex:0]);
         NSString *filename = @"upload.png";
@@ -272,7 +274,7 @@
         NSLog(@"%@",localPath);
         // Upload file to Dropbox
         NSString *destDir = @"/";
-        [self.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:localPath];
+        [self.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:localPath];*/
     }
 }
 

@@ -39,8 +39,6 @@ NSString *const HRSelectAccounts;
 NSString *const HRProfileNameCellIdentifier;
 NSString *const HRProfileNameFieldPlaceholder;
 
-NSArray *const HRSupportedAccounts;
-
 NSString *const HRFlickrString;
 NSString *const HRDropboxString;
 

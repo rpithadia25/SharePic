@@ -7,18 +7,14 @@
 //
 
 #import "HRSettingsViewController.h"
-#import "HRAccount.h"
+#import "HRAbstractAccount.h"
 #import "HRConstants.h"
+#import "HRAbstractAccount.h"
 #import "HRFlickr.h"
 #import "HRDropbox.h"
 
-#define kFlickrSwitchTag 100
-#define kDropboxSwitchTag 101
-
 @interface HRSettingsViewController ()
 @property NSArray *supportedAccounts;
-@property HRFlickr *flickr;
-@property HRDropbox *dropbox;
 @end
 
 @implementation HRSettingsViewController
@@ -27,9 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _supportedAccounts = [HRAccount supportedAccounts];
-    self.flickr = [HRFlickr sharedFlickr];
-    self.dropbox = [HRDropbox sharedDropbox];
+    _supportedAccounts = [HRAbstractAccount supportedAccounts];
     
     self.clearsSelectionOnViewWillAppear = NO;
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:HRClose style:UIBarButtonItemStyleDone target:self action:@selector(close:)];
@@ -69,37 +63,23 @@
     [switchView addTarget:self action:@selector(stateChanged:) forControlEvents:UIControlEventValueChanged];
     
     cell.accessoryView = switchView;
-    NSString *account =_supportedAccounts[indexPath.row];
+    HRAbstractAccount *account = _supportedAccounts[indexPath.row];
     
-    if ([account isEqualToString:HRFlickrString]) {
-        switchView.tag = kFlickrSwitchTag;
-        if ([self.flickr isLoggedIn]) {
-            switchView.on = YES;
-        }
-    } else if ([account isEqualToString:HRDropboxString]){
-        switchView.tag = kDropboxSwitchTag;
-        if ([self.dropbox isLoggedIn]) {
-            switchView.on = YES;
-        }
+    switchView.tag = indexPath.row;
+    if ([account isLoggedIn]) {
+        switchView.on = YES;
     }
     
-    cell.textLabel.text = account;
+    cell.textLabel.text = [account description];
     return cell;
 }
 
 - (void)stateChanged:(UISwitch *)sender {
-    if (sender.tag == kFlickrSwitchTag) {
-        if ([sender isOn]) {
-            [self.flickr loginWithController:self];
-        } else {
-            [self.flickr logout];
-        }
-    } else if (sender.tag == kDropboxSwitchTag) {
-        if ([sender isOn]) {
-            [self.dropbox loginWithController:self];
-        } else {
-            [self.dropbox logout];
-        }
+    HRAbstractAccount *account = _supportedAccounts[sender.tag];
+    if ([sender isOn]) {
+        [account loginWithController:self];
+    } else {
+        [account logout];
     }
 }
 

@@ -10,13 +10,11 @@
 #import <UIKit/UIKit.h>
 #import <DropboxSDK/DropboxSDK.h>
 #import "HRConstants.h"
+#import "HRAbstractAccount.h"
 
-@interface HRDropbox : NSObject
+@interface HRDropbox : HRAbstractAccount
 
 + (id)sharedDropbox;
-- (BOOL)isLoggedIn;
 - (BOOL)handleOpenURL:(NSURL *)url;
-- (void)loginWithController:(UIViewController *)viewController;
-- (void)logout;
 
 @end

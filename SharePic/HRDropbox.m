@@ -47,4 +47,12 @@
     [[DBSession sharedSession] unlinkAll];
 }
 
+-(NSString *)description {
+    return HRDropboxString;
+}
+
+- (NSString *)imageName {
+    return [NSString stringWithFormat:@"%@.png", HRDropboxString];
+}
+
 @end

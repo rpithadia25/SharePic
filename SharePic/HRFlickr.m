@@ -64,4 +64,16 @@
     [[FlickrKit sharedFlickrKit] logout];
 }
 
+- (void)uploadPhotos:(NSArray *)photos {
+    
+}
+
+- (NSString *)description {
+    return HRFlickrString;
+}
+
+- (NSString *)imageName {
+    return [NSString stringWithFormat:@"%@.png", HRFlickrString];
+}
+
 @end
