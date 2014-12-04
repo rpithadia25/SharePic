@@ -10,6 +10,7 @@
 #import "HRConstants.h"
 #import "FlickrKit.h"
 #import <DropboxSDK/DropboxSDK.h>
+#import "HRProfileViewController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, retain) FKDUNetworkOperation *completeAuthOp;
@@ -36,8 +37,11 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    HRProfileViewController *mainController = (HRProfileViewController *) self.window.rootViewController;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *defaultValues = [NSMutableArray arrayWithArray:mainController.profiles];
+    [defaults setObject:[defaultValues objectAtIndex:0] forKey:HRUserDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

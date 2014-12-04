@@ -21,6 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _profiles = [[NSMutableArray alloc]init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _profiles = [defaults objectForKey:HRUserDefaultsKey];
     self.navigationItem.backBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:HRBackButtonLabel
                                      style:UIBarButtonItemStylePlain
@@ -91,12 +94,11 @@
 
 #pragma mark Segue Method
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:HRProfileDetailsSegueIdentifier]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        //NSDate *object = self.objects[indexPath.row];
-//        //[[segue destinationViewController] setDetailItem:object];
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:HRProfileDetailsSegueIdentifier]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        [[segue destinationViewController] setProfile:_profiles[indexPath.row]];
+    }
+}
 
 @end
