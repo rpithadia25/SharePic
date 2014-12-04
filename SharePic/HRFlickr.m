@@ -9,6 +9,7 @@
 #import "HRFlickr.h"
 #import "FlickrKit.h"
 #import "HRConstants.h"
+#import "HRAuthWebViewController.h"
 
 @interface HRFlickr()
 @property (nonatomic, retain) FKDUNetworkOperation *checkAuthOp;
@@ -41,17 +42,9 @@
     return [FlickrKit sharedFlickrKit].isAuthorized;
 }
 
-- (void)login {
-    self.authOp = [[FlickrKit sharedFlickrKit] beginAuthWithCallbackURL:[NSURL URLWithString:HRFlickrCallbackURL] permission:FKPermissionWrite completion:^(NSURL *flickrLoginPageURL, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!error) {
-                [[UIApplication sharedApplication] openURL:flickrLoginPageURL];
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:HRError message:error.localizedDescription delegate:nil cancelButtonTitle:HROk otherButtonTitles: nil];
-                [alert show];
-            }
-        });
-    }];
+- (void)loginWithController:(UIViewController *)viewController {
+    HRAuthWebViewController *authView = [HRAuthWebViewController sharedAuthController];
+    [viewController.navigationController pushViewController:authView animated:YES];
 }
 
 - (void)completeLoginWithURL:(NSURL *)url {

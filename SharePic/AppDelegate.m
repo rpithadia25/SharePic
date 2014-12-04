@@ -11,6 +11,7 @@
 #import "HRFlickr.h"
 #import <DropboxSDK/DropboxSDK.h>
 #import "HRSelectProfileViewController.h"
+#import "HRAuthWebViewController.h"
 
 @interface AppDelegate ()
 
@@ -66,7 +67,7 @@
     }
     
     if (NSOrderedSame == [[url scheme] caseInsensitiveCompare:HRAppName]) {
-        [[HRFlickr sharedFlickr] completeLoginWithURL:url];
+        [[HRAuthWebViewController sharedAuthController] completeFlickrAuthWithURL:url];
         return YES;
     }
     
