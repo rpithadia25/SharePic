@@ -76,7 +76,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:HRProfileNameCellIdentifier];
         }
         CGRect screenRect = [[UIScreen mainScreen]bounds];
-        _profileNameField = [[UITextField alloc] initWithFrame:CGRectMake(10, 7, screenRect.size.width - 10, 30)];
+        _profileNameField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, screenRect.size.width - 10, 45)];
         _profileNameField.delegate = self;
         _profileNameField.adjustsFontSizeToFitWidth = YES;
         _profileNameField.placeholder = HRProfileNameFieldPlaceholder;
@@ -99,16 +99,18 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if(cell.accessoryType == UITableViewCellAccessoryNone) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [_selectedAccounts addObject:supportedAccounts[indexPath.row]];
+    if (indexPath.section == kSectionSelectAccounts) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if(cell.accessoryType == UITableViewCellAccessoryNone) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            [_selectedAccounts addObject:supportedAccounts[indexPath.row]];
+        }
+        else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            [_selectedAccounts removeObject:supportedAccounts[indexPath.row]];
+        }
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
-    else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        [_selectedAccounts removeObject:supportedAccounts[indexPath.row]];
-    }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(IBAction)saveButtonPressed {
