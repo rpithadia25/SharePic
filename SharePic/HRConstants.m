@@ -35,3 +35,15 @@ NSInteger const HRTableViewRows = 2;
 NSInteger const HRCollectionViewSections = 1;
 NSInteger const HRImageViewTag = 100;
 NSString *const HRProfileCell = @"ProfileCell";
+
+NSString *const HRCreateProfileTitle = @"Create Profile";
+NSString *const HRProfileName = @"Profile Name";
+NSString *const HRSelectAccounts = @"Select Accounts";
+NSString *const HRProfileNameCellIdentifier = @"ProfileName";
+NSString *const HRProfileNameFieldPlaceholder = @"Enter Profile Name";
+
+NSString *const HRFlickr = @"Flickr";
+NSString *const HRDropbox = @"Dropbox";
+
+NSString *const HRProfileDetailsSegueIdentifier = @"profileDetails";
+

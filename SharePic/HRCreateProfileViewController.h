@@ -7,9 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HRProfile.h"
+
+@protocol HRCreateProfileDelegate
+- (void)HRCreateProfileViewWasDismissed: (HRProfile *) profile;
+@end
 
 @interface HRCreateProfileViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate>
 
+-(void) initSetDelegate: (id <HRCreateProfileDelegate>) delegate;
+
+@property id <HRCreateProfileDelegate> delegate;
+@property HRProfile *profile;
+@property (strong, nonatomic) IBOutlet UITextField *profileNameField;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
