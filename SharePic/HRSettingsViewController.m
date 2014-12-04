@@ -84,7 +84,7 @@
 - (void)stateChanged:(UISwitch *)sender {
     if (sender.tag == kFlickrSwitchTag) {
         if ([sender isOn]) {
-            [self.flickr login];
+            [self.flickr loginWithController:self];
         } else {
             [self.flickr logout];
         }
