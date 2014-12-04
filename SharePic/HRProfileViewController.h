@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "HRConstants.h"
-#import "HRProfile.h"
 #import "HRCreateProfileViewController.h"
 
-@interface HRProfileViewController : UITableViewController<UIAlertViewDelegate>
+@interface HRProfileViewController : UITableViewController<HRCreateProfileDelegate>
 
-@property HRProfile *profile;
 @property NSMutableArray *profiles;
+- (IBAction)settingsButtonPressed:(id)sender;
 
 @end

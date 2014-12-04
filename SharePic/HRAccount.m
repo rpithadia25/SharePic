@@ -7,7 +7,17 @@
 //
 
 #import "HRAccount.h"
+#import "HRConstants.h"
 
 @implementation HRAccount
+
++(NSArray *)supportedAccounts {
+    static NSArray *accounts;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        accounts = @[HRFlickr, HRDropbox];
+    });
+    return accounts;
+}
 
 @end

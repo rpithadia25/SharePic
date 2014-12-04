@@ -133,7 +133,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:HRAlbumDescriptionCell];
     }
     
-    UITextField *albumDetailsTextField = [[UITextField alloc] initWithFrame:CGRectMake(110, 10, 185, 30)];
+    CGRect screenRect = [[UIScreen mainScreen]bounds];
+    
+    NSLog(@"%f", screenRect.size.width);
+    NSLog(@"%f", screenRect.size.height);
+    
+    UITextField *albumDetailsTextField = [[UITextField alloc] initWithFrame:CGRectMake(120, 7, 250, 30)];
     
     albumDetailsTextField.delegate = self;
     
@@ -152,10 +157,9 @@
     }
     
     albumDetailsTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-    
     albumDetailsTextField.clearButtonMode = UITextFieldViewModeAlways;
     [albumDetailsTextField setEnabled:YES];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.contentView addSubview:albumDetailsTextField];
     
     if (indexPath.row == 0) {

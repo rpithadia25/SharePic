@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface HRAccount : NSObject
-
++ (NSArray *) supportedAccounts;
 @property NSString *username;
 @property NSString *password;
 @property NSString *emailId;

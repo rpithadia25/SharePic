@@ -35,3 +35,21 @@ BOOL const HRDisplayOrder;
 NSInteger const HRTableViewRows;
 NSInteger const HRCollectionViewSections;
 NSInteger const HRImageViewTag;
+
+NSString *const HRCreateProfileTitle;
+NSString *const HRProfileName;
+NSString *const HRSelectAccounts;
+NSString *const HRProfileNameCellIdentifier;
+NSString *const HRProfileNameFieldPlaceholder;
+
+NSArray *const HRSupportedAccounts;
+
+NSString *const HRFlickr;
+NSString *const HRDropbox;
+
+NSString *const HRProfileDetailsSegueIdentifier;
+
+NSInteger const kSectionProfileName;
+NSInteger const kSectionSelectAccounts;
+
+

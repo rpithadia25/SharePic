@@ -21,9 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _profile = [[HRProfile alloc]init];
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushNewViewController)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
@@ -32,32 +29,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)addNewProfile:(id)sender {
-    if (!self.profiles) {
-        self.profiles = [[NSMutableArray alloc] init];
-    }
-    
-    UIAlertView *profileNameAlert = [[UIAlertView alloc]initWithTitle:@"Please Enter Profile Name" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    profileNameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [profileNameAlert show];
-    UITextField *textfield = [profileNameAlert textFieldAtIndex:0];
-    NSLog(@"%@",textfield.text);
-
-    [self.profiles insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
-#pragma mark - Segues
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDate *object = self.profiles[indexPath.row];
-//        [[segue destinationViewController] setDetailItem:object];
-//    }
-//}
 
 #pragma mark - Table View
 
@@ -72,8 +43,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HRProfileCell forIndexPath:indexPath];
     
-    NSDate *object = _profiles[indexPath.row];
-    cell.textLabel.text = [object description];
+    HRProfile *profile = _profiles[indexPath.row];
+    cell.textLabel.text = [profile profileName];
     return cell;
 }
 
@@ -91,13 +62,36 @@
     }
 }
 
--(IBAction)pushNewViewController{
+-(IBAction)pushNewViewController {
     
     HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HRCreateProfile"];
+    [viewController callBackDelegate:self];
     [self.navigationController pushViewController:viewController animated:YES];
-
-    //[self presentViewController:viewController animated:YES completion:nil];
 }
 
+#pragma mark HRCreateProfileDelegate Methods
+
+-(void)HRCreateProfileViewWasDismissedWithProfile:(HRProfile *)profile {
+
+    if (!_profiles) {
+        _profiles = [[NSMutableArray alloc] init];
+    }
+    [_profiles insertObject:profile atIndex:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (IBAction)settingsButtonPressed:(id)sender {
+}
+
+#pragma mark Segue Method
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:HRProfileDetailsSegueIdentifier]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //NSDate *object = self.objects[indexPath.row];
+        //[[segue destinationViewController] setDetailItem:object];
+    }
+}
 
 @end

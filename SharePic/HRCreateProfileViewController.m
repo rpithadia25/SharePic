@@ -7,19 +7,28 @@
 //
 
 #import "HRCreateProfileViewController.h"
+#import "HRConstants.h"
 
 @interface HRCreateProfileViewController ()
 
 @end
 
 @implementation HRCreateProfileViewController
+@synthesize delegate = _delegate;
+
+
+-(void) callBackDelegate: (id <HRCreateProfileDelegate>) delegate {
+    _delegate = delegate;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Create Profile";
-   
-    // Do any additional setup after loading the view.
+    self.title = HRCreateProfileTitle;
+    _profile = [[HRProfile alloc]init];
+    _profileNameField.delegate = self;
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonPressed)];
+    self.navigationItem.rightBarButtonItem = saveButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,37 +36,64 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-   
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileName"];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileName"];
-    }
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
 
-    UITextField *profileNameField = [[UITextField alloc] initWithFrame:CGRectMake(120, 7, 185, 30)];
-    profileNameField.delegate = self;
-    profileNameField.adjustsFontSizeToFitWidth = YES;
-    profileNameField.placeholder = @"Enter Profile Name";
-    profileNameField.keyboardType = UIKeyboardTypeDefault;
-    profileNameField.returnKeyType = UIReturnKeyDone;
-    profileNameField.tag = 0;
-    profileNameField.clearButtonMode = UITextFieldViewModeAlways;
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if(section == kSectionProfileName) {
+        return HRProfileName;
+    }
+    if(section == kSectionSelectAccounts) {
+        return HRSelectAccounts;
+    }
+    return nil;
+}
     
-    profileNameField.autocorrectionType = UITextAutocorrectionTypeNo;
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
+    if (indexPath.section == kSectionProfileName) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HRProfileNameCellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:HRProfileNameCellIdentifier];
+        }
+        CGRect screenRect = [[UIScreen mainScreen]bounds];
+        _profileNameField = [[UITextField alloc] initWithFrame:CGRectMake(10, 7, screenRect.size.width - 10, 30)];
+        _profileNameField.delegate = self;
+        _profileNameField.adjustsFontSizeToFitWidth = YES;
+        _profileNameField.placeholder = HRProfileNameFieldPlaceholder;
+        _profileNameField.keyboardType = UIKeyboardTypeDefault;
+        _profileNameField.returnKeyType = UIReturnKeyDone;
+        _profileNameField.tag = 0;
+        _profileNameField.clearButtonMode = UITextFieldViewModeAlways;
+        _profileNameField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _profileNameField.clearButtonMode = UITextFieldViewModeAlways;
+        [_profileNameField setEnabled:YES];
+        [cell.contentView addSubview:_profileNameField];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HRProfileNameCellIdentifier];
+        return cell;
+    }
     
-    profileNameField.clearButtonMode = UITextFieldViewModeAlways;
-    [profileNameField setEnabled:YES];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [cell.contentView addSubview:profileNameField];
-    
-    cell.textLabel.text = @"Profile Name";
-    
-    return cell;
+}
+
+-(IBAction)saveButtonPressed {
+    NSString *profileName = _profileNameField.text;
+    if (![profileName length] == 0) {
+        _profile.profileName = _profileNameField.text;
+        [self.delegate HRCreateProfileViewWasDismissedWithProfile: _profile];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 /*
