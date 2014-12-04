@@ -32,9 +32,6 @@ NSInteger const HRMaximumImageCount;
 BOOL const HRReturnOriginalImage;
 BOOL const HRReturnsImage;
 BOOL const HRDisplayOrder;
-NSInteger const HRTableViewRows;
-NSInteger const HRCollectionViewSections;
-NSInteger const HRImageViewTag;
 
 NSString *const HRCreateProfileTitle;
 NSString *const HRProfileName;
@@ -49,11 +46,12 @@ NSString *const HRDropbox;
 
 NSString *const HRProfileDetailsSegueIdentifier;
 
-NSInteger const kSectionProfileName;
-NSInteger const kSectionSelectAccounts;
-
 NSString *const HRCreateProfileStoryBoardIdentifier;
 NSString *const HRStoryboardMain;
 NSString *const HRBackButtonLabel;
+
+NSString *const HRUserDefaultsKey;
+
+NSString *const HRAccountCell;
 
 

@@ -14,12 +14,16 @@
 #import "HRPatternViewCell.h"
 #import "HRConstants.h"
 #include "FlickrKit.h"
+#import "HRProfile.h"
+#import "HRAccountImageCell.h"
 
 @interface HRProfileDetailViewController : UIViewController <ELCImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
+@property HRProfile                                     *currentProfile;
 @property HRAlbum                                       *currentAlbum;
 @property (strong, nonatomic) IBOutlet UICollectionView *gridView;
 @property (strong, nonatomic) IBOutlet UITableView      *albumDescriptionTable;
+@property (strong, nonatomic) IBOutlet UICollectionView *accountImageView;
 
 - (IBAction)launchPicker;
 - (IBAction)uploadButtonPressed:(id)sender;

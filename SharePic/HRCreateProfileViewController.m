@@ -8,6 +8,8 @@
 
 #import "HRCreateProfileViewController.h"
 #import "HRConstants.h"
+#define kSectionProfileName 0
+#define kSectionSelectAccounts 1
 
 @interface HRCreateProfileViewController () {
     NSArray *supportedAccounts;
