@@ -132,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="391" y="-654"/>
         </scene>
-        <!--Manage Profiles-->
+        <!--Select Profile-->
         <scene sceneID="M0e-hY-xbh">
             <objects>
-                <tableViewController id="jDj-d8-zwB" customClass="HRProfileViewController" sceneMemberID="viewController">
+                <tableViewController id="jDj-d8-zwB" customClass="HRSelectProfileViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="y17-nz-JBy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,10 +156,10 @@
                             <outlet property="delegate" destination="jDj-d8-zwB" id="Qma-sP-oRA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Manage Profiles" id="xml-fv-6oW">
+                    <navigationItem key="navigationItem" title="Select Profile" id="xml-fv-6oW">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="hrY-lA-OZf">
                             <connections>
-                                <action selector="settingsButton:" destination="jDj-d8-zwB" id="ONr-c2-V5o"/>
+                                <action selector="settingsButtonPressed:" destination="jDj-d8-zwB" id="f0H-5l-ei3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -167,6 +167,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyo-Ql-E5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-17" y="-654"/>
+        </scene>
+        <!--Manage Profiles-->
+        <scene sceneID="q5g-Kv-Od6">
+            <objects>
+                <tableViewController storyboardIdentifier="SettingsIdentifier" id="sux-nN-ylL" customClass="HRSettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="P16-dN-50u">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCellIdentifier" id="TBf-HO-8UM">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TBf-HO-8UM" id="Kdu-vP-qSI">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sux-nN-ylL" id="zss-Ci-ooi"/>
+                            <outlet property="delegate" destination="sux-nN-ylL" id="PjK-cK-5zs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Manage Profiles" id="ij1-uB-WOo"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="moo-Ig-qLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-241" y="-2147"/>
         </scene>
         <!--Create Profile View Controller-->
         <scene sceneID="DoE-Hl-Rbm">

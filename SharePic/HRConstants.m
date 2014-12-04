@@ -42,11 +42,16 @@ NSString *const HRSelectAccounts = @"Select Accounts";
 NSString *const HRProfileNameCellIdentifier = @"ProfileName";
 NSString *const HRProfileNameFieldPlaceholder = @"Enter Profile Name";
 
-NSString *const HRFlickr = @"Flickr";
-NSString *const HRDropbox = @"Dropbox";
+NSString *const HRFlickrString = @"Flickr";
+NSString *const HRDropboxString = @"Dropbox";
 
 NSString *const HRProfileDetailsSegueIdentifier = @"profileDetails";
 
 NSInteger const kSectionProfileName = 0;
 NSInteger const kSectionSelectAccounts = 1;
+
+NSString *const HRSettingsCellIdentifier = @"SettingsCellIdentifier";
+NSString *const HRSettingsStoryboardIdentifier = @"SettingsIdentifier";
+
+NSString *const HRMain = @"Main";
 

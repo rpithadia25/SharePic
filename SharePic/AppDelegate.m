@@ -8,19 +8,19 @@
 
 #import "AppDelegate.h"
 #import "HRConstants.h"
-#import "FlickrKit.h"
+#import "HRFlickr.h"
 #import <DropboxSDK/DropboxSDK.h>
 
 @interface AppDelegate ()
-@property (nonatomic, retain) FKDUNetworkOperation *completeAuthOp;
+
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[FlickrKit sharedFlickrKit] initializeWithAPIKey:HRFlickrApiKey sharedSecret:HRFlickrSecretKey];
-    
+    [HRFlickr sharedFlickr];
+    //dropbox
     DBSession *dbSession = [[DBSession alloc]
                             initWithAppKey:HRDropBoxAppKey
                             appSecret:HRDropBoxAppSecret
@@ -62,16 +62,7 @@
     }
     
     if (NSOrderedSame == [[url scheme] caseInsensitiveCompare:HRAppName]) {
-        self.completeAuthOp = [[FlickrKit sharedFlickrKit] completeAuthWithURL:url completion:^(NSString *userName, NSString *userId, NSString *fullName, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (!error) {
-                    NSLog(@"Flickr %@ Logged in", userName);
-                } else {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                    [alert show];
-                }
-            });
-        }];
+        [[HRFlickr sharedFlickr] completeLoginWithURL:url];
         return YES;
     }
     

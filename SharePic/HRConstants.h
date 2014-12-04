@@ -44,12 +44,15 @@ NSString *const HRProfileNameFieldPlaceholder;
 
 NSArray *const HRSupportedAccounts;
 
-NSString *const HRFlickr;
-NSString *const HRDropbox;
+NSString *const HRFlickrString;
+NSString *const HRDropboxString;
 
 NSString *const HRProfileDetailsSegueIdentifier;
 
 NSInteger const kSectionProfileName;
 NSInteger const kSectionSelectAccounts;
 
+NSString *const HRSettingsCellIdentifier;
+NSString *const HRSettingsStoryboardIdentifier;
+NSString *const HRMain;
 

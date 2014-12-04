@@ -8,17 +8,17 @@
 
 #import "SecondViewController.h"
 #import <DropboxSDK/DropboxSDK.h>
+#import "HRFlickr.h"
 
 @interface SecondViewController ()
-@property (nonatomic, retain) FKDUNetworkOperation *authOp;
-@property (nonatomic, retain) FKDUNetworkOperation *checkAuthOp;
+@property HRFlickr *flickr;
 @end
 
 @implementation SecondViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.flickr = [HRFlickr sharedFlickr];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,26 +27,6 @@
 }
 
 - (IBAction)flickrLoginPressed:(id)sender {
-    
-    self.checkAuthOp = [[FlickrKit sharedFlickrKit] checkAuthorizationOnCompletion:^(NSString *userName, NSString *userId, NSString *fullName, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!error) {
-                NSLog(@"Flickr logged in");
-            } else {
-                // Begin the authentication process
-                self.authOp = [[FlickrKit sharedFlickrKit] beginAuthWithCallbackURL:[NSURL URLWithString:HRFlickrCallbackURL] permission:FKPermissionWrite completion:^(NSURL *flickrLoginPageURL, NSError *error) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        if (!error) {
-                            [[UIApplication sharedApplication] openURL:flickrLoginPageURL];
-                        } else {
-                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                            [alert show];
-                        }
-                    });
-                }];
-            }
-        });
-    }];
     
 }
 

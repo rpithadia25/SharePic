@@ -6,13 +6,14 @@
 //  Copyright (c) 2014 Harsh Shah, Rakshit Pithadia. All rights reserved.
 //
 
-#import "HRProfileViewController.h"
+#import "HRSelectProfileViewController.h"
+#import "HRFlickr.h"
 
-@interface HRProfileViewController ()
+@interface HRSelectProfileViewController ()
 
 @end
 
-@implementation HRProfileViewController
+@implementation HRSelectProfileViewController
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -63,8 +64,7 @@
 }
 
 -(IBAction)pushNewViewController {
-    
-    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HRCreateProfile"];
+    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:HRMain bundle:nil] instantiateViewControllerWithIdentifier:@"HRCreateProfile"];
     [viewController callBackDelegate:self];
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -81,7 +81,13 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+#pragma mark Button press events
+
 - (IBAction)settingsButtonPressed:(id)sender {
+    HRSettingsViewController *settingsViewController = [[UIStoryboard storyboardWithName:HRMain bundle:nil]  instantiateViewControllerWithIdentifier:HRSettingsStoryboardIdentifier];
+
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark Segue Method
