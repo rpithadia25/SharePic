@@ -7,7 +7,11 @@
 //
 
 #import "HRProfileDetailViewController.h"
-#define kOFFSET_FOR_KEYBOARD 80.0
+#define HRImageViewTag 100
+#define HRAccountImageViewTag 101
+#define HRTableViewRows 2
+#define HRCollectionViewSections 1
+
 @interface HRProfileDetailViewController ()
 @property (nonatomic, retain) FKImageUploadNetworkOperation *uploadOp;
 @property (nonatomic, strong) DBRestClient *restClient;
@@ -17,15 +21,33 @@
 @synthesize currentAlbum = _currentAlbum;
 @synthesize gridView = _gridView;
 @synthesize albumDescriptionTable = _albumDescriptionTable;
+@synthesize currentProfile = _currentProfile;
+@synthesize accountImageView = _accountImageView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _currentAlbum = [HRAlbum new];
     _gridView.delegate = self;
+    _accountImageView.delegate = self;
     _albumDescriptionTable.scrollEnabled = NO;
     
     self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
     self.restClient.delegate = self;
+}
+
+- (void)setProfile:(id)profile {
+    if (_currentProfile != profile) {
+        _currentProfile = profile;
+
+        [self configureView];
+    }
+}
+
+- (void)configureView {
+    // Update the user interface for the detail item.
+    if (_currentProfile) {
+        self.title = _currentProfile.profileName;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,14 +131,32 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _currentAlbum.photos.count;
+
+    if (collectionView == _gridView) {
+        return _currentAlbum.photos.count;
+    } else {
+        return _currentProfile.accounts.count;
+    }
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    HRPatternViewCell *cell = (HRPatternViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRPatternCell forIndexPath:indexPath];
-    UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRImageViewTag];
-    imageView.image = [_currentAlbum.photos objectAtIndex:indexPath.row];
-    return cell;
+    if(collectionView == _gridView) {
+        HRPatternViewCell *cell = (HRPatternViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRPatternCell forIndexPath:indexPath];
+        UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRImageViewTag];
+        imageView.image = [_currentAlbum.photos objectAtIndex:indexPath.row];
+        return cell;
+    } else {
+        
+        HRAccountImageCell *cell = (HRAccountImageCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRAccountCell forIndexPath:indexPath];
+        UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRAccountImageViewTag];
+        NSMutableArray *accounts = [[NSMutableArray alloc]init];
+        for (int i = 0; i < _currentProfile.accounts.count; i++) {
+            [accounts addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[_currentProfile.accounts objectAtIndex:i]]]];
+        }
+        imageView.image = [accounts objectAtIndex:indexPath.row];
+        return cell;
+    }
+    return nil;
 }
 
 #pragma mark Album Table View
@@ -135,10 +175,7 @@
     
     CGRect screenRect = [[UIScreen mainScreen]bounds];
     
-    NSLog(@"%f", screenRect.size.width);
-    NSLog(@"%f", screenRect.size.height);
-    
-    UITextField *albumDetailsTextField = [[UITextField alloc] initWithFrame:CGRectMake(120, 7, 250, 30)];
+    UITextField *albumDetailsTextField = [[UITextField alloc] initWithFrame:CGRectMake(150, 7, screenRect.size.width - 150, 30)];
     
     albumDetailsTextField.delegate = self;
     

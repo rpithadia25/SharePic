@@ -22,6 +22,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _profiles = [[NSMutableArray alloc]init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _profiles = [defaults objectForKey:HRUserDefaultsKey];
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:HRBackButtonLabel
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushNewViewController)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
@@ -63,8 +71,8 @@
     }
 }
 
--(IBAction)pushNewViewController {
-    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:HRMain bundle:nil] instantiateViewControllerWithIdentifier:@"HRCreateProfile"];
+-(IBAction)pushNewViewController {    
+    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:HRStoryboardMain bundle:nil] instantiateViewControllerWithIdentifier:HRCreateProfileStoryBoardIdentifier];
     [viewController callBackDelegate:self];
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -84,7 +92,7 @@
 #pragma mark Button press events
 
 - (IBAction)settingsButtonPressed:(id)sender {
-    HRSettingsViewController *settingsViewController = [[UIStoryboard storyboardWithName:HRMain bundle:nil]  instantiateViewControllerWithIdentifier:HRSettingsStoryboardIdentifier];
+    HRSettingsViewController *settingsViewController = [[UIStoryboard storyboardWithName:HRStoryboardMain bundle:nil]  instantiateViewControllerWithIdentifier:HRSettingsStoryboardIdentifier];
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
@@ -95,8 +103,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:HRProfileDetailsSegueIdentifier]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //NSDate *object = self.objects[indexPath.row];
-        //[[segue destinationViewController] setDetailItem:object];
+        [[segue destinationViewController] setProfile:_profiles[indexPath.row]];
     }
 }
 

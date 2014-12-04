@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HRProfile.h"
+#import "HRAccount.h"
 
 @protocol HRCreateProfileDelegate
 - (void)HRCreateProfileViewWasDismissedWithProfile: (HRProfile *) profile;
@@ -21,5 +22,6 @@
 @property HRProfile *profile;
 @property (strong, nonatomic) IBOutlet UITextField *profileNameField;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *selectedAccounts;
 
 @end
