@@ -64,7 +64,7 @@
 
 -(IBAction)pushNewViewController {
     
-    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HRCreateProfile"];
+    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:HRStoryboardName bundle:nil] instantiateViewControllerWithIdentifier:HRCreateProfileStoryBoardIdentifier];
     [viewController callBackDelegate:self];
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -86,12 +86,12 @@
 
 #pragma mark Segue Method
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:HRProfileDetailsSegueIdentifier]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //NSDate *object = self.objects[indexPath.row];
-        //[[segue destinationViewController] setDetailItem:object];
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] isEqualToString:HRProfileDetailsSegueIdentifier]) {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        //NSDate *object = self.objects[indexPath.row];
+//        //[[segue destinationViewController] setDetailItem:object];
+//    }
+//}
 
 @end

@@ -9,13 +9,15 @@
 #import "HRCreateProfileViewController.h"
 #import "HRConstants.h"
 
-@interface HRCreateProfileViewController ()
+@interface HRCreateProfileViewController () {
+    NSArray *supportedAccounts;
+}
 
 @end
 
 @implementation HRCreateProfileViewController
 @synthesize delegate = _delegate;
-
+@synthesize selectedAccounts = _selectedAccounts;
 
 -(void) callBackDelegate: (id <HRCreateProfileDelegate>) delegate {
     _delegate = delegate;
@@ -25,8 +27,12 @@
     [super viewDidLoad];
     
     self.title = HRCreateProfileTitle;
+    _tableView.scrollEnabled = NO;
     _profile = [[HRProfile alloc]init];
     _profileNameField.delegate = self;
+    _tableView.allowsMultipleSelection = YES;
+    supportedAccounts = [[HRAccount class]supportedAccounts];
+    _selectedAccounts = [[NSMutableArray alloc]init];
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonPressed)];
     self.navigationItem.rightBarButtonItem = saveButton;
 }
@@ -37,7 +43,13 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (section == kSectionProfileName) {
+        return 1;
+    }
+    if (section == kSectionSelectAccounts) {
+        return 2;
+    }
+    return 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -78,19 +90,30 @@
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HRProfileNameCellIdentifier];
+        cell.textLabel.text = supportedAccounts[indexPath.row];
         return cell;
     }
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if(cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [_selectedAccounts addObject:supportedAccounts[indexPath.row]];
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [_selectedAccounts removeObject:supportedAccounts[indexPath.row]];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(IBAction)saveButtonPressed {
     NSString *profileName = _profileNameField.text;
-    if (![profileName length] == 0) {
+    if (![profileName length] == 0 && ![_selectedAccounts count] == 0) {
         _profile.profileName = _profileNameField.text;
+        _profile.accounts = [_selectedAccounts mutableCopy];
         [self.delegate HRCreateProfileViewWasDismissedWithProfile: _profile];
         [self.navigationController popViewControllerAnimated:YES];
     }
