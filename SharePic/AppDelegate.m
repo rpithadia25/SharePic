@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "HRConstants.h"
 #import "HRFlickr.h"
-#import <DropboxSDK/DropboxSDK.h>
+#import "HRDropbox.h"
 #import "HRSelectProfileViewController.h"
 #import "HRAuthWebViewController.h"
 
@@ -22,13 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [HRFlickr sharedFlickr];
-    //dropbox
-    DBSession *dbSession = [[DBSession alloc]
-                            initWithAppKey:HRDropBoxAppKey
-                            appSecret:HRDropBoxAppSecret
-                            root:kDBRootAppFolder]; 
-    [DBSession setSharedSession:dbSession];
-    
+    [HRDropbox sharedDropbox];
     return YES;
 }
 
@@ -54,8 +48,8 @@
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    if ([[DBSession sharedSession] handleOpenURL:url]) {
-        if ([[DBSession sharedSession] isLinked]) {
+    if ([[HRDropbox sharedDropbox] handleOpenURL:url]) {
+        if ([[HRDropbox sharedDropbox] isLoggedIn]) {
             NSLog(@"App linked successfully!");
         }
         return YES;
