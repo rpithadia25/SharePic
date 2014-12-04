@@ -28,7 +28,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *selectImagesButton;
 
 - (IBAction)launchPicker;
-//- (IBAction)uploadButtonPressed:(id)sender;
 - (IBAction)uploadButtonPressed:(id)sender;
 
 @end
