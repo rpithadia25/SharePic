@@ -135,10 +135,7 @@
     
     CGRect screenRect = [[UIScreen mainScreen]bounds];
     
-    NSLog(@"%f", screenRect.size.width);
-    NSLog(@"%f", screenRect.size.height);
-    
-    UITextField *albumDetailsTextField = [[UITextField alloc] initWithFrame:CGRectMake(120, 7, 250, 30)];
+    UITextField *albumDetailsTextField = [[UITextField alloc] initWithFrame:CGRectMake(150, 7, screenRect.size.width - 150, 30)];
     
     albumDetailsTextField.delegate = self;
     

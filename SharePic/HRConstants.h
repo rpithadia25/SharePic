@@ -52,4 +52,8 @@ NSString *const HRProfileDetailsSegueIdentifier;
 NSInteger const kSectionProfileName;
 NSInteger const kSectionSelectAccounts;
 
+NSString *const HRCreateProfileStoryBoardIdentifier;
+NSString *const HRStoryboardMain;
+NSString *const HRBackButtonLabel;
+
 

@@ -21,6 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:HRBackButtonLabel
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushNewViewController)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
@@ -64,7 +69,7 @@
 
 -(IBAction)pushNewViewController {
     
-    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HRCreateProfile"];
+    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:HRStoryboardMain bundle:nil] instantiateViewControllerWithIdentifier:HRCreateProfileStoryBoardIdentifier];
     [viewController callBackDelegate:self];
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -86,12 +91,12 @@
 
 #pragma mark Segue Method
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:HRProfileDetailsSegueIdentifier]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //NSDate *object = self.objects[indexPath.row];
-        //[[segue destinationViewController] setDetailItem:object];
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] isEqualToString:HRProfileDetailsSegueIdentifier]) {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        //NSDate *object = self.objects[indexPath.row];
+//        //[[segue destinationViewController] setDetailItem:object];
+//    }
+//}
 
 @end
