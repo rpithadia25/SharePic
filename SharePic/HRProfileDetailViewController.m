@@ -238,44 +238,6 @@
     }
 }
 
-#pragma mark IBActions
-
-- (IBAction)uploadButtonPressed:(id)sender {
-    if (![_currentAlbum.name length] == 0 && ![_currentAlbum.albumDescription length] == 0) {
-        NSLog(@"%@",_currentAlbum.name);
-        NSLog(@"%@",_currentAlbum.albumDescription);
-        
-        //int imageNumber = 0;
-        /*
-        for (UIImage *image in [_currentAlbum photos]) {
-            NSString *imageTitle = [NSString stringWithFormat:@"Image %d", ++imageNumber];
-            NSDictionary *uploadArgs = @{@"title": imageTitle, @"description": @"A Photo via Share-a-Pic App", @"is_public": @"0", @"is_friend": @"0", @"is_family": @"0", @"hidden": @"2"};
-            
-            self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:image args:uploadArgs completion:^(NSString *imageID, NSError *error) {
-                if (error) {
-                    NSLog(@"Could not upload");
-                } else {
-                    NSString *msg = [NSString stringWithFormat:@"Uploaded image ID %@", imageID];
-                    NSLog(@"%@ uploaded", msg);
-                }
-            }];
-        }*/
-        
-        NSData *data = UIImagePNGRepresentation([[_currentAlbum photos] objectAtIndex:0]);
-        NSString *filename = @"upload.png";
-        //NSString *text = @"Hello world.";
-        //NSString *filename = @"working-draft.txt";
-        NSString *localDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-        NSString *localPath = [localDir stringByAppendingPathComponent:filename];
-        //[text writeToFile:localPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
-        [data writeToFile:localPath atomically:YES];
-        NSLog(@"%@",localPath);
-        // Upload file to Dropbox
-        NSString *destDir = @"/";
-        [self.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:localPath];
-    }
-}
-
 #pragma mark Dropbox upload call back methods
 - (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
               from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
@@ -290,6 +252,44 @@
     
     NSLog(@"%.2f",progress); //Correct way to visualice the float
     
+}
+
+#pragma mark IBActions
+
+- (IBAction)uploadButtonPressed:(id)sender {
+    if (![_currentAlbum.name length] == 0 && ![_currentAlbum.albumDescription length] == 0) {
+        NSLog(@"%@",_currentAlbum.name);
+        NSLog(@"%@",_currentAlbum.albumDescription);
+        
+        //int imageNumber = 0;
+        /*
+         for (UIImage *image in [_currentAlbum photos]) {
+         NSString *imageTitle = [NSString stringWithFormat:@"Image %d", ++imageNumber];
+         NSDictionary *uploadArgs = @{@"title": imageTitle, @"description": @"A Photo via Share-a-Pic App", @"is_public": @"0", @"is_friend": @"0", @"is_family": @"0", @"hidden": @"2"};
+         
+         self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:image args:uploadArgs completion:^(NSString *imageID, NSError *error) {
+         if (error) {
+         NSLog(@"Could not upload");
+         } else {
+         NSString *msg = [NSString stringWithFormat:@"Uploaded image ID %@", imageID];
+         NSLog(@"%@ uploaded", msg);
+         }
+         }];
+         }*/
+        
+        NSData *data = UIImagePNGRepresentation([[_currentAlbum photos] objectAtIndex:0]);
+        NSString *filename = @"upload.png";
+        //NSString *text = @"Hello world.";
+        //NSString *filename = @"working-draft.txt";
+        NSString *localDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *localPath = [localDir stringByAppendingPathComponent:filename];
+        //[text writeToFile:localPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        [data writeToFile:localPath atomically:YES];
+        NSLog(@"%@",localPath);
+        // Upload file to Dropbox
+        NSString *destDir = @"/";
+        [self.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:localPath];
+    }
 }
 
 @end

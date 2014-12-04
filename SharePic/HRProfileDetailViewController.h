@@ -25,8 +25,10 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *gridView;
 @property (strong, nonatomic) IBOutlet UITableView      *albumDescriptionTable;
 @property (strong, nonatomic) IBOutlet UICollectionView *accountImageView;
+@property (strong, nonatomic) IBOutlet UIButton *selectImagesButton;
 
 - (IBAction)launchPicker;
+//- (IBAction)uploadButtonPressed:(id)sender;
 - (IBAction)uploadButtonPressed:(id)sender;
 
 @end

@@ -50,6 +50,7 @@
 		BAD343001A30201500F87035 /* Flickr.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD342FF1A30201500F87035 /* Flickr.png */; };
 		BAD343031A30201C00F87035 /* Dropbox.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD343021A30201C00F87035 /* Dropbox.png */; };
 		BAD343091A3022A100F87035 /* HRAccountImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343081A3022A100F87035 /* HRAccountImageCell.m */; };
+		BAD3431A1A30FDF200F87035 /* SelectImagesButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD343191A30FDF200F87035 /* SelectImagesButtonImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		BAD343021A30201C00F87035 /* Dropbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dropbox.png; sourceTree = "<group>"; };
 		BAD343071A3022A100F87035 /* HRAccountImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAccountImageCell.h; sourceTree = "<group>"; };
 		BAD343081A3022A100F87035 /* HRAccountImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAccountImageCell.m; sourceTree = "<group>"; };
+		BAD343191A30FDF200F87035 /* SelectImagesButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SelectImagesButtonImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 		034515161A2C0632008E091D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BAD343191A30FDF200F87035 /* SelectImagesButtonImage.png */,
 				BAD343021A30201C00F87035 /* Dropbox.png */,
 				BAD342FF1A30201500F87035 /* Flickr.png */,
 				034515171A2C0632008E091D /* Info.plist */,
@@ -445,6 +448,7 @@
 				034515761A2C08F8008E091D /* ELCAssetTablePicker.xib in Resources */,
 				034515741A2C08F8008E091D /* ELCAlbumPickerController.xib in Resources */,
 				032743AF1A30D9A5004F7252 /* HRAuthWebViewController.xib in Resources */,
+				BAD3431A1A30FDF200F87035 /* SelectImagesButtonImage.png in Resources */,
 				034515771A2C08F8008E091D /* Overlay.png in Resources */,
 				034515251A2C0632008E091D /* Main.storyboard in Resources */,
 				0345152A1A2C0632008E091D /* LaunchScreen.xib in Resources */,
