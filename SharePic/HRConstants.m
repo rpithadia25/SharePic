@@ -54,4 +54,7 @@ NSString *const HRSettingsCellIdentifier = @"SettingsCellIdentifier";
 NSString *const HRSettingsStoryboardIdentifier = @"SettingsIdentifier";
 
 NSString *const HRMain = @"Main";
+NSString *const HRClose = @"Close";
+NSString *const HRError = @"Error";
+NSString *const HROk = @"Ok";
 

@@ -47,7 +47,7 @@
             if (!error) {
                 [[UIApplication sharedApplication] openURL:flickrLoginPageURL];
             } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:HRError message:error.localizedDescription delegate:nil cancelButtonTitle:HROk otherButtonTitles: nil];
                 [alert show];
             }
         });
@@ -60,7 +60,7 @@
             if (!error) {
                 NSLog(@"Flickr %@ Logged in", userName);
             } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:HRError message:error.localizedDescription delegate:nil cancelButtonTitle:HROk otherButtonTitles: nil];
                 [alert show];
             }
         });
