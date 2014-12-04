@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FlickrKit.h"
 #import "HRConstants.h"
 
 @interface SecondViewController : UIViewController

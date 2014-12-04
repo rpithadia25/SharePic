@@ -15,7 +15,7 @@
     static NSArray *accounts;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        accounts = @[HRFlickr, HRDropbox];
+        accounts = @[HRFlickrString, HRDropboxString];
     });
     return accounts;
 }
