@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032743AE1A30D9A5004F7252 /* HRAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */; };
+		032743AF1A30D9A5004F7252 /* HRAuthWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */; };
 		033F55A21A2C2D4700E35E87 /* libFlickrKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 033F559F1A2C2D3200E35E87 /* libFlickrKit.a */; };
 		034515191A2C0632008E091D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515181A2C0632008E091D /* main.m */; };
 		0345151C1A2C0632008E091D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151B1A2C0632008E091D /* AppDelegate.m */; };
@@ -82,6 +84,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		032743AB1A30D9A5004F7252 /* HRAuthWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAuthWebViewController.h; sourceTree = "<group>"; };
+		032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAuthWebViewController.m; sourceTree = "<group>"; };
+		032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRAuthWebViewController.xib; sourceTree = "<group>"; };
 		033F55991A2C2D3200E35E87 /* FlickrKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FlickrKit.xcodeproj; path = FlickrKit/FlickrKit.xcodeproj; sourceTree = "<group>"; };
 		034515131A2C0632008E091D /* SharePic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharePic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		034515171A2C0632008E091D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,12 +224,10 @@
 				0345154F1A2C08A8008E091D /* ImagePicker */,
 				0345151A1A2C0632008E091D /* AppDelegate.h */,
 				0345151B1A2C0632008E091D /* AppDelegate.m */,
-				BA14E6A71A2EC2A200C66920 /* HRSelectProfileViewController.h */,
-				BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */,
 				BAD343071A3022A100F87035 /* HRAccountImageCell.h */,
 				BAD343081A3022A100F87035 /* HRAccountImageCell.m */,
-				BA14E6A71A2EC2A200C66920 /* HRProfileViewController.h */,
-				BA14E6A81A2EC2A200C66920 /* HRProfileViewController.m */,
+				BA14E6A71A2EC2A200C66920 /* HRSelectProfileViewController.h */,
+				BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */,
 				BAB71A201A2EFE13004327D6 /* HRCreateProfileViewController.h */,
 				BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */,
 				034515801A2C0EA1008E091D /* HRConstants.h */,
@@ -241,6 +244,9 @@
 				034515161A2C0632008E091D /* Supporting Files */,
 				0361C2391A2FFC4E0027F2E3 /* HRSettingsViewController.h */,
 				0361C23A1A2FFC4E0027F2E3 /* HRSettingsViewController.m */,
+				032743AB1A30D9A5004F7252 /* HRAuthWebViewController.h */,
+				032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */,
+				032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */,
 			);
 			path = SharePic;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 			files = (
 				034515761A2C08F8008E091D /* ELCAssetTablePicker.xib in Resources */,
 				034515741A2C08F8008E091D /* ELCAlbumPickerController.xib in Resources */,
+				032743AF1A30D9A5004F7252 /* HRAuthWebViewController.xib in Resources */,
 				034515771A2C08F8008E091D /* Overlay.png in Resources */,
 				034515251A2C0632008E091D /* Main.storyboard in Resources */,
 				0345152A1A2C0632008E091D /* LaunchScreen.xib in Resources */,
@@ -484,6 +491,7 @@
 				034515661A2C08DD008E091D /* ELCAsset.m in Sources */,
 				034515221A2C0632008E091D /* SecondViewController.m in Sources */,
 				0345151C1A2C0632008E091D /* AppDelegate.m in Sources */,
+				032743AE1A30D9A5004F7252 /* HRAuthWebViewController.m in Sources */,
 				0345151F1A2C0632008E091D /* HRProfileDetailViewController.m in Sources */,
 				0345156C1A2C08DD008E091D /* ELCImagePickerDemoViewController.m in Sources */,
 				034515191A2C0632008E091D /* main.m in Sources */,

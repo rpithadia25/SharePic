@@ -7,16 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-
-typedef void (^completion)(BOOL isLoggedIn);
 
 @interface HRFlickr : NSObject
 
 + (id)sharedFlickr;
 //- (void)isLoggedInOnCompletion:(completion)completionHandler;
 - (BOOL)isLoggedIn;
-- (void)login;
+- (void)loginWithController:(UIViewController *)viewController;
 - (void)completeLoginWithURL:(NSURL *)url;
 - (void)logout;
 @end
