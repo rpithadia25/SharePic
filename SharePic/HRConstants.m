@@ -40,8 +40,8 @@ NSString *const HRSelectAccounts = @"Select Accounts";
 NSString *const HRProfileNameCellIdentifier = @"ProfileName";
 NSString *const HRProfileNameFieldPlaceholder = @"Enter Profile Name";
 
-NSString *const HRFlickr = @"Flickr";
-NSString *const HRDropbox = @"Dropbox";
+NSString *const HRFlickrString = @"Flickr";
+NSString *const HRDropboxString = @"Dropbox";
 
 NSString *const HRProfileDetailsSegueIdentifier = @"profileDetails";
 
@@ -52,4 +52,11 @@ NSString *const HRBackButtonLabel = @"Back";
 NSString *const HRUserDefaultsKey = @"Profiles";
 
 NSString *const HRAccountCell = @"HRAccountImageCell";
+
+NSString *const HRSettingsCellIdentifier = @"SettingsCellIdentifier";
+NSString *const HRSettingsStoryboardIdentifier = @"SettingsIdentifier";
+
+NSString *const HRClose = @"Close";
+NSString *const HRError = @"Error";
+NSString *const HROk = @"Ok";
 

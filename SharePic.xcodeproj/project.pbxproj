@@ -35,12 +35,15 @@
 		0345157C1A2C094C008E091D /* HRAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157B1A2C094C008E091D /* HRAlbum.m */; };
 		0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */; };
 		034515821A2C0EA1008E091D /* HRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515811A2C0EA1008E091D /* HRConstants.m */; };
+		0361C23B1A2FFC4E0027F2E3 /* HRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0361C23A1A2FFC4E0027F2E3 /* HRSettingsViewController.m */; };
+		0361C23F1A300E070027F2E3 /* HRFlickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0361C23E1A300E070027F2E3 /* HRFlickr.m */; };
+		0361C2431A300F3B0027F2E3 /* HRDropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 0361C2421A300F3B0027F2E3 /* HRDropbox.m */; };
 		03E881281A2E8F970072ADC3 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E881271A2E8F970072ADC3 /* DropboxSDK.framework */; };
 		03E8812A1A2E8FAF0072ADC3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E881291A2E8FAF0072ADC3 /* Security.framework */; };
 		03E8812C1A2E8FC30072ADC3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E8812B1A2E8FC30072ADC3 /* QuartzCore.framework */; };
 		BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6691A2EAC3700C66920 /* HRProfile.m */; };
 		BA14E66E1A2EAEEF00C66920 /* HRAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E66D1A2EAEEF00C66920 /* HRAccount.m */; };
-		BA14E6A91A2EC2A200C66920 /* HRProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6A81A2EC2A200C66920 /* HRProfileViewController.m */; };
+		BA14E6A91A2EC2A200C66920 /* HRSelectProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */; };
 		BAB71A221A2EFE13004327D6 /* HRCreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */; };
 		BAD343001A30201500F87035 /* Flickr.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD342FF1A30201500F87035 /* Flickr.png */; };
 		BAD343031A30201C00F87035 /* Dropbox.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD343021A30201C00F87035 /* Dropbox.png */; };
@@ -129,6 +132,12 @@
 		0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPatternViewCell.m; sourceTree = "<group>"; };
 		034515801A2C0EA1008E091D /* HRConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRConstants.h; sourceTree = "<group>"; };
 		034515811A2C0EA1008E091D /* HRConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRConstants.m; sourceTree = "<group>"; };
+		0361C2391A2FFC4E0027F2E3 /* HRSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSettingsViewController.h; sourceTree = "<group>"; };
+		0361C23A1A2FFC4E0027F2E3 /* HRSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSettingsViewController.m; sourceTree = "<group>"; };
+		0361C23D1A300E070027F2E3 /* HRFlickr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRFlickr.h; sourceTree = "<group>"; };
+		0361C23E1A300E070027F2E3 /* HRFlickr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRFlickr.m; sourceTree = "<group>"; };
+		0361C2411A300F3B0027F2E3 /* HRDropbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRDropbox.h; sourceTree = "<group>"; };
+		0361C2421A300F3B0027F2E3 /* HRDropbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRDropbox.m; sourceTree = "<group>"; };
 		03E881271A2E8F970072ADC3 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		03E881291A2E8FAF0072ADC3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		03E8812B1A2E8FC30072ADC3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -136,8 +145,8 @@
 		BA14E6691A2EAC3700C66920 /* HRProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRProfile.m; sourceTree = "<group>"; };
 		BA14E66C1A2EAEEF00C66920 /* HRAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAccount.h; sourceTree = "<group>"; };
 		BA14E66D1A2EAEEF00C66920 /* HRAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAccount.m; sourceTree = "<group>"; };
-		BA14E6A71A2EC2A200C66920 /* HRProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRProfileViewController.h; sourceTree = "<group>"; };
-		BA14E6A81A2EC2A200C66920 /* HRProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRProfileViewController.m; sourceTree = "<group>"; };
+		BA14E6A71A2EC2A200C66920 /* HRSelectProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSelectProfileViewController.h; sourceTree = "<group>"; };
+		BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSelectProfileViewController.m; sourceTree = "<group>"; };
 		BAB71A201A2EFE13004327D6 /* HRCreateProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRCreateProfileViewController.h; sourceTree = "<group>"; };
 		BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRCreateProfileViewController.m; sourceTree = "<group>"; };
 		BAD342FF1A30201500F87035 /* Flickr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flickr.png; sourceTree = "<group>"; };
@@ -210,6 +219,8 @@
 				0345154F1A2C08A8008E091D /* ImagePicker */,
 				0345151A1A2C0632008E091D /* AppDelegate.h */,
 				0345151B1A2C0632008E091D /* AppDelegate.m */,
+				BA14E6A71A2EC2A200C66920 /* HRSelectProfileViewController.h */,
+				BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */,
 				BAD343071A3022A100F87035 /* HRAccountImageCell.h */,
 				BAD343081A3022A100F87035 /* HRAccountImageCell.m */,
 				BA14E6A71A2EC2A200C66920 /* HRProfileViewController.h */,
@@ -228,6 +239,8 @@
 				034515261A2C0632008E091D /* Images.xcassets */,
 				034515281A2C0632008E091D /* LaunchScreen.xib */,
 				034515161A2C0632008E091D /* Supporting Files */,
+				0361C2391A2FFC4E0027F2E3 /* HRSettingsViewController.h */,
+				0361C23A1A2FFC4E0027F2E3 /* HRSettingsViewController.m */,
 			);
 			path = SharePic;
 			sourceTree = "<group>";
@@ -310,6 +323,10 @@
 				BA14E6691A2EAC3700C66920 /* HRProfile.m */,
 				BA14E66C1A2EAEEF00C66920 /* HRAccount.h */,
 				BA14E66D1A2EAEEF00C66920 /* HRAccount.m */,
+				0361C23D1A300E070027F2E3 /* HRFlickr.h */,
+				0361C23E1A300E070027F2E3 /* HRFlickr.m */,
+				0361C2411A300F3B0027F2E3 /* HRDropbox.h */,
+				0361C2421A300F3B0027F2E3 /* HRDropbox.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -446,19 +463,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0361C23B1A2FFC4E0027F2E3 /* HRSettingsViewController.m in Sources */,
 				0345156B1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m in Sources */,
 				034515671A2C08DD008E091D /* ELCAssetCell.m in Sources */,
 				0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */,
 				034515821A2C0EA1008E091D /* HRConstants.m in Sources */,
 				034515651A2C08DD008E091D /* ELCAlbumPickerController.m in Sources */,
-				BA14E6A91A2EC2A200C66920 /* HRProfileViewController.m in Sources */,
+				BA14E6A91A2EC2A200C66920 /* HRSelectProfileViewController.m in Sources */,
 				BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */,
 				0345156D1A2C08DD008E091D /* ELCOverlayImageView.m in Sources */,
 				BAB71A221A2EFE13004327D6 /* HRCreateProfileViewController.m in Sources */,
+				0361C23F1A300E070027F2E3 /* HRFlickr.m in Sources */,
 				BAD343091A3022A100F87035 /* HRAccountImageCell.m in Sources */,
 				BA14E66E1A2EAEEF00C66920 /* HRAccount.m in Sources */,
 				0345156A1A2C08DD008E091D /* ELCImagePickerController.m in Sources */,
 				0345157C1A2C094C008E091D /* HRAlbum.m in Sources */,
+				0361C2431A300F3B0027F2E3 /* HRDropbox.m in Sources */,
 				034515691A2C08DD008E091D /* ELCConsole.m in Sources */,
 				034515681A2C08DD008E091D /* ELCAssetTablePicker.m in Sources */,
 				034515661A2C08DD008E091D /* ELCAsset.m in Sources */,
