@@ -21,6 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:HRBackButtonLabel
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushNewViewController)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
@@ -64,7 +69,7 @@
 
 -(IBAction)pushNewViewController {
     
-    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:HRStoryboardName bundle:nil] instantiateViewControllerWithIdentifier:HRCreateProfileStoryBoardIdentifier];
+    HRCreateProfileViewController *viewController = [[UIStoryboard storyboardWithName:HRStoryboardMain bundle:nil] instantiateViewControllerWithIdentifier:HRCreateProfileStoryBoardIdentifier];
     [viewController callBackDelegate:self];
     [self.navigationController pushViewController:viewController animated:YES];
 }

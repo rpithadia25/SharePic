@@ -31,7 +31,7 @@
     _profile = [[HRProfile alloc]init];
     _profileNameField.delegate = self;
     _tableView.allowsMultipleSelection = YES;
-    supportedAccounts = [[HRAccount class]supportedAccounts];
+    supportedAccounts = [HRAccount supportedAccounts];
     _selectedAccounts = [[NSMutableArray alloc]init];
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonPressed)];
     self.navigationItem.rightBarButtonItem = saveButton;

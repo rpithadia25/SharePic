@@ -51,5 +51,6 @@ NSInteger const kSectionProfileName = 0;
 NSInteger const kSectionSelectAccounts = 1;
 
 NSString *const HRCreateProfileStoryBoardIdentifier = @"HRCreateProfile";
-NSString *const HRStoryboardName = @"Main";
+NSString *const HRStoryboardMain = @"Main";
+NSString *const HRBackButtonLabel = @"Back";
 
