@@ -45,18 +45,18 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if(section == 0) {
+    if(section == kSectionProfileName) {
         return HRProfileName;
     }
-    if(section == 1) {
+    if(section == kSectionSelectAccounts) {
         return HRSelectAccounts;
     }
     return nil;
 }
-
+    
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
-    if (indexPath.section == 0) {
+    if (indexPath.section == kSectionProfileName) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HRProfileNameCellIdentifier];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:HRProfileNameCellIdentifier];
