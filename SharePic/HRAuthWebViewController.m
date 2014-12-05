@@ -72,7 +72,6 @@
     
     NSURL *url = [request URL];
     if (![url.scheme isEqual:@"http"] && ![url.scheme isEqual:@"https"]) {
-        NSLog(@"%@", url);
         if ([[UIApplication sharedApplication]canOpenURL:url]) {
             [[UIApplication sharedApplication]openURL:url];
             return NO;

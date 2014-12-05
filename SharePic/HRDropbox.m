@@ -7,6 +7,13 @@
 //
 
 #import "HRDropbox.h"
+#import "NSString_Extra.h"
+
+#define kCompressionQuality 0.8
+
+@interface HRDropbox()
+@property (nonatomic, strong) DBRestClient *restClient;
+@end
 
 @implementation HRDropbox
 
@@ -27,6 +34,8 @@
                                 appSecret:HRDropBoxAppSecret
                                 root:kDBRootAppFolder];
         [DBSession setSharedSession:dbSession];
+        self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+        self.restClient.delegate = self;
     }
     return self;
 }
@@ -46,5 +55,43 @@
 - (void)logout {
     [[DBSession sharedSession] unlinkAll];
 }
+
+- (void)uploadPhotos:(NSArray *)photos {
+    int imageNumber = 0;
+    NSString *date = [NSString dateTime];
+    for (UIImage *image in photos) {
+        NSData *data = UIImageJPEGRepresentation(image, kCompressionQuality);
+        NSString *filename = [NSString stringWithFormat:@"%@_Image%d.jpeg", date, ++imageNumber];
+        NSString *localDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *localPath = [localDir stringByAppendingPathComponent:filename];
+        [data writeToFile:localPath atomically:YES];
+        NSString *destDir = @"/";
+        [self.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:localPath];
+    }
+}
+
+-(NSString *)description {
+    return HRDropboxString;
+}
+
+- (NSString *)imageName {
+    return [NSString stringWithFormat:@"%@.png", HRDropboxString];
+}
+
+#pragma mark - Dropbox upload call back methods
+
+- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
+              from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
+    NSLog(@"File uploaded successfully to path: %@", metadata.path);
+}
+
+- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
+    NSLog(@"File upload failed with error: %@", error);
+}
+
+- (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath {
+    NSLog(@"%.2f",progress);
+}
+
 
 @end

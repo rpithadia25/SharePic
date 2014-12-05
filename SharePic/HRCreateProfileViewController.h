@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HRProfile.h"
-#import "HRAccount.h"
+#import "HRAbstractAccount.h"
 
 @protocol HRCreateProfileDelegate
 - (void)HRCreateProfileViewWasDismissedWithProfile: (HRProfile *) profile;
