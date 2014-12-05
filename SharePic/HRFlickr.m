@@ -10,11 +10,13 @@
 #import "FlickrKit.h"
 #import "HRConstants.h"
 #import "HRAuthWebViewController.h"
+#import "NSString_Extra.h"
 
 @interface HRFlickr()
 @property (nonatomic, retain) FKDUNetworkOperation *checkAuthOp;
 @property (nonatomic, retain) FKDUNetworkOperation *authOp;
 @property (nonatomic, retain) FKDUNetworkOperation *completeAuthOp;
+@property (nonatomic, retain) FKDUNetworkOperation *uploadOp;
 @end
 
 @implementation HRFlickr
@@ -65,7 +67,21 @@
 }
 
 - (void)uploadPhotos:(NSArray *)photos {
-    
+    int imageNumber = 0;
+    NSString *date = [NSString dateTime];
+    for (UIImage *image in photos) {
+        NSString *imageTitle = [NSString stringWithFormat:@"%@_Image%d", date, ++imageNumber];
+        NSDictionary *uploadArgs = @{@"title": imageTitle, @"description": @"A Photo via Share-a-Pic App", @"is_public": @"0", @"is_friend": @"0", @"is_family": @"0", @"hidden": @"2"};
+        
+        self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:image args:uploadArgs completion:^(NSString *imageID, NSError *error) {
+            if (error) {
+                NSLog(@"Could not upload");
+            } else {
+                NSString *msg = [NSString stringWithFormat:@"Uploaded image ID %@", imageID];
+                NSLog(@"%@ uploaded", msg);
+            }
+        }];
+    }
 }
 
 - (NSString *)description {

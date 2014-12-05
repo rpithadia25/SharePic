@@ -18,7 +18,7 @@
 #import "HRProfile.h"
 #import "HRAccountImageCell.h"
 
-@interface HRProfileDetailViewController : UIViewController <ELCImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, DBRestClientDelegate>
+@interface HRProfileDetailViewController : UIViewController <ELCImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property HRProfile                                     *currentProfile;
 @property HRAlbum                                       *currentAlbum;

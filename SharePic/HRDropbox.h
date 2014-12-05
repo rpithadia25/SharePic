@@ -12,7 +12,7 @@
 #import "HRConstants.h"
 #import "HRAbstractAccount.h"
 
-@interface HRDropbox : HRAbstractAccount
+@interface HRDropbox : HRAbstractAccount<DBRestClientDelegate>
 
 + (id)sharedDropbox;
 - (BOOL)handleOpenURL:(NSURL *)url;

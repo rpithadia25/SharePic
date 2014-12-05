@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		032743AE1A30D9A5004F7252 /* HRAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */; };
 		032743AF1A30D9A5004F7252 /* HRAuthWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */; };
+		033106A71A31281F00F31199 /* NSString_Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 033106A61A31281F00F31199 /* NSString_Extra.m */; };
+		033106AA1A312B8300F31199 /* HRUploadProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033106A91A312B8300F31199 /* HRUploadProgressViewController.m */; };
 		033F55A21A2C2D4700E35E87 /* libFlickrKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 033F559F1A2C2D3200E35E87 /* libFlickrKit.a */; };
 		034515191A2C0632008E091D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515181A2C0632008E091D /* main.m */; };
 		0345151C1A2C0632008E091D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151B1A2C0632008E091D /* AppDelegate.m */; };
@@ -86,6 +88,10 @@
 		032743AB1A30D9A5004F7252 /* HRAuthWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAuthWebViewController.h; sourceTree = "<group>"; };
 		032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAuthWebViewController.m; sourceTree = "<group>"; };
 		032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRAuthWebViewController.xib; sourceTree = "<group>"; };
+		033106A41A31277E00F31199 /* NSString_Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_Extra.h; sourceTree = "<group>"; };
+		033106A61A31281F00F31199 /* NSString_Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_Extra.m; sourceTree = "<group>"; };
+		033106A81A312B8300F31199 /* HRUploadProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRUploadProgressViewController.h; sourceTree = "<group>"; };
+		033106A91A312B8300F31199 /* HRUploadProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRUploadProgressViewController.m; sourceTree = "<group>"; };
 		033F55991A2C2D3200E35E87 /* FlickrKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FlickrKit.xcodeproj; path = FlickrKit/FlickrKit.xcodeproj; sourceTree = "<group>"; };
 		034515131A2C0632008E091D /* SharePic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharePic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		034515171A2C0632008E091D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -217,31 +223,35 @@
 		034515151A2C0632008E091D /* SharePic */ = {
 			isa = PBXGroup;
 			children = (
-				034515791A2C0938008E091D /* Classes */,
-				0345154F1A2C08A8008E091D /* ImagePicker */,
 				0345151A1A2C0632008E091D /* AppDelegate.h */,
 				0345151B1A2C0632008E091D /* AppDelegate.m */,
+				034515791A2C0938008E091D /* Classes */,
 				BAD343071A3022A100F87035 /* HRAccountImageCell.h */,
 				BAD343081A3022A100F87035 /* HRAccountImageCell.m */,
-				BA14E6A71A2EC2A200C66920 /* HRSelectProfileViewController.h */,
-				BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */,
-				BAB71A201A2EFE13004327D6 /* HRCreateProfileViewController.h */,
-				BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */,
-				034515801A2C0EA1008E091D /* HRConstants.h */,
-				034515811A2C0EA1008E091D /* HRConstants.m */,
-				0345151D1A2C0632008E091D /* HRProfileDetailViewController.h */,
-				0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */,
-				0345157D1A2C0CA2008E091D /* HRPatternViewCell.h */,
-				0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */,
-				034515231A2C0632008E091D /* Main.storyboard */,
-				034515261A2C0632008E091D /* Images.xcassets */,
-				034515281A2C0632008E091D /* LaunchScreen.xib */,
-				034515161A2C0632008E091D /* Supporting Files */,
-				0361C2391A2FFC4E0027F2E3 /* HRSettingsViewController.h */,
-				0361C23A1A2FFC4E0027F2E3 /* HRSettingsViewController.m */,
 				032743AB1A30D9A5004F7252 /* HRAuthWebViewController.h */,
 				032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */,
 				032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */,
+				034515801A2C0EA1008E091D /* HRConstants.h */,
+				034515811A2C0EA1008E091D /* HRConstants.m */,
+				BAB71A201A2EFE13004327D6 /* HRCreateProfileViewController.h */,
+				BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */,
+				0345157D1A2C0CA2008E091D /* HRPatternViewCell.h */,
+				0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */,
+				0345151D1A2C0632008E091D /* HRProfileDetailViewController.h */,
+				0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */,
+				BA14E6A71A2EC2A200C66920 /* HRSelectProfileViewController.h */,
+				BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */,
+				0361C2391A2FFC4E0027F2E3 /* HRSettingsViewController.h */,
+				0361C23A1A2FFC4E0027F2E3 /* HRSettingsViewController.m */,
+				033106A81A312B8300F31199 /* HRUploadProgressViewController.h */,
+				033106A91A312B8300F31199 /* HRUploadProgressViewController.m */,
+				0345154F1A2C08A8008E091D /* ImagePicker */,
+				034515261A2C0632008E091D /* Images.xcassets */,
+				034515281A2C0632008E091D /* LaunchScreen.xib */,
+				034515231A2C0632008E091D /* Main.storyboard */,
+				033106A41A31277E00F31199 /* NSString_Extra.h */,
+				033106A61A31281F00F31199 /* NSString_Extra.m */,
+				034515161A2C0632008E091D /* Supporting Files */,
 			);
 			path = SharePic;
 			sourceTree = "<group>";
@@ -487,7 +497,9 @@
 				0345151C1A2C0632008E091D /* AppDelegate.m in Sources */,
 				032743AE1A30D9A5004F7252 /* HRAuthWebViewController.m in Sources */,
 				0345151F1A2C0632008E091D /* HRProfileDetailViewController.m in Sources */,
+				033106AA1A312B8300F31199 /* HRUploadProgressViewController.m in Sources */,
 				0345156C1A2C08DD008E091D /* ELCImagePickerDemoViewController.m in Sources */,
+				033106A71A31281F00F31199 /* NSString_Extra.m in Sources */,
 				034515191A2C0632008E091D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
