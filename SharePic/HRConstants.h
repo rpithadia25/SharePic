@@ -60,3 +60,7 @@ NSString *const HRError;
 NSString *const HROk;
 NSString *const HRDateTimeFormat;
 
+NSString *const HRImagePickerAlertMessage;
+NSString *const HRImagePickerAlertTitle;
+NSString *const HRImagePickerAlertCancelButton;
+
