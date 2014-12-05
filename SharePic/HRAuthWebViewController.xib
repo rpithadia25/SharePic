@@ -15,18 +15,27 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZy-a0-2vS">
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZy-a0-2vS">
                     <rect key="frame" x="0.0" y="13" width="400" height="44"/>
                     <items>
                         <navigationItem id="VnP-J6-jWr"/>
                     </items>
                 </navigationBar>
-                <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35e-Yw-xHc">
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35e-Yw-xHc">
                     <rect key="frame" x="0.0" y="57" width="320" height="511"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="aZy-a0-2vS" firstAttribute="leading" secondItem="35e-Yw-xHc" secondAttribute="leading" id="7hf-gW-AiI"/>
+                <constraint firstAttribute="bottom" secondItem="35e-Yw-xHc" secondAttribute="bottom" id="Ya0-8h-apD"/>
+                <constraint firstItem="aZy-a0-2vS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zbn-fM-Hgk"/>
+                <constraint firstAttribute="trailing" secondItem="35e-Yw-xHc" secondAttribute="trailing" id="pOy-Uq-Pmw"/>
+                <constraint firstAttribute="trailing" secondItem="aZy-a0-2vS" secondAttribute="trailing" constant="-80" id="s4X-wK-eXX"/>
+                <constraint firstItem="aZy-a0-2vS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="13" id="xH6-tE-0Dk"/>
+                <constraint firstItem="35e-Yw-xHc" firstAttribute="top" secondItem="aZy-a0-2vS" secondAttribute="bottom" id="y9p-8p-iSQ"/>
+            </constraints>
             <point key="canvasLocation" x="402" y="311"/>
         </view>
     </objects>

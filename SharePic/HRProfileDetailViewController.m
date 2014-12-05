@@ -7,12 +7,16 @@
 //
 
 #import "HRProfileDetailViewController.h"
+#import "AGIPCToolbarItem.h"
 #define HRImageViewTag 100
 #define HRAccountImageViewTag 101
 #define HRTableViewRows 2
 #define HRCollectionViewSections 1
 
-@interface HRProfileDetailViewController ()
+@interface HRProfileDetailViewController () {
+    AGImagePickerController *ipc;
+    NSMutableArray *selectedPhotos;
+}
 @property (nonatomic, retain) FKImageUploadNetworkOperation *uploadOp;
 @property (nonatomic, strong) DBRestClient *restClient;
 @end
@@ -30,9 +34,10 @@
     _gridView.delegate = self;
     _accountImageView.delegate = self;
     _albumDescriptionTable.scrollEnabled = NO;
-    
+
     self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
     self.restClient.delegate = self;
+    
 }
 
 - (void)setProfile:(id)profile {
@@ -55,73 +60,72 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)launchPicker {
-    
-    ELCImagePickerController *imagePicker = [[ELCImagePickerController alloc] initImagePicker];
-    
-    imagePicker.maximumImagesCount = HRMaximumImageCount;
-    imagePicker.returnsOriginalImage = HRReturnOriginalImage;
-    imagePicker.returnsImage = HRReturnsImage;
-    imagePicker.onOrder = HRDisplayOrder;
-    imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
-    imagePicker.imagePickerDelegate = self;
-    
-    [self presentViewController:imagePicker animated:YES completion:nil];
-    
-}
-
-- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
+-(void) agImagePickerController:(AGImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
     [self dismissViewControllerAnimated:YES completion:nil];
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
     HRPatternViewCell *cell = [[HRPatternViewCell alloc]init];
-    
+    CGRect workingFrame = _gridView.frame;
+    workingFrame.origin.x = 0;
+
     for (UIView *v in [_gridView subviews]) {
         [v removeFromSuperview];
     }
-    
-    CGRect workingFrame = _gridView.frame;
-    workingFrame.origin.x = 0;
-    
-    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
-    for (NSDictionary *dict in info) {
-        if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
-            if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
-                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
-                [images addObject:image];
-                
-                [cell.patternImageView setContentMode:UIViewContentModeScaleAspectFit];
-                cell.patternImageView.frame = workingFrame;
-                [_gridView addSubview:cell.patternImageView];
-                workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
-            } else {
-                NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
-            }
-        } else if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypeVideo){
-            if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
-                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
-                
-                [images addObject:image];
-                [cell.patternImageView setContentMode:UIViewContentModeScaleAspectFit];
-                cell.patternImageView.frame = workingFrame;
-                [_gridView addSubview:cell.patternImageView];
-                workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
-            } else {
-                NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
-            }
-        } else {
-            NSLog(@"Unknown asset type");
-        }
+
+    for(ALAsset *asset in info)
+    {
+        ALAssetRepresentation *rep = [asset defaultRepresentation];
+        UIImage *img = [UIImage imageWithCGImage:[rep fullResolutionImage]];
+        [images addObject:[self compressForUpload:img :0.5]];
+        [cell.patternImageView setContentMode:UIViewContentModeScaleAspectFit];
+        cell.patternImageView.frame = workingFrame;
+        [_gridView addSubview:cell.patternImageView];
+        workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
     }
-    
     _currentAlbum.photos = [images mutableCopy];
-    
     [_gridView setPagingEnabled:YES];
     [_gridView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
     [_gridView reloadData];
-    
 }
 
-- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (UIImage *)compressForUpload:(UIImage *)original :(CGFloat)scale
+{
+    // Calculate new size given scale factor.
+    CGSize originalSize = original.size;
+    CGSize newSize = CGSizeMake(originalSize.width * scale, originalSize.height * scale);
+    
+    // Scale the original image to match the new size.
+    UIGraphicsBeginImageContext(newSize);
+    [original drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage* compressedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return compressedImage;
+}
+
+- (IBAction)launchPicker {
+    
+    ipc = [[AGImagePickerController alloc]initWithDelegate:self];
+    //TODO: For denoting maximum image count reached, try for buzzing(hmmm) effect.
+    ipc.maximumNumberOfPhotosToBeSelected = HRMaximumImageCount;
+    [self presentViewController:ipc animated:YES completion:nil];
+    // Show saved photos on top
+    ipc.shouldShowSavedPhotosOnTop = NO;
+    ipc.shouldChangeStatusBarStyle = YES;
+    ipc.selection = _currentAlbum.photos;
+    
+    // Custom toolbar items
+    AGIPCToolbarItem *selectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"+ Select All" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
+        return YES;
+    }];
+    AGIPCToolbarItem *flexible = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] andSelectionBlock:nil];
+    AGIPCToolbarItem *selectOdd = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"+ Select Odd" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
+        return !(index % 2);
+    }];
+    AGIPCToolbarItem *deselectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"- Deselect All" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
+        return NO;
+    }];
+    ipc.toolbarItemsForManagingTheSelection = @[selectAll, flexible, selectOdd, flexible, deselectAll];
+    
 }
 
 #pragma mark Collection View Methods
