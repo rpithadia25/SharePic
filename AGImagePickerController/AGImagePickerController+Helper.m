@@ -20,7 +20,7 @@
     if (_pickerFlags.delegateNumberOfItemsPerRowForDevice)
     {
         AGDeviceType deviceType = self.deviceType;
-        UIInterfaceOrientation interfaceOrientation = self.interfaceOrientation;
+        UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
         
         SEL selector = @selector(agImagePickerController:numberOfItemsPerRowForDevice:andInterfaceOrientation:);
         Protocol *protocol = @protocol(AGImagePickerControllerDelegate);
@@ -54,7 +54,7 @@
     
     if (IS_IPAD())
     {
-        if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation))
+        if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
         {
             numberOfItemsPerRow = AGIPC_ITEMS_PER_ROW_IPAD_PORTRAIT;
         } else
@@ -63,7 +63,7 @@
         }
     } else
     {
-        if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation))
+        if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
         {
             numberOfItemsPerRow = AGIPC_ITEMS_PER_ROW_IPHONE_PORTRAIT;
             
@@ -192,7 +192,7 @@
     CGRect bounds = [[UIScreen mainScreen] bounds];
     CGFloat width = bounds.size.width;
     
-    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+    if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
         width = bounds.size.height;
     }
     

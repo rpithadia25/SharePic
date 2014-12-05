@@ -234,7 +234,7 @@
     
     // Fullscreen
     if (self.imagePickerController.shouldChangeStatusBarStyle) {
-        self.wantsFullScreenLayout = YES;
+        self.edgesForExtendedLayout = UIRectEdgeAll;
     }
     
     // Setup Notifications
@@ -271,9 +271,9 @@
         self.toolbarItems = items;
     } else {
         // Standard Toolbar Items
-        UIBarButtonItem *selectAll = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringWithDefaultValue(@"AGIPC.SelectAll", nil, [NSBundle mainBundle], @"Select All", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(selectAllAction:)];
+        UIBarButtonItem *selectAll = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringWithDefaultValue(@"AGIPC.SelectAll", nil, [NSBundle mainBundle], @"Select All", nil) style:UIBarButtonItemStylePlain target:self action:@selector(selectAllAction:)];
         UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        UIBarButtonItem *deselectAll = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringWithDefaultValue(@"AGIPC.DeselectAll", nil, [NSBundle mainBundle], @"Deselect All", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(deselectAllAction:)];
+        UIBarButtonItem *deselectAll = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringWithDefaultValue(@"AGIPC.DeselectAll", nil, [NSBundle mainBundle], @"Deselect All", nil) style:UIBarButtonItemStylePlain target:self action:@selector(deselectAllAction:)];
         
         NSArray *toolbarItemsForManagingTheSelection = @[selectAll, flexibleSpace, deselectAll];
         self.toolbarItems = toolbarItemsForManagingTheSelection;
@@ -400,9 +400,9 @@
             // Display supports up to select several photos at the same time, springox(20131220)
             NSInteger maxNumber = _imagePickerController.maximumNumberOfPhotosToBeSelected;
             if (0 < maxNumber) {
-                self.navigationController.navigationBar.topItem.prompt = [NSString stringWithFormat:@"(%d/%d)", [AGIPCGridItem numberOfSelections], maxNumber];
+                self.navigationController.navigationBar.topItem.prompt = [NSString stringWithFormat:@"(%lu/%ld)", (unsigned long)[AGIPCGridItem numberOfSelections], (long)maxNumber];
             } else {
-                self.navigationController.navigationBar.topItem.prompt = [NSString stringWithFormat:@"(%d/%d)", [AGIPCGridItem numberOfSelections], self.assets.count];
+                self.navigationController.navigationBar.topItem.prompt = [NSString stringWithFormat:@"(%lu/%lu)", (unsigned long)[AGIPCGridItem numberOfSelections], (unsigned long)self.assets.count];
             }
         }
     }
