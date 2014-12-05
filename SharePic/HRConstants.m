@@ -27,7 +27,7 @@ NSString *const HRFlickrCallbackURL = @"SharePic://auth";
 NSString *const HRDropBoxAppKey = @"l00snssp2vqeghc";
 NSString *const HRDropBoxAppSecret = @"b1wyb12i1pbk2cl";
 
-NSInteger const HRMaximumImageCount = 10;
+NSInteger const HRMaximumImageCount = 15;
 BOOL const HRReturnOriginalImage = YES;
 BOOL const HRReturnsImage = YES;
 BOOL const HRDisplayOrder = YES;

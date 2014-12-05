@@ -7,6 +7,7 @@
 //
 
 #import "HRProfileDetailViewController.h"
+#import "AGIPCToolbarItem.h"
 #import "HRFlickr.h"
 #import "HRDropbox.h"
 #define HRImageViewTag 100
@@ -14,7 +15,10 @@
 #define HRTableViewRows 2
 #define HRCollectionViewSections 1
 
-@interface HRProfileDetailViewController ()
+@interface HRProfileDetailViewController () {
+    AGImagePickerController *imagePicker;
+    NSMutableArray *selectedPhotos;
+}
 @property (nonatomic, retain) FKImageUploadNetworkOperation *uploadOp;
 
 @end
@@ -54,73 +58,70 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)launchPicker {
-    
-    ELCImagePickerController *imagePicker = [[ELCImagePickerController alloc] initImagePicker];
-    
-    imagePicker.maximumImagesCount = HRMaximumImageCount;
-    imagePicker.returnsOriginalImage = HRReturnOriginalImage;
-    imagePicker.returnsImage = HRReturnsImage;
-    imagePicker.onOrder = HRDisplayOrder;
-    imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
-    imagePicker.imagePickerDelegate = self;
-    
-    [self presentViewController:imagePicker animated:YES completion:nil];
-    
-}
-
-- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
+-(void) agImagePickerController:(AGImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
     [self dismissViewControllerAnimated:YES completion:nil];
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
     HRPatternViewCell *cell = [[HRPatternViewCell alloc]init];
-    
+    CGRect workingFrame = _gridView.frame;
+    workingFrame.origin.x = 0;
+
     for (UIView *v in [_gridView subviews]) {
         [v removeFromSuperview];
     }
-    
-    CGRect workingFrame = _gridView.frame;
-    workingFrame.origin.x = 0;
-    
-    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
-    for (NSDictionary *dict in info) {
-        if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
-            if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
-                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
-                [images addObject:image];
-                
-                [cell.patternImageView setContentMode:UIViewContentModeScaleAspectFit];
-                cell.patternImageView.frame = workingFrame;
-                [_gridView addSubview:cell.patternImageView];
-                workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
-            } else {
-                NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
-            }
-        } else if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypeVideo){
-            if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
-                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
-                
-                [images addObject:image];
-                [cell.patternImageView setContentMode:UIViewContentModeScaleAspectFit];
-                cell.patternImageView.frame = workingFrame;
-                [_gridView addSubview:cell.patternImageView];
-                workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
-            } else {
-                NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
-            }
-        } else {
-            NSLog(@"Unknown asset type");
-        }
+
+    for(ALAsset *asset in info) {
+        ALAssetRepresentation *representation = [asset defaultRepresentation];
+        UIImage *image = [UIImage imageWithCGImage:[representation fullResolutionImage]];
+        [images addObject:[self compressForUpload:image :0.5]];
+        [cell.patternImageView setContentMode:UIViewContentModeScaleAspectFit];
+        cell.patternImageView.frame = workingFrame;
+        [_gridView addSubview:cell.patternImageView];
+        workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
     }
-    
     _currentAlbum.photos = [images mutableCopy];
-    
     [_gridView setPagingEnabled:YES];
     [_gridView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
     [_gridView reloadData];
-    
 }
 
-- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (UIImage *)compressForUpload:(UIImage *)original :(CGFloat)scale {
+    // Calculate new size given scale factor.
+    CGSize originalSize = original.size;
+    CGSize newSize = CGSizeMake(originalSize.width * scale, originalSize.height * scale);
+    
+    // Scale the original image to match the new size.
+    UIGraphicsBeginImageContext(newSize);
+    [original drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage* compressedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return compressedImage;
+}
+
+- (IBAction)launchPicker {
+    
+    imagePicker = [[AGImagePickerController alloc]initWithDelegate:self];
+    //TODO: For denoting maximum image count reached, try for buzzing(hmmm) effect.
+    imagePicker.maximumNumberOfPhotosToBeSelected = HRMaximumImageCount;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    // Show saved photos on top
+    imagePicker.shouldShowSavedPhotosOnTop = NO;
+    imagePicker.shouldChangeStatusBarStyle = YES;
+    imagePicker.selection = _currentAlbum.photos;
+    
+    // Custom toolbar items
+    AGIPCToolbarItem *selectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"+ Select All" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
+        return YES;
+    }];
+    AGIPCToolbarItem *flexible = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] andSelectionBlock:nil];
+    AGIPCToolbarItem *selectOdd = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"+ Select Odd" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
+        return !(index % 2);
+    }];
+    AGIPCToolbarItem *deselectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"- Deselect All" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
+        return NO;
+    }];
+    imagePicker.toolbarItemsForManagingTheSelection = @[selectAll, flexible, selectOdd, flexible, deselectAll];
+    
 }
 
 #pragma mark Collection View Methods
@@ -145,7 +146,6 @@
         imageView.image = [_currentAlbum.photos objectAtIndex:indexPath.row];
         return cell;
     } else {
-        
         HRAccountImageCell *cell = (HRAccountImageCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRAccountCell forIndexPath:indexPath];
         UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRAccountImageViewTag];
         NSString *imageName = [_currentProfile.accounts[indexPath.row] imageName];
@@ -200,7 +200,6 @@
     } else {
         cell.textLabel.text = HRAlbumDescription;
     }
-    
     if ([cell.textLabel.text isEqualToString:HRAlbumName]) {
         cell.detailTextLabel.text = _currentAlbum.name;
     }
@@ -229,15 +228,29 @@
 -(void) saveTextFields: (UITextField *) textField {
     if (textField.tag == 0) {
         _currentAlbum.name = textField.text;
-    }else{
+    } else {
         _currentAlbum.albumDescription = textField.text;
     }
+}
+
+#pragma mark Dropbox upload call back methods
+- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
+              from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
+    NSLog(@"File uploaded successfully to path: %@", metadata.path);
+}
+
+- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
+    NSLog(@"File upload failed with error: %@", error);
+}
+
+- (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath {
+    NSLog(@"%.2f",progress); //Correct way to visualice the float
 }
 
 #pragma mark IBActions
 
 - (IBAction)uploadButtonPressed:(id)sender {
-    if (![_currentAlbum.name length] == 0 && ![_currentAlbum.albumDescription length] == 0) {
+    if ([_currentAlbum.name length] != 0 && [_currentAlbum.albumDescription length] != 0) {
         for (HRAbstractAccount *account in _currentProfile.accounts) {
             [account uploadPhotos:[_currentAlbum photos]];
         }

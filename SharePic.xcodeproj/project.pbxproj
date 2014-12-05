@@ -7,34 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		032743AE1A30D9A5004F7252 /* HRAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */; };
 		032743AF1A30D9A5004F7252 /* HRAuthWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */; };
 		033106A71A31281F00F31199 /* NSString_Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 033106A61A31281F00F31199 /* NSString_Extra.m */; };
 		033106AA1A312B8300F31199 /* HRUploadProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033106A91A312B8300F31199 /* HRUploadProgressViewController.m */; };
 		033F55A21A2C2D4700E35E87 /* libFlickrKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 033F559F1A2C2D3200E35E87 /* libFlickrKit.a */; };
 		034515191A2C0632008E091D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515181A2C0632008E091D /* main.m */; };
 		0345151C1A2C0632008E091D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151B1A2C0632008E091D /* AppDelegate.m */; };
-		0345151F1A2C0632008E091D /* HRProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */; };
 		034515251A2C0632008E091D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034515231A2C0632008E091D /* Main.storyboard */; };
 		034515271A2C0632008E091D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034515261A2C0632008E091D /* Images.xcassets */; };
 		0345152A1A2C0632008E091D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034515281A2C0632008E091D /* LaunchScreen.xib */; };
 		034515361A2C0632008E091D /* SharePicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515351A2C0632008E091D /* SharePicTests.m */; };
 		0345154C1A2C0680008E091D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0345154B1A2C0680008E091D /* AssetsLibrary.framework */; };
 		0345154E1A2C0687008E091D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0345154D1A2C0687008E091D /* SystemConfiguration.framework */; };
-		034515651A2C08DD008E091D /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515511A2C08DD008E091D /* ELCAlbumPickerController.m */; };
-		034515661A2C08DD008E091D /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515531A2C08DD008E091D /* ELCAsset.m */; };
-		034515671A2C08DD008E091D /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515551A2C08DD008E091D /* ELCAssetCell.m */; };
-		034515681A2C08DD008E091D /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515591A2C08DD008E091D /* ELCAssetTablePicker.m */; };
-		034515691A2C08DD008E091D /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345155B1A2C08DD008E091D /* ELCConsole.m */; };
-		0345156A1A2C08DD008E091D /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345155D1A2C08DD008E091D /* ELCImagePickerController.m */; };
-		0345156B1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345155F1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m */; };
-		0345156C1A2C08DD008E091D /* ELCImagePickerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515611A2C08DD008E091D /* ELCImagePickerDemoViewController.m */; };
-		0345156D1A2C08DD008E091D /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515641A2C08DD008E091D /* ELCOverlayImageView.m */; };
-		034515741A2C08F8008E091D /* ELCAlbumPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0345156F1A2C08F8008E091D /* ELCAlbumPickerController.xib */; };
-		034515751A2C08F8008E091D /* ELCAssetPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034515701A2C08F8008E091D /* ELCAssetPicker.xib */; };
-		034515761A2C08F8008E091D /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034515711A2C08F8008E091D /* ELCAssetTablePicker.xib */; };
-		034515771A2C08F8008E091D /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 034515721A2C08F8008E091D /* Overlay.png */; };
-		034515781A2C08F8008E091D /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 034515731A2C08F8008E091D /* Overlay@2x.png */; };
 		0345157C1A2C094C008E091D /* HRAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157B1A2C094C008E091D /* HRAlbum.m */; };
 		0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */; };
 		034515821A2C0EA1008E091D /* HRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515811A2C0EA1008E091D /* HRConstants.m */; };
@@ -45,12 +29,24 @@
 		03E8812A1A2E8FAF0072ADC3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E881291A2E8FAF0072ADC3 /* Security.framework */; };
 		03E8812C1A2E8FC30072ADC3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E8812B1A2E8FC30072ADC3 /* QuartzCore.framework */; };
 		BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6691A2EAC3700C66920 /* HRProfile.m */; };
-		BA14E66E1A2EAEEF00C66920 /* HRAbstractAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E66D1A2EAEEF00C66920 /* HRAbstractAccount.m */; };
 		BA14E6A91A2EC2A200C66920 /* HRSelectProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */; };
+		BA18653A1A3234CD003A2E8B /* HRAbstractAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E66D1A2EAEEF00C66920 /* HRAbstractAccount.m */; };
+		BA18653B1A3234E2003A2E8B /* HRAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */; };
 		BAB71A221A2EFE13004327D6 /* HRCreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */; };
 		BAD343001A30201500F87035 /* Flickr.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD342FF1A30201500F87035 /* Flickr.png */; };
 		BAD343031A30201C00F87035 /* Dropbox.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD343021A30201C00F87035 /* Dropbox.png */; };
 		BAD343091A3022A100F87035 /* HRAccountImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343081A3022A100F87035 /* HRAccountImageCell.m */; };
+		BAD3431A1A30FDF200F87035 /* SelectImagesButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD343191A30FDF200F87035 /* SelectImagesButtonImage.png */; };
+		BAD3436A1A3126FC00F87035 /* AGImagePickerController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343591A3126FC00F87035 /* AGImagePickerController+Helper.m */; };
+		BAD3436B1A3126FC00F87035 /* AGImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAD3435A1A3126FC00F87035 /* AGImagePickerController.bundle */; };
+		BAD3436C1A3126FC00F87035 /* AGImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD3435C1A3126FC00F87035 /* AGImagePickerController.m */; };
+		BAD3436D1A3126FC00F87035 /* AGIPCAlbumsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD3435F1A3126FC00F87035 /* AGIPCAlbumsController.m */; };
+		BAD3436E1A3126FC00F87035 /* AGIPCAssetsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343611A3126FC00F87035 /* AGIPCAssetsController.m */; };
+		BAD3436F1A3126FC00F87035 /* AGIPCGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343631A3126FC00F87035 /* AGIPCGridCell.m */; };
+		BAD343701A3126FC00F87035 /* AGIPCGridItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343651A3126FC00F87035 /* AGIPCGridItem.m */; };
+		BAD343711A3126FC00F87035 /* AGIPCToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343671A3126FC00F87035 /* AGIPCToolbarItem.m */; };
+		BAD343721A3126FC00F87035 /* ALAsset+AGIPC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343691A3126FC00F87035 /* ALAsset+AGIPC.m */; };
+		BADBB6591A3237D7001DF66A /* HRProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,32 +104,6 @@
 		034515351A2C0632008E091D /* SharePicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharePicTests.m; sourceTree = "<group>"; };
 		0345154B1A2C0680008E091D /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		0345154D1A2C0687008E091D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		034515501A2C08DD008E091D /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
-		034515511A2C08DD008E091D /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
-		034515521A2C08DD008E091D /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
-		034515531A2C08DD008E091D /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
-		034515541A2C08DD008E091D /* ELCAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetCell.h; sourceTree = "<group>"; };
-		034515551A2C08DD008E091D /* ELCAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetCell.m; sourceTree = "<group>"; };
-		034515561A2C08DD008E091D /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
-		034515571A2C08DD008E091D /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
-		034515581A2C08DD008E091D /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetTablePicker.h; sourceTree = "<group>"; };
-		034515591A2C08DD008E091D /* ELCAssetTablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetTablePicker.m; sourceTree = "<group>"; };
-		0345155A1A2C08DD008E091D /* ELCConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCConsole.h; sourceTree = "<group>"; };
-		0345155B1A2C08DD008E091D /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
-		0345155C1A2C08DD008E091D /* ELCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerController.h; sourceTree = "<group>"; };
-		0345155D1A2C08DD008E091D /* ELCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerController.m; sourceTree = "<group>"; };
-		0345155E1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerDemoAppDelegate.h; sourceTree = "<group>"; };
-		0345155F1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerDemoAppDelegate.m; sourceTree = "<group>"; };
-		034515601A2C08DD008E091D /* ELCImagePickerDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerDemoViewController.h; sourceTree = "<group>"; };
-		034515611A2C08DD008E091D /* ELCImagePickerDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerDemoViewController.m; sourceTree = "<group>"; };
-		034515621A2C08DD008E091D /* ELCImagePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerHeader.h; sourceTree = "<group>"; };
-		034515631A2C08DD008E091D /* ELCOverlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCOverlayImageView.h; sourceTree = "<group>"; };
-		034515641A2C08DD008E091D /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCOverlayImageView.m; sourceTree = "<group>"; };
-		0345156F1A2C08F8008E091D /* ELCAlbumPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAlbumPickerController.xib; sourceTree = "<group>"; };
-		034515701A2C08F8008E091D /* ELCAssetPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetPicker.xib; sourceTree = "<group>"; };
-		034515711A2C08F8008E091D /* ELCAssetTablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetTablePicker.xib; sourceTree = "<group>"; };
-		034515721A2C08F8008E091D /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
-		034515731A2C08F8008E091D /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
 		0345157A1A2C094C008E091D /* HRAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAlbum.h; sourceTree = "<group>"; };
 		0345157B1A2C094C008E091D /* HRAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAlbum.m; sourceTree = "<group>"; };
 		0345157D1A2C0CA2008E091D /* HRPatternViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRPatternViewCell.h; sourceTree = "<group>"; };
@@ -161,6 +131,25 @@
 		BAD343021A30201C00F87035 /* Dropbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dropbox.png; sourceTree = "<group>"; };
 		BAD343071A3022A100F87035 /* HRAccountImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAccountImageCell.h; sourceTree = "<group>"; };
 		BAD343081A3022A100F87035 /* HRAccountImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAccountImageCell.m; sourceTree = "<group>"; };
+		BAD343191A30FDF200F87035 /* SelectImagesButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SelectImagesButtonImage.png; sourceTree = "<group>"; };
+		BAD343581A3126FC00F87035 /* AGImagePickerController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGImagePickerController+Helper.h"; sourceTree = "<group>"; };
+		BAD343591A3126FC00F87035 /* AGImagePickerController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGImagePickerController+Helper.m"; sourceTree = "<group>"; };
+		BAD3435A1A3126FC00F87035 /* AGImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AGImagePickerController.bundle; sourceTree = "<group>"; };
+		BAD3435B1A3126FC00F87035 /* AGImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGImagePickerController.h; sourceTree = "<group>"; };
+		BAD3435C1A3126FC00F87035 /* AGImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGImagePickerController.m; sourceTree = "<group>"; };
+		BAD3435D1A3126FC00F87035 /* AGImagePickerControllerDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGImagePickerControllerDefines.h; sourceTree = "<group>"; };
+		BAD3435E1A3126FC00F87035 /* AGIPCAlbumsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPCAlbumsController.h; sourceTree = "<group>"; };
+		BAD3435F1A3126FC00F87035 /* AGIPCAlbumsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGIPCAlbumsController.m; sourceTree = "<group>"; };
+		BAD343601A3126FC00F87035 /* AGIPCAssetsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPCAssetsController.h; sourceTree = "<group>"; };
+		BAD343611A3126FC00F87035 /* AGIPCAssetsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGIPCAssetsController.m; sourceTree = "<group>"; };
+		BAD343621A3126FC00F87035 /* AGIPCGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPCGridCell.h; sourceTree = "<group>"; };
+		BAD343631A3126FC00F87035 /* AGIPCGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGIPCGridCell.m; sourceTree = "<group>"; };
+		BAD343641A3126FC00F87035 /* AGIPCGridItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPCGridItem.h; sourceTree = "<group>"; };
+		BAD343651A3126FC00F87035 /* AGIPCGridItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGIPCGridItem.m; sourceTree = "<group>"; };
+		BAD343661A3126FC00F87035 /* AGIPCToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPCToolbarItem.h; sourceTree = "<group>"; };
+		BAD343671A3126FC00F87035 /* AGIPCToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGIPCToolbarItem.m; sourceTree = "<group>"; };
+		BAD343681A3126FC00F87035 /* ALAsset+AGIPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAsset+AGIPC.h"; sourceTree = "<group>"; };
+		BAD343691A3126FC00F87035 /* ALAsset+AGIPC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAsset+AGIPC.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,20 +212,21 @@
 		034515151A2C0632008E091D /* SharePic */ = {
 			isa = PBXGroup;
 			children = (
+				BAD343571A3126FC00F87035 /* AGImagePickerController */,
 				0345151A1A2C0632008E091D /* AppDelegate.h */,
 				0345151B1A2C0632008E091D /* AppDelegate.m */,
 				034515791A2C0938008E091D /* Classes */,
 				BAD343071A3022A100F87035 /* HRAccountImageCell.h */,
 				BAD343081A3022A100F87035 /* HRAccountImageCell.m */,
-				032743AB1A30D9A5004F7252 /* HRAuthWebViewController.h */,
-				032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */,
-				032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */,
 				034515801A2C0EA1008E091D /* HRConstants.h */,
 				034515811A2C0EA1008E091D /* HRConstants.m */,
 				BAB71A201A2EFE13004327D6 /* HRCreateProfileViewController.h */,
 				BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */,
 				0345157D1A2C0CA2008E091D /* HRPatternViewCell.h */,
 				0345157E1A2C0CA2008E091D /* HRPatternViewCell.m */,
+				032743AB1A30D9A5004F7252 /* HRAuthWebViewController.h */,
+				032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */,
+				032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */,
 				0345151D1A2C0632008E091D /* HRProfileDetailViewController.h */,
 				0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */,
 				BA14E6A71A2EC2A200C66920 /* HRSelectProfileViewController.h */,
@@ -245,7 +235,6 @@
 				0361C23A1A2FFC4E0027F2E3 /* HRSettingsViewController.m */,
 				033106A81A312B8300F31199 /* HRUploadProgressViewController.h */,
 				033106A91A312B8300F31199 /* HRUploadProgressViewController.m */,
-				0345154F1A2C08A8008E091D /* ImagePicker */,
 				034515261A2C0632008E091D /* Images.xcassets */,
 				034515281A2C0632008E091D /* LaunchScreen.xib */,
 				034515231A2C0632008E091D /* Main.storyboard */,
@@ -259,6 +248,7 @@
 		034515161A2C0632008E091D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BAD343191A30FDF200F87035 /* SelectImagesButtonImage.png */,
 				BAD343021A30201C00F87035 /* Dropbox.png */,
 				BAD342FF1A30201500F87035 /* Flickr.png */,
 				034515171A2C0632008E091D /* Info.plist */,
@@ -284,47 +274,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0345154F1A2C08A8008E091D /* ImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				0345156E1A2C08F8008E091D /* Resources */,
-				034515501A2C08DD008E091D /* ELCAlbumPickerController.h */,
-				034515511A2C08DD008E091D /* ELCAlbumPickerController.m */,
-				034515521A2C08DD008E091D /* ELCAsset.h */,
-				034515531A2C08DD008E091D /* ELCAsset.m */,
-				034515541A2C08DD008E091D /* ELCAssetCell.h */,
-				034515551A2C08DD008E091D /* ELCAssetCell.m */,
-				034515561A2C08DD008E091D /* ELCAssetPickerFilterDelegate.h */,
-				034515571A2C08DD008E091D /* ELCAssetSelectionDelegate.h */,
-				034515581A2C08DD008E091D /* ELCAssetTablePicker.h */,
-				034515591A2C08DD008E091D /* ELCAssetTablePicker.m */,
-				0345155A1A2C08DD008E091D /* ELCConsole.h */,
-				0345155B1A2C08DD008E091D /* ELCConsole.m */,
-				0345155C1A2C08DD008E091D /* ELCImagePickerController.h */,
-				0345155D1A2C08DD008E091D /* ELCImagePickerController.m */,
-				0345155E1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.h */,
-				0345155F1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m */,
-				034515601A2C08DD008E091D /* ELCImagePickerDemoViewController.h */,
-				034515611A2C08DD008E091D /* ELCImagePickerDemoViewController.m */,
-				034515621A2C08DD008E091D /* ELCImagePickerHeader.h */,
-				034515631A2C08DD008E091D /* ELCOverlayImageView.h */,
-				034515641A2C08DD008E091D /* ELCOverlayImageView.m */,
-			);
-			name = ImagePicker;
-			sourceTree = "<group>";
-		};
-		0345156E1A2C08F8008E091D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				0345156F1A2C08F8008E091D /* ELCAlbumPickerController.xib */,
-				034515701A2C08F8008E091D /* ELCAssetPicker.xib */,
-				034515711A2C08F8008E091D /* ELCAssetTablePicker.xib */,
-				034515721A2C08F8008E091D /* Overlay.png */,
-				034515731A2C08F8008E091D /* Overlay@2x.png */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		034515791A2C0938008E091D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +289,32 @@
 				0361C2421A300F3B0027F2E3 /* HRDropbox.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		BAD343571A3126FC00F87035 /* AGImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				BAD343581A3126FC00F87035 /* AGImagePickerController+Helper.h */,
+				BAD343591A3126FC00F87035 /* AGImagePickerController+Helper.m */,
+				BAD3435A1A3126FC00F87035 /* AGImagePickerController.bundle */,
+				BAD3435B1A3126FC00F87035 /* AGImagePickerController.h */,
+				BAD3435C1A3126FC00F87035 /* AGImagePickerController.m */,
+				BAD3435D1A3126FC00F87035 /* AGImagePickerControllerDefines.h */,
+				BAD3435E1A3126FC00F87035 /* AGIPCAlbumsController.h */,
+				BAD3435F1A3126FC00F87035 /* AGIPCAlbumsController.m */,
+				BAD343601A3126FC00F87035 /* AGIPCAssetsController.h */,
+				BAD343611A3126FC00F87035 /* AGIPCAssetsController.m */,
+				BAD343621A3126FC00F87035 /* AGIPCGridCell.h */,
+				BAD343631A3126FC00F87035 /* AGIPCGridCell.m */,
+				BAD343641A3126FC00F87035 /* AGIPCGridItem.h */,
+				BAD343651A3126FC00F87035 /* AGIPCGridItem.m */,
+				BAD343661A3126FC00F87035 /* AGIPCToolbarItem.h */,
+				BAD343671A3126FC00F87035 /* AGIPCToolbarItem.m */,
+				BAD343681A3126FC00F87035 /* ALAsset+AGIPC.h */,
+				BAD343691A3126FC00F87035 /* ALAsset+AGIPC.m */,
+			);
+			name = AGImagePickerController;
+			path = ../AGImagePickerController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,17 +422,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				034515761A2C08F8008E091D /* ELCAssetTablePicker.xib in Resources */,
-				034515741A2C08F8008E091D /* ELCAlbumPickerController.xib in Resources */,
 				032743AF1A30D9A5004F7252 /* HRAuthWebViewController.xib in Resources */,
-				034515771A2C08F8008E091D /* Overlay.png in Resources */,
+				BAD3431A1A30FDF200F87035 /* SelectImagesButtonImage.png in Resources */,
 				034515251A2C0632008E091D /* Main.storyboard in Resources */,
 				0345152A1A2C0632008E091D /* LaunchScreen.xib in Resources */,
-				034515781A2C08F8008E091D /* Overlay@2x.png in Resources */,
+				BAD3436B1A3126FC00F87035 /* AGImagePickerController.bundle in Resources */,
 				BAD343031A30201C00F87035 /* Dropbox.png in Resources */,
 				034515271A2C0632008E091D /* Images.xcassets in Resources */,
 				BAD343001A30201500F87035 /* Flickr.png in Resources */,
-				034515751A2C08F8008E091D /* ELCAssetPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,30 +447,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BADBB6591A3237D7001DF66A /* HRProfileDetailViewController.m in Sources */,
+				BA18653B1A3234E2003A2E8B /* HRAuthWebViewController.m in Sources */,
+				BA18653A1A3234CD003A2E8B /* HRAbstractAccount.m in Sources */,
 				0361C23B1A2FFC4E0027F2E3 /* HRSettingsViewController.m in Sources */,
-				0345156B1A2C08DD008E091D /* ELCImagePickerDemoAppDelegate.m in Sources */,
-				034515671A2C08DD008E091D /* ELCAssetCell.m in Sources */,
+				BAD3436A1A3126FC00F87035 /* AGImagePickerController+Helper.m in Sources */,
 				0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */,
 				034515821A2C0EA1008E091D /* HRConstants.m in Sources */,
-				034515651A2C08DD008E091D /* ELCAlbumPickerController.m in Sources */,
 				BA14E6A91A2EC2A200C66920 /* HRSelectProfileViewController.m in Sources */,
 				BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */,
-				0345156D1A2C08DD008E091D /* ELCOverlayImageView.m in Sources */,
 				BAB71A221A2EFE13004327D6 /* HRCreateProfileViewController.m in Sources */,
+				BAD3436E1A3126FC00F87035 /* AGIPCAssetsController.m in Sources */,
 				0361C23F1A300E070027F2E3 /* HRFlickr.m in Sources */,
+				BAD343721A3126FC00F87035 /* ALAsset+AGIPC.m in Sources */,
 				BAD343091A3022A100F87035 /* HRAccountImageCell.m in Sources */,
-				BA14E66E1A2EAEEF00C66920 /* HRAbstractAccount.m in Sources */,
-				0345156A1A2C08DD008E091D /* ELCImagePickerController.m in Sources */,
 				0345157C1A2C094C008E091D /* HRAlbum.m in Sources */,
 				0361C2431A300F3B0027F2E3 /* HRDropbox.m in Sources */,
-				034515691A2C08DD008E091D /* ELCConsole.m in Sources */,
-				034515681A2C08DD008E091D /* ELCAssetTablePicker.m in Sources */,
-				034515661A2C08DD008E091D /* ELCAsset.m in Sources */,
+				BAD3436C1A3126FC00F87035 /* AGImagePickerController.m in Sources */,
+				BAD343711A3126FC00F87035 /* AGIPCToolbarItem.m in Sources */,
+				BAD3436F1A3126FC00F87035 /* AGIPCGridCell.m in Sources */,
 				0345151C1A2C0632008E091D /* AppDelegate.m in Sources */,
-				032743AE1A30D9A5004F7252 /* HRAuthWebViewController.m in Sources */,
-				0345151F1A2C0632008E091D /* HRProfileDetailViewController.m in Sources */,
+				BAD343701A3126FC00F87035 /* AGIPCGridItem.m in Sources */,
+				BAD3436D1A3126FC00F87035 /* AGIPCAlbumsController.m in Sources */,
 				033106AA1A312B8300F31199 /* HRUploadProgressViewController.m in Sources */,
-				0345156C1A2C08DD008E091D /* ELCImagePickerDemoViewController.m in Sources */,
 				033106A71A31281F00F31199 /* NSString_Extra.m in Sources */,
 				034515191A2C0632008E091D /* main.m in Sources */,
 			);
