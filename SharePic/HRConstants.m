@@ -60,3 +60,5 @@ NSString *const HRClose = @"Close";
 NSString *const HRError = @"Error";
 NSString *const HROk = @"Ok";
 
+NSString *const HRDateTimeFormat = @"MM-dd-yy_HH:mm";
+

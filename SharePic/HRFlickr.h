@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "HRAbstractAccount.h"
 
 
-@interface HRFlickr : NSObject
+@interface HRFlickr : HRAbstractAccount
 
 + (id)sharedFlickr;
-- (BOOL)isLoggedIn;
-- (void)loginWithController:(UIViewController *)viewController;
 - (void)completeLoginWithURL:(NSURL *)url;
-- (void)logout;
+
 @end

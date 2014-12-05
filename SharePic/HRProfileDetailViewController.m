@@ -8,6 +8,8 @@
 
 #import "HRProfileDetailViewController.h"
 #import "AGIPCToolbarItem.h"
+#import "HRFlickr.h"
+#import "HRDropbox.h"
 #define HRImageViewTag 100
 #define HRAccountImageViewTag 101
 #define HRTableViewRows 2
@@ -18,7 +20,7 @@
     NSMutableArray *selectedPhotos;
 }
 @property (nonatomic, retain) FKImageUploadNetworkOperation *uploadOp;
-@property (nonatomic, strong) DBRestClient *restClient;
+
 @end
 
 @implementation HRProfileDetailViewController
@@ -34,8 +36,6 @@
     _gridView.delegate = self;
     _accountImageView.delegate = self;
     _albumDescriptionTable.scrollEnabled = NO;
-    self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
-    self.restClient.delegate = self;
 }
 
 - (void)setProfile:(id)profile {
@@ -148,11 +148,8 @@
     } else {
         HRAccountImageCell *cell = (HRAccountImageCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRAccountCell forIndexPath:indexPath];
         UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRAccountImageViewTag];
-        NSMutableArray *accounts = [[NSMutableArray alloc]init];
-        for (int i = 0; i < _currentProfile.accounts.count; i++) {
-            [accounts addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[_currentProfile.accounts objectAtIndex:i]]]];
-        }
-        imageView.image = [accounts objectAtIndex:indexPath.row];
+        NSString *imageName = [_currentProfile.accounts[indexPath.row] imageName];
+        imageView.image = [UIImage imageNamed:imageName];
         return cell;
     }
     return nil;
@@ -253,38 +250,10 @@
 #pragma mark IBActions
 
 - (IBAction)uploadButtonPressed:(id)sender {
-    if (![_currentAlbum.name length] == 0 && ![_currentAlbum.albumDescription length] == 0) {
-        NSLog(@"%@",_currentAlbum.name);
-        NSLog(@"%@",_currentAlbum.albumDescription);
-        
-        //int imageNumber = 0;
-        /*
-         for (UIImage *image in [_currentAlbum photos]) {
-         NSString *imageTitle = [NSString stringWithFormat:@"Image %d", ++imageNumber];
-         NSDictionary *uploadArgs = @{@"title": imageTitle, @"description": @"A Photo via Share-a-Pic App", @"is_public": @"0", @"is_friend": @"0", @"is_family": @"0", @"hidden": @"2"};
-         
-         self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:image args:uploadArgs completion:^(NSString *imageID, NSError *error) {
-         if (error) {
-         NSLog(@"Could not upload");
-         } else {
-         NSString *msg = [NSString stringWithFormat:@"Uploaded image ID %@", imageID];
-         NSLog(@"%@ uploaded", msg);
-         }
-         }];
-         }*/
-        NSData *data = UIImagePNGRepresentation([[_currentAlbum photos] objectAtIndex:0]);
-        NSString *filename = @"upload.png";
-        //NSString *text = @"Hello world.";
-        //NSString *filename = @"working-draft.txt";
-        NSString *localDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-        NSString *localPath = [localDir stringByAppendingPathComponent:filename];
-        //[text writeToFile:localPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
-        [data writeToFile:localPath atomically:YES];
-        NSLog(@"%@",localPath);
-        // Upload file to Dropbox
-        NSString *destDir = @"/";
-        [self.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:localPath];
+    if ([_currentAlbum.name length] != 0 && [_currentAlbum.albumDescription length] != 0) {
+        for (HRAbstractAccount *account in _currentProfile.accounts) {
+            [account uploadPhotos:[_currentAlbum photos]];
+        }
     }
 }
-
 @end

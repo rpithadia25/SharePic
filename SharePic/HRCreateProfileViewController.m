@@ -33,7 +33,7 @@
     _profile = [[HRProfile alloc]init];
     _profileNameField.delegate = self;
     _tableView.allowsMultipleSelection = YES;
-    supportedAccounts = [HRAccount supportedAccounts];
+    supportedAccounts = [HRAbstractAccount supportedAccounts];
     _selectedAccounts = [[NSMutableArray alloc]init];
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonPressed)];
     self.navigationItem.rightBarButtonItem = saveButton;
@@ -92,7 +92,7 @@
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HRProfileNameCellIdentifier];
-        cell.textLabel.text = supportedAccounts[indexPath.row];
+        cell.textLabel.text = [supportedAccounts[indexPath.row] description];
         return cell;
     }
 }
@@ -122,15 +122,5 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
