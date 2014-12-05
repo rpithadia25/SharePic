@@ -14,7 +14,7 @@
 #define HRCollectionViewSections 1
 
 @interface HRProfileDetailViewController () {
-    AGImagePickerController *ipc;
+    AGImagePickerController *imagePicker;
     NSMutableArray *selectedPhotos;
 }
 @property (nonatomic, retain) FKImageUploadNetworkOperation *uploadOp;
@@ -34,10 +34,8 @@
     _gridView.delegate = self;
     _accountImageView.delegate = self;
     _albumDescriptionTable.scrollEnabled = NO;
-
     self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
     self.restClient.delegate = self;
-    
 }
 
 - (void)setProfile:(id)profile {
@@ -71,11 +69,10 @@
         [v removeFromSuperview];
     }
 
-    for(ALAsset *asset in info)
-    {
-        ALAssetRepresentation *rep = [asset defaultRepresentation];
-        UIImage *img = [UIImage imageWithCGImage:[rep fullResolutionImage]];
-        [images addObject:[self compressForUpload:img :0.5]];
+    for(ALAsset *asset in info) {
+        ALAssetRepresentation *representation = [asset defaultRepresentation];
+        UIImage *image = [UIImage imageWithCGImage:[representation fullResolutionImage]];
+        [images addObject:[self compressForUpload:image :0.5]];
         [cell.patternImageView setContentMode:UIViewContentModeScaleAspectFit];
         cell.patternImageView.frame = workingFrame;
         [_gridView addSubview:cell.patternImageView];
@@ -87,8 +84,7 @@
     [_gridView reloadData];
 }
 
-- (UIImage *)compressForUpload:(UIImage *)original :(CGFloat)scale
-{
+- (UIImage *)compressForUpload:(UIImage *)original :(CGFloat)scale {
     // Calculate new size given scale factor.
     CGSize originalSize = original.size;
     CGSize newSize = CGSizeMake(originalSize.width * scale, originalSize.height * scale);
@@ -104,14 +100,14 @@
 
 - (IBAction)launchPicker {
     
-    ipc = [[AGImagePickerController alloc]initWithDelegate:self];
+    imagePicker = [[AGImagePickerController alloc]initWithDelegate:self];
     //TODO: For denoting maximum image count reached, try for buzzing(hmmm) effect.
-    ipc.maximumNumberOfPhotosToBeSelected = HRMaximumImageCount;
-    [self presentViewController:ipc animated:YES completion:nil];
+    imagePicker.maximumNumberOfPhotosToBeSelected = HRMaximumImageCount;
+    [self presentViewController:imagePicker animated:YES completion:nil];
     // Show saved photos on top
-    ipc.shouldShowSavedPhotosOnTop = NO;
-    ipc.shouldChangeStatusBarStyle = YES;
-    ipc.selection = _currentAlbum.photos;
+    imagePicker.shouldShowSavedPhotosOnTop = NO;
+    imagePicker.shouldChangeStatusBarStyle = YES;
+    imagePicker.selection = _currentAlbum.photos;
     
     // Custom toolbar items
     AGIPCToolbarItem *selectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"+ Select All" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
@@ -124,7 +120,7 @@
     AGIPCToolbarItem *deselectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"- Deselect All" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
         return NO;
     }];
-    ipc.toolbarItemsForManagingTheSelection = @[selectAll, flexible, selectOdd, flexible, deselectAll];
+    imagePicker.toolbarItemsForManagingTheSelection = @[selectAll, flexible, selectOdd, flexible, deselectAll];
     
 }
 
@@ -150,7 +146,6 @@
         imageView.image = [_currentAlbum.photos objectAtIndex:indexPath.row];
         return cell;
     } else {
-        
         HRAccountImageCell *cell = (HRAccountImageCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRAccountCell forIndexPath:indexPath];
         UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRAccountImageViewTag];
         NSMutableArray *accounts = [[NSMutableArray alloc]init];
@@ -208,7 +203,6 @@
     } else {
         cell.textLabel.text = HRAlbumDescription;
     }
-    
     if ([cell.textLabel.text isEqualToString:HRAlbumName]) {
         cell.detailTextLabel.text = _currentAlbum.name;
     }
@@ -237,7 +231,7 @@
 -(void) saveTextFields: (UITextField *) textField {
     if (textField.tag == 0) {
         _currentAlbum.name = textField.text;
-    }else{
+    } else {
         _currentAlbum.albumDescription = textField.text;
     }
 }
@@ -253,9 +247,7 @@
 }
 
 - (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath {
-    
     NSLog(@"%.2f",progress); //Correct way to visualice the float
-    
 }
 
 #pragma mark IBActions
@@ -280,7 +272,6 @@
          }
          }];
          }*/
-        
         NSData *data = UIImagePNGRepresentation([[_currentAlbum photos] objectAtIndex:0]);
         NSString *filename = @"upload.png";
         //NSString *text = @"Hello world.";
