@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		032743AE1A30D9A5004F7252 /* HRAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */; };
 		032743AF1A30D9A5004F7252 /* HRAuthWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */; };
 		033106A71A31281F00F31199 /* NSString_Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 033106A61A31281F00F31199 /* NSString_Extra.m */; };
 		033106AA1A312B8300F31199 /* HRUploadProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033106A91A312B8300F31199 /* HRUploadProgressViewController.m */; };
 		033F55A21A2C2D4700E35E87 /* libFlickrKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 033F559F1A2C2D3200E35E87 /* libFlickrKit.a */; };
 		034515191A2C0632008E091D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515181A2C0632008E091D /* main.m */; };
 		0345151C1A2C0632008E091D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151B1A2C0632008E091D /* AppDelegate.m */; };
-		0345151F1A2C0632008E091D /* HRProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */; };
 		034515251A2C0632008E091D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034515231A2C0632008E091D /* Main.storyboard */; };
 		034515271A2C0632008E091D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034515261A2C0632008E091D /* Images.xcassets */; };
 		0345152A1A2C0632008E091D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034515281A2C0632008E091D /* LaunchScreen.xib */; };
@@ -31,8 +29,9 @@
 		03E8812A1A2E8FAF0072ADC3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E881291A2E8FAF0072ADC3 /* Security.framework */; };
 		03E8812C1A2E8FC30072ADC3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E8812B1A2E8FC30072ADC3 /* QuartzCore.framework */; };
 		BA14E66A1A2EAC3700C66920 /* HRProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6691A2EAC3700C66920 /* HRProfile.m */; };
-		BA14E66E1A2EAEEF00C66920 /* HRAbstractAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E66D1A2EAEEF00C66920 /* HRAbstractAccount.m */; };
 		BA14E6A91A2EC2A200C66920 /* HRSelectProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */; };
+		BA18653A1A3234CD003A2E8B /* HRAbstractAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E66D1A2EAEEF00C66920 /* HRAbstractAccount.m */; };
+		BA18653B1A3234E2003A2E8B /* HRAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */; };
 		BAB71A221A2EFE13004327D6 /* HRCreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */; };
 		BAD343001A30201500F87035 /* Flickr.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD342FF1A30201500F87035 /* Flickr.png */; };
 		BAD343031A30201C00F87035 /* Dropbox.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD343021A30201C00F87035 /* Dropbox.png */; };
@@ -47,6 +46,7 @@
 		BAD343701A3126FC00F87035 /* AGIPCGridItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343651A3126FC00F87035 /* AGIPCGridItem.m */; };
 		BAD343711A3126FC00F87035 /* AGIPCToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343671A3126FC00F87035 /* AGIPCToolbarItem.m */; };
 		BAD343721A3126FC00F87035 /* ALAsset+AGIPC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD343691A3126FC00F87035 /* ALAsset+AGIPC.m */; };
+		BADBB6591A3237D7001DF66A /* HRProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,15 +213,11 @@
 			isa = PBXGroup;
 			children = (
 				BAD343571A3126FC00F87035 /* AGImagePickerController */,
-				034515791A2C0938008E091D /* Classes */,
 				0345151A1A2C0632008E091D /* AppDelegate.h */,
 				0345151B1A2C0632008E091D /* AppDelegate.m */,
 				034515791A2C0938008E091D /* Classes */,
 				BAD343071A3022A100F87035 /* HRAccountImageCell.h */,
 				BAD343081A3022A100F87035 /* HRAccountImageCell.m */,
-				032743AB1A30D9A5004F7252 /* HRAuthWebViewController.h */,
-				032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */,
-				032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */,
 				034515801A2C0EA1008E091D /* HRConstants.h */,
 				034515811A2C0EA1008E091D /* HRConstants.m */,
 				BAB71A201A2EFE13004327D6 /* HRCreateProfileViewController.h */,
@@ -231,9 +227,6 @@
 				032743AB1A30D9A5004F7252 /* HRAuthWebViewController.h */,
 				032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */,
 				032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */,
-				034515231A2C0632008E091D /* Main.storyboard */,
-				034515261A2C0632008E091D /* Images.xcassets */,
-				034515281A2C0632008E091D /* LaunchScreen.xib */,
 				0345151D1A2C0632008E091D /* HRProfileDetailViewController.h */,
 				0345151E1A2C0632008E091D /* HRProfileDetailViewController.m */,
 				BA14E6A71A2EC2A200C66920 /* HRSelectProfileViewController.h */,
@@ -242,13 +235,11 @@
 				0361C23A1A2FFC4E0027F2E3 /* HRSettingsViewController.m */,
 				033106A81A312B8300F31199 /* HRUploadProgressViewController.h */,
 				033106A91A312B8300F31199 /* HRUploadProgressViewController.m */,
-				0345154F1A2C08A8008E091D /* ImagePicker */,
 				034515261A2C0632008E091D /* Images.xcassets */,
 				034515281A2C0632008E091D /* LaunchScreen.xib */,
 				034515231A2C0632008E091D /* Main.storyboard */,
 				033106A41A31277E00F31199 /* NSString_Extra.h */,
 				033106A61A31281F00F31199 /* NSString_Extra.m */,
-
 				034515161A2C0632008E091D /* Supporting Files */,
 			);
 			path = SharePic;
@@ -456,6 +447,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BADBB6591A3237D7001DF66A /* HRProfileDetailViewController.m in Sources */,
+				BA18653B1A3234E2003A2E8B /* HRAuthWebViewController.m in Sources */,
+				BA18653A1A3234CD003A2E8B /* HRAbstractAccount.m in Sources */,
 				0361C23B1A2FFC4E0027F2E3 /* HRSettingsViewController.m in Sources */,
 				BAD3436A1A3126FC00F87035 /* AGImagePickerController+Helper.m in Sources */,
 				0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */,
@@ -467,20 +461,14 @@
 				0361C23F1A300E070027F2E3 /* HRFlickr.m in Sources */,
 				BAD343721A3126FC00F87035 /* ALAsset+AGIPC.m in Sources */,
 				BAD343091A3022A100F87035 /* HRAccountImageCell.m in Sources */,
-				BA14E66E1A2EAEEF00C66920 /* HRAccount.m in Sources */,
 				0345157C1A2C094C008E091D /* HRAlbum.m in Sources */,
 				0361C2431A300F3B0027F2E3 /* HRDropbox.m in Sources */,
 				BAD3436C1A3126FC00F87035 /* AGImagePickerController.m in Sources */,
 				BAD343711A3126FC00F87035 /* AGIPCToolbarItem.m in Sources */,
 				BAD3436F1A3126FC00F87035 /* AGIPCGridCell.m in Sources */,
 				0345151C1A2C0632008E091D /* AppDelegate.m in Sources */,
-				032743AE1A30D9A5004F7252 /* HRAuthWebViewController.m in Sources */,
-				0345151F1A2C0632008E091D /* HRProfileDetailViewController.m in Sources */,
 				BAD343701A3126FC00F87035 /* AGIPCGridItem.m in Sources */,
 				BAD3436D1A3126FC00F87035 /* AGIPCAlbumsController.m in Sources */,
-				BA14E66E1A2EAEEF00C66920 /* HRAbstractAccount.m in Sources */,
-				032743AE1A30D9A5004F7252 /* HRAuthWebViewController.m in Sources */,
-				0345151F1A2C0632008E091D /* HRProfileDetailViewController.m in Sources */,
 				033106AA1A312B8300F31199 /* HRUploadProgressViewController.m in Sources */,
 				033106A71A31281F00F31199 /* NSString_Extra.m in Sources */,
 				034515191A2C0632008E091D /* main.m in Sources */,
