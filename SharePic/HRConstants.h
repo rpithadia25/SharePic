@@ -68,3 +68,5 @@ NSString *const HRImagePickerAlertCancelButton;
 NSString *const HRProfileNameEncodeKey;
 NSString *const HRAccountsEncodeKey;
 
+NSString *const HRSettingsTitle;
+
