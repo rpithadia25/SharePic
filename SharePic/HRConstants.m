@@ -10,14 +10,7 @@
 #import "HRConstants.h"
 
 
-NSString *const HRAlbumName = @"Album Name";
-NSString *const HRAlbumDescription = @"Description";
-
 NSString *const HRPatternCell = @"HRPatternCell";
-NSString *const HRAlbumDescriptionCell = @"HRAlbumDescriptionCell";
-
-NSString *const HRAlbumNamePlaceholder = @"Enter Album Name";
-NSString *const HRAlbumDescriptionPlaceholder = @"Enter Description";
 
 NSString *const HRAppName = @"SharePic";
 NSString *const HRFlickrApiKey = @"500422a15f9a413791a73c123d219b2a";
@@ -68,4 +61,11 @@ NSString *const HRUploadingTitle = @"Uploading...";
 NSString *const HRUploadProgressCellIdentifier = @"UploadProgressCell";
 
 NSString *const HRUploadProgressCellNib = @"HRUploadProgressTableViewCell";
+
+NSString *const HRImagePickerAlertMessage = @"Please select only %lu images";
+NSString *const HRImagePickerAlertTitle = @"Cannot select image";
+NSString *const HRImagePickerAlertCancelButton = @"Okay";
+
+NSString *const HRProfileNameEncodeKey = @"profileName";
+NSString *const HRAccountsEncodeKey = @"accounts";
 

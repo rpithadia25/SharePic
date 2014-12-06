@@ -15,15 +15,13 @@
 #import "HRAccountImageCell.h"
 #import "AGImagePickerController.h"
 
-@interface HRProfileDetailViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, AGImagePickerControllerDelegate>
+@interface HRProfileDetailViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITextFieldDelegate, AGImagePickerControllerDelegate>
 
 @property HRProfile                                     *currentProfile;
 @property HRAlbum                                       *currentAlbum;
 @property (strong, nonatomic) IBOutlet UICollectionView *gridView;
-@property (strong, nonatomic) IBOutlet UITableView      *albumDescriptionTable;
 @property (strong, nonatomic) IBOutlet UICollectionView *accountImageView;
 @property (strong, nonatomic) IBOutlet UIButton         *selectImagesButton;
-
 - (IBAction)launchPicker;
 - (IBAction)uploadButtonPressed:(id)sender;
 

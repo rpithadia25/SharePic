@@ -8,16 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-
-NSString *const HRAlbumName;
-NSString *const HRAlbumDescription;
-
 NSString *const HRPatternCell;
 NSString *const HRProfileCell;
-NSString *const HRAlbumDescriptionCell;
-
-NSString *const HRAlbumNamePlaceholder;
-NSString *const HRAlbumDescriptionPlaceholder;
 
 NSString *const HRAppName;
 
@@ -64,4 +56,15 @@ NSString *const HRDateTimeFormat;
 NSString *const HRUploadingTitle;
 NSString *const HRUploadProgressCellIdentifier;
 NSString *const HRUploadProgressCellNib;
+
+NSString *const HRImagePickerAlertMessage;
+NSString *const HRImagePickerAlertTitle;
+NSString *const HRImagePickerAlertCancelButton;
+
+NSString *const HRImagePickerAlertMessage;
+NSString *const HRImagePickerAlertTitle;
+NSString *const HRImagePickerAlertCancelButton;
+
+NSString *const HRProfileNameEncodeKey;
+NSString *const HRAccountsEncodeKey;
 

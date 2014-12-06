@@ -48,4 +48,17 @@
     mustOverride();
 }
 
+#pragma mark User Defaults Encoder
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self forKey:[self description]];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties, other class vars
+        self = [decoder decodeObjectForKey:[self description]];
+    }
+    return self;
+}
+
 @end

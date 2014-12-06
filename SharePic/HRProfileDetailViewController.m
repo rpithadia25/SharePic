@@ -26,7 +26,6 @@
 @implementation HRProfileDetailViewController
 @synthesize currentAlbum = _currentAlbum;
 @synthesize gridView = _gridView;
-@synthesize albumDescriptionTable = _albumDescriptionTable;
 @synthesize currentProfile = _currentProfile;
 @synthesize accountImageView = _accountImageView;
 
@@ -35,7 +34,6 @@
     _currentAlbum = [HRAlbum new];
     _gridView.delegate = self;
     _accountImageView.delegate = self;
-    _albumDescriptionTable.scrollEnabled = NO;
 }
 
 - (void)setProfile:(id)profile {
@@ -84,6 +82,10 @@
     [_gridView reloadData];
 }
 
+-(void)agImagePickerController:(AGImagePickerController *)picker didFail:(NSError *)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (UIImage *)compressForUpload:(UIImage *)original :(CGFloat)scale {
     // Calculate new size given scale factor.
     CGSize originalSize = original.size;
@@ -101,27 +103,17 @@
 - (IBAction)launchPicker {
     
     imagePicker = [[AGImagePickerController alloc]initWithDelegate:self];
-    //TODO: For denoting maximum image count reached, try for buzzing(hmmm) effect.
+    //TODO: For denoting maximum image count reached, try for buzzing(hmmm) effect. Added Alert View for now.
     imagePicker.maximumNumberOfPhotosToBeSelected = HRMaximumImageCount;
     [self presentViewController:imagePicker animated:YES completion:nil];
     // Show saved photos on top
     imagePicker.shouldShowSavedPhotosOnTop = NO;
     imagePicker.shouldChangeStatusBarStyle = YES;
     imagePicker.selection = _currentAlbum.photos;
-    
-    // Custom toolbar items
-    AGIPCToolbarItem *selectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"+ Select All" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
-        return YES;
-    }];
-    AGIPCToolbarItem *flexible = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] andSelectionBlock:nil];
-    AGIPCToolbarItem *selectOdd = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"+ Select Odd" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
-        return !(index % 2);
-    }];
     AGIPCToolbarItem *deselectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"- Deselect All" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
         return NO;
     }];
-    imagePicker.toolbarItemsForManagingTheSelection = @[selectAll, flexible, selectOdd, flexible, deselectAll];
-    
+    imagePicker.toolbarItemsForManagingTheSelection = @[deselectAll];
 }
 
 #pragma mark Collection View Methods
@@ -236,9 +228,8 @@
 #pragma mark IBActions
 
 - (IBAction)uploadButtonPressed:(id)sender {
-    if ([_currentAlbum.name length] != 0 && [_currentAlbum.albumDescription length] != 0) {
+    if ([_currentAlbum.photos count] != 0) {
         HRUploadProgressViewController *progressUpdateViewController = [[UIStoryboard storyboardWithName:HRStoryboardMain bundle:nil] instantiateViewControllerWithIdentifier:HRUploadPregressStoryboardIdentifier];
-
         for (HRAbstractAccount *account in _currentProfile.accounts) {
             [account uploadPhotos:[_currentAlbum photos]];
             [account setDelegate:progressUpdateViewController];
