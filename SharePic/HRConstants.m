@@ -62,3 +62,7 @@ NSString *const HROk = @"Ok";
 
 NSString *const HRDateTimeFormat = @"MM-dd-yy_HH:mm";
 
+NSString *const HRImagePickerAlertMessage = @"Please select only %lu images";
+NSString *const HRImagePickerAlertTitle = @"Cannot select image";
+NSString *const HRImagePickerAlertCancelButton = @"Okay";
+

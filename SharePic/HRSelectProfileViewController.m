@@ -22,6 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedProfiles = [defaults objectForKey:HRUserDefaultsKey];
+    NSMutableArray *profilesData = [NSKeyedUnarchiver unarchiveObjectWithData:encodedProfiles];
+    _profiles = [NSMutableArray arrayWithArray:profilesData];
+    
     self.navigationItem.backBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:HRBackButtonLabel
                                      style:UIBarButtonItemStylePlain
@@ -50,7 +55,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HRProfileCell forIndexPath:indexPath];
     
     HRProfile *profile = _profiles[indexPath.row];
-    cell.textLabel.text = [profile profileName];
+    if ([profile profileName]) {
+        cell.textLabel.text = [profile profileName];
+    }
     return cell;
 }
 
@@ -82,6 +89,7 @@
         _profiles = [[NSMutableArray alloc] init];
     }
     [_profiles insertObject:profile atIndex:0];
+    [self saveUserDefaults];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -102,6 +110,16 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         [[segue destinationViewController] setProfile:_profiles[indexPath.row]];
     }
+}
+
+#pragma mark Save User Defaults
+
+-(void) saveUserDefaults {
+
+    NSData *encodedProfiles = [NSKeyedArchiver archivedDataWithRootObject:_profiles];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedProfiles forKey:HRUserDefaultsKey];
+    [defaults synchronize];
 }
 
 @end

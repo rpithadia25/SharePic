@@ -10,7 +10,7 @@
 //  
 
 #import "AGIPCGridItem.h"
-
+#import "HRConstants.h"
 
 #import "AGImagePickerController+Helper.h"
 
@@ -53,8 +53,11 @@ static NSUInteger numberOfSelectedGridItems = 0;
                 // Check if we can select
                 if ([self.delegate respondsToSelector:@selector(agGridItemCanSelect:)])
                 {
-                    if (![self.delegate agGridItemCanSelect:self])
+                    if (![self.delegate agGridItemCanSelect:self]) {
+                        UIAlertView *maximumImageCountalert = [[UIAlertView alloc]initWithTitle:HRImagePickerAlertTitle message:[NSString stringWithFormat:HRImagePickerAlertMessage, (unsigned long)self.imagePickerController.maximumNumberOfPhotosToBeSelected]  delegate:nil cancelButtonTitle:HRImagePickerAlertCancelButton otherButtonTitles:nil, nil];
+                        [maximumImageCountalert show];
                         return;
+                    }
                 }
             }
             

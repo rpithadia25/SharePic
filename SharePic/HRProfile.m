@@ -10,4 +10,17 @@
 
 @implementation HRProfile
 
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:self.profileName forKey:@"profileName"];
+    [aCoder encodeObject:self.accounts forKey:@"accounts"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    if(self = [super init]){
+        self.profileName = [aDecoder decodeObjectForKey:@"profileName"];
+        self.accounts = [aDecoder decodeObjectForKey:@"accounts"];
+    }
+    return self;
+}
+
 @end
