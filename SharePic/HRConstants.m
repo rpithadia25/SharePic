@@ -66,3 +66,6 @@ NSString *const HRImagePickerAlertMessage = @"Please select only %lu images";
 NSString *const HRImagePickerAlertTitle = @"Cannot select image";
 NSString *const HRImagePickerAlertCancelButton = @"Okay";
 
+NSString *const HRProfileNameEncodeKey = @"profileName";
+NSString *const HRAccountsEncodeKey = @"accounts";
+

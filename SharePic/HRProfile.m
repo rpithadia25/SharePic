@@ -7,18 +7,19 @@
 //
 
 #import "HRProfile.h"
+#import "HRConstants.h"
 
 @implementation HRProfile
 
 - (void)encodeWithCoder:(NSCoder *)aCoder{
-    [aCoder encodeObject:self.profileName forKey:@"profileName"];
-    [aCoder encodeObject:self.accounts forKey:@"accounts"];
+    [aCoder encodeObject:self.profileName forKey:HRProfileNameEncodeKey];
+    [aCoder encodeObject:self.accounts forKey:HRAccountsEncodeKey];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
     if(self = [super init]){
-        self.profileName = [aDecoder decodeObjectForKey:@"profileName"];
-        self.accounts = [aDecoder decodeObjectForKey:@"accounts"];
+        self.profileName = [aDecoder decodeObjectForKey:HRProfileNameEncodeKey];
+        self.accounts = [aDecoder decodeObjectForKey:HRAccountsEncodeKey];
     }
     return self;
 }

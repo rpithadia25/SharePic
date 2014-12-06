@@ -105,16 +105,6 @@
 - (IBAction)launchPicker {
     
     imagePicker = [[AGImagePickerController alloc]initWithDelegate:self];
-
-//    imagePicker.didFailBlock = ^(NSError *error) {
-//        NSLog(@"Fail. Error: %@", error);
-//        
-//        if (error == nil) {
-//            [blockSelf.selectedPhotos removeAllObjects];
-//            NSLog(@"User has cancelled.");
-//            
-//            [blockSelf dismissModalViewControllerAnimated:YES];
-//        }
     //TODO: For denoting maximum image count reached, try for buzzing(hmmm) effect. Added Alert View for now.
     imagePicker.maximumNumberOfPhotosToBeSelected = HRMaximumImageCount;
     [self presentViewController:imagePicker animated:YES completion:nil];
@@ -122,14 +112,10 @@
     imagePicker.shouldShowSavedPhotosOnTop = NO;
     imagePicker.shouldChangeStatusBarStyle = YES;
     imagePicker.selection = _currentAlbum.photos;
-    
-    
-    
     AGIPCToolbarItem *deselectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"- Deselect All" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
         return NO;
     }];
     imagePicker.toolbarItemsForManagingTheSelection = @[deselectAll];
-    
 }
 
 #pragma mark Collection View Methods
