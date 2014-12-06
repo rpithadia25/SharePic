@@ -56,9 +56,16 @@ NSString *const HRAccountCell = @"HRAccountImageCell";
 NSString *const HRSettingsCellIdentifier = @"SettingsCellIdentifier";
 NSString *const HRSettingsStoryboardIdentifier = @"SettingsIdentifier";
 
+NSString *const HRUploadPregressStoryboardIdentifier = @"UploadProgress";
+
 NSString *const HRClose = @"Close";
 NSString *const HRError = @"Error";
 NSString *const HROk = @"Ok";
 
 NSString *const HRDateTimeFormat = @"MM-dd-yy_HH:mm";
+
+NSString *const HRUploadingTitle = @"Uploading...";
+NSString *const HRUploadProgressCellIdentifier = @"UploadProgressCell";
+
+NSString *const HRUploadProgressCellNib = @"HRUploadProgressTableViewCell";
 

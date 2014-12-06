@@ -10,17 +10,17 @@
 #import "AGIPCToolbarItem.h"
 #import "HRFlickr.h"
 #import "HRDropbox.h"
-#define HRImageViewTag 100
-#define HRAccountImageViewTag 101
-#define HRTableViewRows 2
-#define HRCollectionViewSections 1
+#import "HRUploadProgressViewController.h"
+
+#define kHRImageViewTag 100
+#define kHRAccountImageViewTag 101
+#define kHRTableViewRows 2
+#define kHRCollectionViewSections 1
 
 @interface HRProfileDetailViewController () {
     AGImagePickerController *imagePicker;
     NSMutableArray *selectedPhotos;
 }
-@property (nonatomic, retain) FKImageUploadNetworkOperation *uploadOp;
-
 @end
 
 @implementation HRProfileDetailViewController
@@ -127,7 +127,7 @@
 #pragma mark Collection View Methods
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return HRCollectionViewSections;
+    return kHRCollectionViewSections;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -142,12 +142,12 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if(collectionView == _gridView) {
         HRPatternViewCell *cell = (HRPatternViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRPatternCell forIndexPath:indexPath];
-        UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRImageViewTag];
+        UIImageView *imageView = (UIImageView *) [cell viewWithTag:kHRImageViewTag];
         imageView.image = [_currentAlbum.photos objectAtIndex:indexPath.row];
         return cell;
     } else {
         HRAccountImageCell *cell = (HRAccountImageCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRAccountCell forIndexPath:indexPath];
-        UIImageView *imageView = (UIImageView *) [cell viewWithTag:HRAccountImageViewTag];
+        UIImageView *imageView = (UIImageView *) [cell viewWithTag:kHRAccountImageViewTag];
         NSString *imageName = [_currentProfile.accounts[indexPath.row] imageName];
         imageView.image = [UIImage imageNamed:imageName];
         return cell;
@@ -158,7 +158,7 @@
 #pragma mark Album Table View
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return HRTableViewRows;
+    return kHRTableViewRows;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -233,27 +233,20 @@
     }
 }
 
-#pragma mark Dropbox upload call back methods
-- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
-              from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
-    NSLog(@"File uploaded successfully to path: %@", metadata.path);
-}
-
-- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
-    NSLog(@"File upload failed with error: %@", error);
-}
-
-- (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath {
-    NSLog(@"%.2f",progress); //Correct way to visualice the float
-}
-
 #pragma mark IBActions
 
 - (IBAction)uploadButtonPressed:(id)sender {
     if ([_currentAlbum.name length] != 0 && [_currentAlbum.albumDescription length] != 0) {
+        HRUploadProgressViewController *progressUpdateViewController = [[UIStoryboard storyboardWithName:HRStoryboardMain bundle:nil] instantiateViewControllerWithIdentifier:HRUploadPregressStoryboardIdentifier];
+
         for (HRAbstractAccount *account in _currentProfile.accounts) {
             [account uploadPhotos:[_currentAlbum photos]];
+            [account setDelegate:progressUpdateViewController];
         }
+        
+        [progressUpdateViewController setCurrentProfile:_currentProfile];
+        [progressUpdateViewController setImageCount:[[_currentAlbum photos] count]];
+        [self.navigationController pushViewController:progressUpdateViewController animated:YES];
     }
 }
 @end

@@ -8,16 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/UTCoreTypes.h>
-#import <DropboxSDK/DropboxSDK.h>
 #import "HRAlbum.h"
 #import "HRPatternViewCell.h"
 #import "HRConstants.h"
-#include "FlickrKit.h"
 #import "HRProfile.h"
 #import "HRAccountImageCell.h"
 #import "AGImagePickerController.h"
 
-@interface HRProfileDetailViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, DBRestClientDelegate, AGImagePickerControllerDelegate>
+@interface HRProfileDetailViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, AGImagePickerControllerDelegate>
 
 @property HRProfile                                     *currentProfile;
 @property HRAlbum                                       *currentAlbum;

@@ -9,7 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@protocol HRUploadProgressNotificationDelegate <NSObject>
+- (void)imageUploadedToAccount:(NSString *)accountName;
+- (void)uploadCompleteToAccount:(NSString *)accountName;
+- (void)errorUploadingImageToAccount:(NSString *)accountName;
+@end
+
 @interface HRAbstractAccount : NSObject
+
+@property NSInteger totalImages;
+@property NSInteger uploadedImagesCount;
+@property id <HRUploadProgressNotificationDelegate> delegate;
+
 + (NSArray *) supportedAccounts;
 - (BOOL)isLoggedIn;
 - (void)loginWithController:(UIViewController *)viewController;
