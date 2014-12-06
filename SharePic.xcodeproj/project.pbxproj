@@ -32,6 +32,7 @@
 		BA14E6A91A2EC2A200C66920 /* HRSelectProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */; };
 		BA18653A1A3234CD003A2E8B /* HRAbstractAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14E66D1A2EAEEF00C66920 /* HRAbstractAccount.m */; };
 		BA18653B1A3234E2003A2E8B /* HRAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032743AC1A30D9A5004F7252 /* HRAuthWebViewController.m */; };
+		BA2B03D41A32E91D00D983DB /* Share.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2B03D31A32E91D00D983DB /* Share.png */; };
 		BAB71A221A2EFE13004327D6 /* HRCreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */; };
 		BAD343001A30201500F87035 /* Flickr.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD342FF1A30201500F87035 /* Flickr.png */; };
 		BAD343031A30201C00F87035 /* Dropbox.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD343021A30201C00F87035 /* Dropbox.png */; };
@@ -125,6 +126,7 @@
 		BA14E66D1A2EAEEF00C66920 /* HRAbstractAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAbstractAccount.m; sourceTree = "<group>"; };
 		BA14E6A71A2EC2A200C66920 /* HRSelectProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSelectProfileViewController.h; sourceTree = "<group>"; };
 		BA14E6A81A2EC2A200C66920 /* HRSelectProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSelectProfileViewController.m; sourceTree = "<group>"; };
+		BA2B03D31A32E91D00D983DB /* Share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Share.png; sourceTree = "<group>"; };
 		BAB71A201A2EFE13004327D6 /* HRCreateProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRCreateProfileViewController.h; sourceTree = "<group>"; };
 		BAB71A211A2EFE13004327D6 /* HRCreateProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRCreateProfileViewController.m; sourceTree = "<group>"; };
 		BAD342FF1A30201500F87035 /* Flickr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flickr.png; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		034515161A2C0632008E091D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BA2B03D31A32E91D00D983DB /* Share.png */,
 				BAD343191A30FDF200F87035 /* SelectImagesButtonImage.png */,
 				BAD343021A30201C00F87035 /* Dropbox.png */,
 				BAD342FF1A30201500F87035 /* Flickr.png */,
@@ -429,6 +432,7 @@
 				BAD3436B1A3126FC00F87035 /* AGImagePickerController.bundle in Resources */,
 				BAD343031A30201C00F87035 /* Dropbox.png in Resources */,
 				034515271A2C0632008E091D /* Images.xcassets in Resources */,
+				BA2B03D41A32E91D00D983DB /* Share.png in Resources */,
 				BAD343001A30201500F87035 /* Flickr.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
