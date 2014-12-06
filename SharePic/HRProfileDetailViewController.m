@@ -147,29 +147,6 @@
     return nil;
 }
 
-#pragma mark Touch methods
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField {
-    [self saveTextFields:textField];
-}
-
--(void) saveTextFields: (UITextField *) textField {
-    if (textField.tag == 0) {
-        _currentAlbum.name = textField.text;
-    } else {
-        _currentAlbum.albumDescription = textField.text;
-    }
-}
-
 #pragma mark Dropbox upload call back methods
 - (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
               from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
