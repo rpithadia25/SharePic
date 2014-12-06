@@ -17,6 +17,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor grayColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor blueColor]];
 }
 
 - (void)viewDidLoad {
