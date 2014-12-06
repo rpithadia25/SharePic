@@ -10,14 +10,7 @@
 #import "HRConstants.h"
 
 
-NSString *const HRAlbumName = @"Album Name";
-NSString *const HRAlbumDescription = @"Description";
-
 NSString *const HRPatternCell = @"HRPatternCell";
-NSString *const HRAlbumDescriptionCell = @"HRAlbumDescriptionCell";
-
-NSString *const HRAlbumNamePlaceholder = @"Enter Album Name";
-NSString *const HRAlbumDescriptionPlaceholder = @"Enter Description";
 
 NSString *const HRAppName = @"SharePic";
 NSString *const HRFlickrApiKey = @"500422a15f9a413791a73c123d219b2a";

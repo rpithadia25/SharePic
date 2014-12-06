@@ -26,7 +26,6 @@
 @implementation HRProfileDetailViewController
 @synthesize currentAlbum = _currentAlbum;
 @synthesize gridView = _gridView;
-@synthesize albumDescriptionTable = _albumDescriptionTable;
 @synthesize currentProfile = _currentProfile;
 @synthesize accountImageView = _accountImageView;
 
@@ -35,7 +34,6 @@
     _currentAlbum = [HRAlbum new];
     _gridView.delegate = self;
     _accountImageView.delegate = self;
-    _albumDescriptionTable.scrollEnabled = NO;
 }
 
 - (void)setProfile:(id)profile {
@@ -149,61 +147,6 @@
     return nil;
 }
 
-#pragma mark Album Table View
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return HRTableViewRows;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HRAlbumDescriptionCell];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:HRAlbumDescriptionCell];
-    }
-    
-    CGRect screenRect = [[UIScreen mainScreen]bounds];
-    
-    UITextField *albumDetailsTextField = [[UITextField alloc] initWithFrame:CGRectMake(150, 7, screenRect.size.width - 150, 30)];
-    
-    albumDetailsTextField.delegate = self;
-    
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    albumDetailsTextField.adjustsFontSizeToFitWidth = YES;
-    if ([indexPath row] == 0) {
-        albumDetailsTextField.placeholder = HRAlbumNamePlaceholder;
-        albumDetailsTextField.keyboardType = UIKeyboardTypeDefault;
-        albumDetailsTextField.returnKeyType = UIReturnKeyDone;
-        albumDetailsTextField.tag = 0;
-    }else{
-        albumDetailsTextField.placeholder = HRAlbumDescriptionPlaceholder;
-        albumDetailsTextField.keyboardType = UIKeyboardTypeDefault;
-        albumDetailsTextField.returnKeyType = UIReturnKeyDone;
-        albumDetailsTextField.tag = 1;
-    }
-    
-    albumDetailsTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-    albumDetailsTextField.clearButtonMode = UITextFieldViewModeAlways;
-    [albumDetailsTextField setEnabled:YES];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell.contentView addSubview:albumDetailsTextField];
-    
-    if (indexPath.row == 0) {
-        cell.textLabel.text = HRAlbumName;
-    } else {
-        cell.textLabel.text = HRAlbumDescription;
-    }
-    if ([cell.textLabel.text isEqualToString:HRAlbumName]) {
-        cell.detailTextLabel.text = _currentAlbum.name;
-    }
-    if ([cell.textLabel.text isEqualToString:HRAlbumDescription]) {
-        cell.detailTextLabel.text = _currentAlbum.albumDescription;
-    }
-    
-    return cell;
-}
-
 #pragma mark Touch methods
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -244,7 +187,7 @@
 #pragma mark IBActions
 
 - (IBAction)uploadButtonPressed:(id)sender {
-    if ([_currentAlbum.name length] != 0 && [_currentAlbum.albumDescription length] != 0 && [_currentAlbum.photos count] != 0) {
+    if ([_currentAlbum.photos count] != 0) {
         for (HRAbstractAccount *account in _currentProfile.accounts) {
             [account uploadPhotos:[_currentAlbum photos]];
         }
