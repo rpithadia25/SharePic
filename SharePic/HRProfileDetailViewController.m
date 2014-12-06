@@ -153,54 +153,6 @@
     return kHRTableViewRows;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HRAlbumDescriptionCell];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:HRAlbumDescriptionCell];
-    }
-    
-    CGRect screenRect = [[UIScreen mainScreen]bounds];
-    
-    UITextField *albumDetailsTextField = [[UITextField alloc] initWithFrame:CGRectMake(150, 7, screenRect.size.width - 150, 30)];
-    
-    albumDetailsTextField.delegate = self;
-    
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    albumDetailsTextField.adjustsFontSizeToFitWidth = YES;
-    if ([indexPath row] == 0) {
-        albumDetailsTextField.placeholder = HRAlbumNamePlaceholder;
-        albumDetailsTextField.keyboardType = UIKeyboardTypeDefault;
-        albumDetailsTextField.returnKeyType = UIReturnKeyDone;
-        albumDetailsTextField.tag = 0;
-    }else{
-        albumDetailsTextField.placeholder = HRAlbumDescriptionPlaceholder;
-        albumDetailsTextField.keyboardType = UIKeyboardTypeDefault;
-        albumDetailsTextField.returnKeyType = UIReturnKeyDone;
-        albumDetailsTextField.tag = 1;
-    }
-    
-    albumDetailsTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-    albumDetailsTextField.clearButtonMode = UITextFieldViewModeAlways;
-    [albumDetailsTextField setEnabled:YES];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell.contentView addSubview:albumDetailsTextField];
-    
-    if (indexPath.row == 0) {
-        cell.textLabel.text = HRAlbumName;
-    } else {
-        cell.textLabel.text = HRAlbumDescription;
-    }
-    if ([cell.textLabel.text isEqualToString:HRAlbumName]) {
-        cell.detailTextLabel.text = _currentAlbum.name;
-    }
-    if ([cell.textLabel.text isEqualToString:HRAlbumDescription]) {
-        cell.detailTextLabel.text = _currentAlbum.albumDescription;
-    }
-    
-    return cell;
-}
 
 #pragma mark Touch methods
 
