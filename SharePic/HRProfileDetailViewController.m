@@ -108,7 +108,6 @@
 - (IBAction)launchPicker {
     
     imagePicker = [[AGImagePickerController alloc]initWithDelegate:self];
-    //TODO: For denoting maximum image count reached, try for buzzing(hmmm) effect. Added Alert View for now.
     imagePicker.maximumNumberOfPhotosToBeSelected = HRMaximumImageCount;
     [self presentViewController:imagePicker animated:YES completion:nil];
     // Show saved photos on top
