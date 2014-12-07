@@ -67,7 +67,7 @@ NSString *const HRUploadProgressCellNib = @"HRUploadProgressTableViewCell";
 
 NSString *const HRImagePickerAlertMessage = @"Please select only %lu images";
 NSString *const HRImagePickerAlertTitle = @"Cannot select image";
-NSString *const HRImagePickerAlertCancelButton = @"Okay";
+NSString *const HRAlertCancelButton = @"Okay";
 
 NSString *const HRProfileNameEncodeKey = @"profileName";
 NSString *const HRAccountsEncodeKey = @"accounts";
@@ -77,4 +77,7 @@ NSString *const HRSettingsTitle = @"Manage Accounts";
 NSString *const HRJSONKeyProfileName = @"profileName";
 NSString *const HRJSONKeyAccountName = @"accountName";
 NSString *const HRJSONKeyAccounts = @"accounts";
+
+NSString *const HRMinimumImageCountAlertMessage = @"Please Select at least 1 image";
+NSString *const HRUploadButtonAlertTitle = @"No images selected";
 

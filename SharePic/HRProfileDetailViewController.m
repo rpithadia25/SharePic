@@ -16,6 +16,8 @@
 #define kHRAccountImageViewTag 101
 #define kHRTableViewRows 2
 #define kHRCollectionViewSections 1
+#define kHRInsetCorrectionSingleAccount 2.5
+#define kHRInsetCorrectionMultipleAccounts 3.75
 
 @interface HRProfileDetailViewController () {
     AGImagePickerController *imagePicker;
@@ -34,6 +36,7 @@
     _currentAlbum = [HRAlbum new];
     _gridView.delegate = self;
     _accountImageView.delegate = self;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)setProfile:(id)profile {
@@ -118,6 +121,19 @@
 
 #pragma mark Collection View Methods
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if (collectionView == _accountImageView) {
+        CGFloat gridWidth = _accountImageView.frame.size.width;
+        if ([_currentProfile.accounts count] == 1) {
+            return UIEdgeInsetsMake(0, gridWidth / kHRInsetCorrectionSingleAccount, 0, 0);
+        } else {
+            return UIEdgeInsetsMake(0, gridWidth / kHRInsetCorrectionMultipleAccounts, 0, 0);;
+        }
+    } else {
+        return UIEdgeInsetsZero;
+    }
+}
+
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return kHRCollectionViewSections;
 }
@@ -160,6 +176,9 @@
         [progressUpdateViewController setCurrentProfile:_currentProfile];
         [progressUpdateViewController setImageCount:[[_currentAlbum photos] count]];
         [self.navigationController pushViewController:progressUpdateViewController animated:YES];
+    } else {
+        UIAlertView *minimumImageCountAlert = [[UIAlertView alloc]initWithTitle:HRUploadButtonAlertTitle message:HRMinimumImageCountAlertMessage delegate:nil cancelButtonTitle:HRAlertCancelButton otherButtonTitles:nil, nil];
+        [minimumImageCountAlert show];
     }
 }
 @end

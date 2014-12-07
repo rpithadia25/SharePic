@@ -61,11 +61,7 @@ NSString *const HRUploadProgressCellNib;
 
 NSString *const HRImagePickerAlertMessage;
 NSString *const HRImagePickerAlertTitle;
-NSString *const HRImagePickerAlertCancelButton;
-
-NSString *const HRImagePickerAlertMessage;
-NSString *const HRImagePickerAlertTitle;
-NSString *const HRImagePickerAlertCancelButton;
+NSString *const HRAlertCancelButton;
 
 NSString *const HRProfileNameEncodeKey;
 NSString *const HRAccountsEncodeKey;
@@ -75,4 +71,7 @@ NSString *const HRSettingsTitle;
 NSString *const HRJSONKeyProfileName;
 NSString *const HRJSONKeyAccountName;
 NSString *const HRJSONKeyAccounts;
+NSString *const HRMinimumImageCountAlertMessage;
+NSString *const HRUploadButtonAlertTitle;
+
 
