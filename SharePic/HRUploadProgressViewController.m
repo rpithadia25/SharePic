@@ -30,8 +30,8 @@
     _completedAccounts = [[NSMutableArray alloc] init];
     _delta = (1.0 / _imageCount);
     
-    UIBarButtonItem *runInBackgroundButton = [[UIBarButtonItem alloc] initWithTitle:HRStringHide style:UIBarButtonItemStyleDone target:self action:@selector(runInBackground:)];
-    self.navigationItem.rightBarButtonItem = runInBackgroundButton;
+    UIBarButtonItem *hideButton = [[UIBarButtonItem alloc] initWithTitle:HRStringHide style:UIBarButtonItemStyleDone target:self action:@selector(runInBackground:)];
+    self.navigationItem.rightBarButtonItem = hideButton;
     
     _doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_doneButton setTitle:HRImagesUploaded forState:UIControlStateNormal];
@@ -97,7 +97,8 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *footerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+    CGRect screenRect = [[UIScreen mainScreen]bounds];
+    UIView *footerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screenRect.size.width, 40)];
     footerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _doneButton.center = footerView.center;
     [footerView addSubview:_doneButton];

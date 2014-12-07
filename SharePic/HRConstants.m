@@ -80,3 +80,5 @@ NSString *const HRMinimumImageCountAlertTitle = @"No images selected";
 
 NSString *const HRAccountsNotLoggedInAlertTitle = @"The following accounts need to be logged into for uploading the images.";
 
+NSString *const HRSettingInfoAlertMessage = @"Please toggle switch to login & logout";
+

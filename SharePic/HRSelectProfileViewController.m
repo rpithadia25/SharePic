@@ -9,6 +9,8 @@
 #import "HRSelectProfileViewController.h"
 #import "HRFlickr.h"
 
+#define kHRSettingImageResizeFactor 3.5
+
 @interface HRSelectProfileViewController ()
 @property NSMutableDictionary *supportedAccounts;
 @end
@@ -34,6 +36,16 @@
                                     action:nil];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushNewViewController)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    UIImage* settingsImage = [UIImage imageNamed:@"Settings.png"];
+    CGRect frame = CGRectMake(0, 0, settingsImage.size.width / kHRSettingImageResizeFactor, settingsImage.size.height / kHRSettingImageResizeFactor);
+    UIButton *settingsButton = [[UIButton alloc] initWithFrame:frame];
+    [settingsButton setBackgroundImage:settingsImage forState:UIControlStateNormal];
+    [settingsButton addTarget:self action:@selector(settingsButtonPressed:)
+         forControlEvents:UIControlEventTouchUpInside];
+    [settingsButton setShowsTouchWhenHighlighted:YES];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
 }
 
 - (void)didReceiveMemoryWarning {

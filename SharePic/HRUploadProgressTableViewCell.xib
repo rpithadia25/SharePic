@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,19 +14,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tsl-ed-15F">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tsl-ed-15F">
                         <rect key="frame" x="0.0" y="0.0" width="91" height="86"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="91" id="Ux5-Hg-oad"/>
+                        </constraints>
                     </imageView>
-                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rQI-rt-EWC">
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rQI-rt-EWC">
                         <rect key="frame" x="114" y="43" width="183" height="2"/>
                     </progressView>
-                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error Uploading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NF-Ic-M7v">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Uploading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NF-Ic-M7v">
                         <rect key="frame" x="158" y="52" width="94" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="rQI-rt-EWC" secondAttribute="trailing" constant="15" id="CMx-Gh-0Qo"/>
+                    <constraint firstItem="2NF-Ic-M7v" firstAttribute="top" secondItem="rQI-rt-EWC" secondAttribute="bottom" constant="7" id="DAK-1r-4j2"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="2NF-Ic-M7v" secondAttribute="trailing" constant="60" id="JTb-Ja-qvP"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2NF-Ic-M7v" secondAttribute="bottom" constant="4" id="PUR-og-Fa3"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Tsl-ed-15F" secondAttribute="bottom" constant="-9" id="fQC-yF-QTK"/>
+                    <constraint firstItem="rQI-rt-EWC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="35" id="g2Y-oZ-RiF"/>
+                    <constraint firstItem="Tsl-ed-15F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="iMF-tL-ISn"/>
+                    <constraint firstItem="2NF-Ic-M7v" firstAttribute="leading" secondItem="Tsl-ed-15F" secondAttribute="trailing" constant="67" id="jgM-RH-cnW"/>
+                    <constraint firstItem="2NF-Ic-M7v" firstAttribute="centerX" secondItem="rQI-rt-EWC" secondAttribute="centerX" id="vo4-WO-QIE"/>
+                    <constraint firstItem="Tsl-ed-15F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xe7-0j-LHn"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="accountImage" destination="Tsl-ed-15F" id="I25-Yi-Eeb"/>

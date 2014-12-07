@@ -72,4 +72,6 @@ NSString *const HRMinimumImageCountAlertMessage;
 NSString *const HRMinimumImageCountAlertTitle;
 NSString *const HRAccountsNotLoggedInAlertTitle;
 
+NSString *const HRSettingInfoAlertMessage;
+
 
