@@ -49,11 +49,18 @@ NSString *const HRAccountCell = @"HRAccountImageCell";
 NSString *const HRSettingsCellIdentifier = @"SettingsCellIdentifier";
 NSString *const HRSettingsStoryboardIdentifier = @"SettingsIdentifier";
 
+NSString *const HRUploadPregressStoryboardIdentifier = @"UploadProgress";
+
 NSString *const HRClose = @"Close";
 NSString *const HRError = @"Error";
 NSString *const HROk = @"Ok";
 
 NSString *const HRDateTimeFormat = @"MM-dd-yy_HH:mm";
+
+NSString *const HRUploadingTitle = @"Uploading...";
+NSString *const HRUploadProgressCellIdentifier = @"UploadProgressCell";
+
+NSString *const HRUploadProgressCellNib = @"HRUploadProgressTableViewCell";
 
 NSString *const HRImagePickerAlertMessage = @"Please select only %lu images";
 NSString *const HRImagePickerAlertTitle = @"Cannot select image";
@@ -61,4 +68,6 @@ NSString *const HRImagePickerAlertCancelButton = @"Okay";
 
 NSString *const HRProfileNameEncodeKey = @"profileName";
 NSString *const HRAccountsEncodeKey = @"accounts";
+
+NSString *const HRSettingsTitle = @"Manage Accounts";
 

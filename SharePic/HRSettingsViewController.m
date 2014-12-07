@@ -28,6 +28,8 @@
     self.clearsSelectionOnViewWillAppear = NO;
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:HRClose style:UIBarButtonItemStyleDone target:self action:@selector(close:)];
     self.navigationItem.rightBarButtonItem = closeButton;
+    
+    self.title = HRSettingsTitle;
 }
 
 - (void)close:(UIBarButtonItem *)sender {

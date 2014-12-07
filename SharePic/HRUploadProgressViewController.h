@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HRAbstractAccount.h"
+#import "HRProfile.h"
 
-@interface HRUploadProgressViewController : UIViewController
-
+@interface HRUploadProgressViewController : UITableViewController <HRUploadProgressNotificationDelegate, UITableViewDelegate>
+@property HRProfile *currentProfile;
+@property NSInteger imageCount;
 @end

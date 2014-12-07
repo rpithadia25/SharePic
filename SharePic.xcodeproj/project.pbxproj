@@ -10,6 +10,8 @@
 		032743AF1A30D9A5004F7252 /* HRAuthWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 032743AD1A30D9A5004F7252 /* HRAuthWebViewController.xib */; };
 		033106A71A31281F00F31199 /* NSString_Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 033106A61A31281F00F31199 /* NSString_Extra.m */; };
 		033106AA1A312B8300F31199 /* HRUploadProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033106A91A312B8300F31199 /* HRUploadProgressViewController.m */; };
+		033106BA1A327E6500F31199 /* HRUploadProgressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 033106B81A327E6500F31199 /* HRUploadProgressTableViewCell.m */; };
+		033106BB1A327E6500F31199 /* HRUploadProgressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033106B91A327E6500F31199 /* HRUploadProgressTableViewCell.xib */; };
 		033F55A21A2C2D4700E35E87 /* libFlickrKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 033F559F1A2C2D3200E35E87 /* libFlickrKit.a */; };
 		034515191A2C0632008E091D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 034515181A2C0632008E091D /* main.m */; };
 		0345151C1A2C0632008E091D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0345151B1A2C0632008E091D /* AppDelegate.m */; };
@@ -89,6 +91,9 @@
 		033106A61A31281F00F31199 /* NSString_Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_Extra.m; sourceTree = "<group>"; };
 		033106A81A312B8300F31199 /* HRUploadProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRUploadProgressViewController.h; sourceTree = "<group>"; };
 		033106A91A312B8300F31199 /* HRUploadProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRUploadProgressViewController.m; sourceTree = "<group>"; };
+		033106B71A327E6500F31199 /* HRUploadProgressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRUploadProgressTableViewCell.h; sourceTree = "<group>"; };
+		033106B81A327E6500F31199 /* HRUploadProgressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRUploadProgressTableViewCell.m; sourceTree = "<group>"; };
+		033106B91A327E6500F31199 /* HRUploadProgressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRUploadProgressTableViewCell.xib; sourceTree = "<group>"; };
 		033F55991A2C2D3200E35E87 /* FlickrKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FlickrKit.xcodeproj; path = FlickrKit/FlickrKit.xcodeproj; sourceTree = "<group>"; };
 		034515131A2C0632008E091D /* SharePic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharePic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		034515171A2C0632008E091D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -243,6 +248,9 @@
 				033106A41A31277E00F31199 /* NSString_Extra.h */,
 				033106A61A31281F00F31199 /* NSString_Extra.m */,
 				034515161A2C0632008E091D /* Supporting Files */,
+				033106B71A327E6500F31199 /* HRUploadProgressTableViewCell.h */,
+				033106B81A327E6500F31199 /* HRUploadProgressTableViewCell.m */,
+				033106B91A327E6500F31199 /* HRUploadProgressTableViewCell.xib */,
 			);
 			path = SharePic;
 			sourceTree = "<group>";
@@ -427,6 +435,7 @@
 			files = (
 				032743AF1A30D9A5004F7252 /* HRAuthWebViewController.xib in Resources */,
 				BAD3431A1A30FDF200F87035 /* SelectImagesButtonImage.png in Resources */,
+				033106BB1A327E6500F31199 /* HRUploadProgressTableViewCell.xib in Resources */,
 				034515251A2C0632008E091D /* Main.storyboard in Resources */,
 				0345152A1A2C0632008E091D /* LaunchScreen.xib in Resources */,
 				BAD3436B1A3126FC00F87035 /* AGImagePickerController.bundle in Resources */,
@@ -456,6 +465,7 @@
 				BA18653A1A3234CD003A2E8B /* HRAbstractAccount.m in Sources */,
 				0361C23B1A2FFC4E0027F2E3 /* HRSettingsViewController.m in Sources */,
 				BAD3436A1A3126FC00F87035 /* AGImagePickerController+Helper.m in Sources */,
+				033106BA1A327E6500F31199 /* HRUploadProgressTableViewCell.m in Sources */,
 				0345157F1A2C0CA2008E091D /* HRPatternViewCell.m in Sources */,
 				034515821A2C0EA1008E091D /* HRConstants.m in Sources */,
 				BA14E6A91A2EC2A200C66920 /* HRSelectProfileViewController.m in Sources */,
