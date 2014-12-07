@@ -74,4 +74,6 @@ NSString *const HRJSONKeyAccounts;
 NSString *const HRMinimumImageCountAlertMessage;
 NSString *const HRUploadButtonAlertTitle;
 
+NSString *const HRSettingInfoAlertMessage;
+
 

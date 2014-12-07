@@ -81,3 +81,5 @@ NSString *const HRJSONKeyAccounts = @"accounts";
 NSString *const HRMinimumImageCountAlertMessage = @"Please Select at least 1 image";
 NSString *const HRUploadButtonAlertTitle = @"No images selected";
 
+NSString *const HRSettingInfoAlertMessage = @"Please toggle switch to login & logout";
+

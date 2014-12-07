@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/UTCoreTypes.h>
-#import "HRAlbum.h"
 #import "HRPatternViewCell.h"
 #import "HRConstants.h"
 #import "HRProfile.h"
@@ -18,7 +17,6 @@
 @interface HRProfileDetailViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, AGImagePickerControllerDelegate>
 
 @property HRProfile                                     *currentProfile;
-@property HRAlbum                                       *currentAlbum;
 @property (strong, nonatomic) IBOutlet UICollectionView *gridView;
 @property (strong, nonatomic) IBOutlet UICollectionView *accountImageView;
 @property (strong, nonatomic) IBOutlet UIButton         *selectImagesButton;

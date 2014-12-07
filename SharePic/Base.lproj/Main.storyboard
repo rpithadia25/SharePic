@@ -192,13 +192,7 @@
                             <outlet property="delegate" destination="jDj-d8-zwB" id="Qma-sP-oRA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Profile" id="xml-fv-6oW">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="hrY-lA-OZf">
-                            <connections>
-                                <action selector="settingsButtonPressed:" destination="jDj-d8-zwB" id="f0H-5l-ei3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Select Profile" id="xml-fv-6oW"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyo-Ql-E5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

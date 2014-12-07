@@ -29,6 +29,11 @@
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:HRClose style:UIBarButtonItemStyleDone target:self action:@selector(close:)];
     self.navigationItem.rightBarButtonItem = closeButton;
     
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    [infoButton addTarget:self action:@selector(infoButtonPressed:)
+             forControlEvents:UIControlEventTouchUpInside];
+    [infoButton setShowsTouchWhenHighlighted:YES];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
     self.title = HRSettingsTitle;
 }
 
@@ -83,6 +88,11 @@
     } else {
         [account logout];
     }
+}
+
+-(IBAction)infoButtonPressed:(id)sender {
+    UIAlertView *infoAlert = [[UIAlertView alloc]initWithTitle:@"" message:HRSettingInfoAlertMessage delegate:nil cancelButtonTitle:HROk otherButtonTitles:nil, nil];
+    [infoAlert show];
 }
 
 @end

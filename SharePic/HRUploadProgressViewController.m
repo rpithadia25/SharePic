@@ -97,7 +97,8 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *footerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+    CGRect screenRect = [[UIScreen mainScreen]bounds];
+    UIView *footerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screenRect.size.width, 40)];
     footerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _doneButton.center = footerView.center;
     [footerView addSubview:_doneButton];

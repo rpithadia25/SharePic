@@ -26,14 +26,13 @@
 @end
 
 @implementation HRProfileDetailViewController
-@synthesize currentAlbum = _currentAlbum;
 @synthesize gridView = _gridView;
 @synthesize currentProfile = _currentProfile;
 @synthesize accountImageView = _accountImageView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _currentAlbum = [HRAlbum new];
+    selectedPhotos = [[NSMutableArray alloc]init];
     _gridView.delegate = self;
     _accountImageView.delegate = self;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -79,7 +78,7 @@
         [_gridView addSubview:cell.patternImageView];
         workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
     }
-    _currentAlbum.photos = [images mutableCopy];
+    selectedPhotos = [images mutableCopy];
     [_gridView setPagingEnabled:YES];
     [_gridView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
     [_gridView reloadData];
@@ -112,7 +111,7 @@
     // Show saved photos on top
     imagePicker.shouldShowSavedPhotosOnTop = NO;
     imagePicker.shouldChangeStatusBarStyle = YES;
-    imagePicker.selection = _currentAlbum.photos;
+    imagePicker.selection = selectedPhotos;
     AGIPCToolbarItem *deselectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"- Deselect All" style:UIBarButtonItemStylePlain target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
         return NO;
     }];
@@ -141,7 +140,7 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
     if (collectionView == _gridView) {
-        return _currentAlbum.photos.count;
+        return selectedPhotos.count;
     } else {
         return _currentProfile.accounts.count;
     }
@@ -151,7 +150,7 @@
     if(collectionView == _gridView) {
         HRPatternViewCell *cell = (HRPatternViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRPatternCell forIndexPath:indexPath];
         UIImageView *imageView = (UIImageView *) [cell viewWithTag:kHRImageViewTag];
-        imageView.image = [_currentAlbum.photos objectAtIndex:indexPath.row];
+        imageView.image = [selectedPhotos objectAtIndex:indexPath.row];
         return cell;
     } else {
         HRAccountImageCell *cell = (HRAccountImageCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HRAccountCell forIndexPath:indexPath];
@@ -166,15 +165,14 @@
 #pragma mark IBActions
 
 - (IBAction)uploadButtonPressed:(id)sender {
-    if ([_currentAlbum.photos count] != 0) {
+    if ([selectedPhotos count] != 0) {
         HRUploadProgressViewController *progressUpdateViewController = [[UIStoryboard storyboardWithName:HRStoryboardMain bundle:nil] instantiateViewControllerWithIdentifier:HRUploadPregressStoryboardIdentifier];
         for (HRAbstractAccount *account in _currentProfile.accounts) {
-            [account uploadPhotos:[_currentAlbum photos]];
+            [account uploadPhotos:selectedPhotos];
             [account setDelegate:progressUpdateViewController];
         }
-        
         [progressUpdateViewController setCurrentProfile:_currentProfile];
-        [progressUpdateViewController setImageCount:[[_currentAlbum photos] count]];
+        [progressUpdateViewController setImageCount:[selectedPhotos count]];
         [self.navigationController pushViewController:progressUpdateViewController animated:YES];
     } else {
         UIAlertView *minimumImageCountAlert = [[UIAlertView alloc]initWithTitle:HRUploadButtonAlertTitle message:HRMinimumImageCountAlertMessage delegate:nil cancelButtonTitle:HRAlertCancelButton otherButtonTitles:nil, nil];
