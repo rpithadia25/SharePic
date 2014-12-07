@@ -147,35 +147,18 @@
     return nil;
 }
 
-#pragma mark Album Table View
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return kHRTableViewRows;
+#pragma mark Dropbox upload call back methods
+- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
+              from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
+    NSLog(@"File uploaded successfully to path: %@", metadata.path);
 }
 
-
-#pragma mark Touch methods
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
+- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
+    NSLog(@"File upload failed with error: %@", error);
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField {
-    [self saveTextFields:textField];
-}
-
--(void) saveTextFields: (UITextField *) textField {
-    if (textField.tag == 0) {
-        _currentAlbum.name = textField.text;
-    } else {
-        _currentAlbum.albumDescription = textField.text;
-    }
-}
+- (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath {
+    NSLog(@"%.2f",progress); //Correct way to visualice the float
 
 #pragma mark IBActions
 
