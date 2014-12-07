@@ -78,9 +78,14 @@
     return HRDropboxString;
 }
 
-- (NSString *)imageName {
+-(NSString *)imageName {
     return [NSString stringWithFormat:@"%@.png", HRDropboxString];
 }
+
+-(void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath {
+        NSLog(@"Dropbox %.2f",progress); //Correct way to visualice the float
+}
+
 
 #pragma mark - Dropbox upload call back methods
 

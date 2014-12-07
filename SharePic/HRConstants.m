@@ -54,6 +54,9 @@ NSString *const HRUploadPregressStoryboardIdentifier = @"UploadProgress";
 NSString *const HRClose = @"Close";
 NSString *const HRError = @"Error";
 NSString *const HROk = @"Ok";
+NSString *const HRRunInBackground = @"Hide";
+
+NSString *const HRImagesUploaded = @"Images Uploaded, Click here.";
 
 NSString *const HRDateTimeFormat = @"MM-dd-yy_HH:mm";
 
@@ -71,5 +74,10 @@ NSString *const HRAccountsEncodeKey = @"accounts";
 
 NSString *const HRSettingsTitle = @"Manage Accounts";
 
+NSString *const HRJSONKeyProfileName = @"profileName";
+NSString *const HRJSONKeyAccountName = @"accountName";
+NSString *const HRJSONKeyAccounts = @"accounts";
+
 NSString *const HRMinimumImageCountAlertMessage = @"Please Select at least 1 image";
 NSString *const HRUploadButtonAlertTitle = @"No images selected";
+

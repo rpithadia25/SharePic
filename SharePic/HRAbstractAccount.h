@@ -28,5 +28,7 @@
 - (void)uploadPhotos:(NSArray *)photos;
 - (NSString *)description;
 - (NSString *)imageName;
+- (void)uploadInBackground;
+- (NSDictionary *) toNSDistionary;
 
 @end
