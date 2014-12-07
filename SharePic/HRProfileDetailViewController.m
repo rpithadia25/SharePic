@@ -16,8 +16,8 @@
 #define kHRAccountImageViewTag 101
 #define kHRTableViewRows 2
 #define kHRCollectionViewSections 1
-#define kHRInsetCorrectionSingleAccount 2.3
-#define kHRInsetCorrectionMultipleAccounts 3.2
+#define kHRInsetCorrectionSingleAccount 2.5
+#define kHRInsetCorrectionMultipleAccounts 3.75
 
 @interface HRProfileDetailViewController () {
     AGImagePickerController *imagePicker;
@@ -122,12 +122,15 @@
 #pragma mark Collection View Methods
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-
-    CGFloat gridWidth = _gridView.frame.size.width;
-    if ([_currentProfile.accounts count] == 1) {
-        return UIEdgeInsetsMake(0, gridWidth / kHRInsetCorrectionSingleAccount, 0, 0);
+    if (collectionView == _accountImageView) {
+        CGFloat gridWidth = _accountImageView.frame.size.width;
+        if ([_currentProfile.accounts count] == 1) {
+            return UIEdgeInsetsMake(0, gridWidth / kHRInsetCorrectionSingleAccount, 0, 0);
+        } else {
+            return UIEdgeInsetsMake(0, gridWidth / kHRInsetCorrectionMultipleAccounts, 0, 0);;
+        }
     } else {
-        return UIEdgeInsetsMake(0, gridWidth / kHRInsetCorrectionMultipleAccounts, 0, 0);;
+        return UIEdgeInsetsZero;
     }
 }
 
