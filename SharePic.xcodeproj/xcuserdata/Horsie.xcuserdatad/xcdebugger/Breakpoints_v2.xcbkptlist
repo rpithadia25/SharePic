@@ -86,16 +86,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SharePic/HRUploadProgressViewController.m"
-            timestampString = "439545630.918513"
+            filePath = "SharePic/HRDropbox.m"
+            timestampString = "439678959.554241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-tableView:viewForFooterInSection:"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-restClient:uploadFileFailedWithError:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

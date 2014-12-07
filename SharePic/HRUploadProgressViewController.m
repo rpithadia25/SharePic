@@ -30,11 +30,21 @@
     _completedAccounts = [[NSMutableArray alloc] init];
     _delta = (1.0 / _imageCount);
     
+    UIBarButtonItem *runInBackgroundButton = [[UIBarButtonItem alloc] initWithTitle:HRRunInBackground style:UIBarButtonItemStyleDone target:self action:@selector(runInBackground:)];
+    self.navigationItem.rightBarButtonItem = runInBackgroundButton;
+    
     _doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_doneButton setTitle:@"Images Uploaded, Click here." forState:UIControlStateNormal];
+    [_doneButton setTitle:HRImagesUploaded forState:UIControlStateNormal];
     [_doneButton addTarget:self action:@selector(doneWithUpload:) forControlEvents:UIControlEventTouchUpInside];
     [_doneButton sizeToFit];
     _doneButton.hidden = YES;
+}
+
+- (void)runInBackground:(UIBarButtonItem *)sender {
+    for (HRAbstractAccount *account in _currentProfile.accounts) {
+        [account uploadInBackground];
+    }
+    [self doneWithUpload:nil];
 }
 
 - (void)didReceiveMemoryWarning {

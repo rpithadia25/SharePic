@@ -51,6 +51,8 @@ NSString *const HRUploadPregressStoryboardIdentifier;
 NSString *const HRClose;
 NSString *const HRError;
 NSString *const HROk;
+NSString *const HRImagesUploaded;
+NSString *const HRRunInBackground;
 NSString *const HRDateTimeFormat;
 
 NSString *const HRUploadingTitle;
@@ -69,4 +71,8 @@ NSString *const HRProfileNameEncodeKey;
 NSString *const HRAccountsEncodeKey;
 
 NSString *const HRSettingsTitle;
+
+NSString *const HRJSONKeyProfileName;
+NSString *const HRJSONKeyAccountName;
+NSString *const HRJSONKeyAccounts;
 

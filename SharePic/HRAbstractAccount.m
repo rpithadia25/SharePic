@@ -19,7 +19,7 @@
     static NSArray *accounts;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        accounts = @[[HRFlickr sharedFlickr], [HRDropbox sharedDropbox]];
+        accounts = @[[HRDropbox sharedDropbox],[HRFlickr sharedFlickr]];
     });
     return accounts;
 }
@@ -48,17 +48,13 @@
     mustOverride();
 }
 
-#pragma mark User Defaults Encoder
-- (void)encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:self forKey:[self description]];
+- (void)uploadInBackground {
+    _delegate = nil;
 }
 
-- (id)initWithCoder:(NSCoder *)decoder {
-    if((self = [super init])) {
-        //decode properties, other class vars
-        self = [decoder decodeObjectForKey:[self description]];
-    }
-    return self;
+-(NSDictionary *)toNSDistionary {
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:self.description forKey:HRJSONKeyAccountName];
+    return dictionary;
 }
-
 @end

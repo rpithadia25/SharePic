@@ -10,11 +10,11 @@
 #import "HRFlickr.h"
 
 @interface HRSelectProfileViewController ()
-
+@property NSMutableDictionary *supportedAccounts;
 @end
 
 @implementation HRSelectProfileViewController
-
+@synthesize supportedAccounts = _supportedAccounts;
 - (void)awakeFromNib {
     [super awakeFromNib];
     [[UINavigationBar appearance] setBarTintColor:[UIColor grayColor]];
@@ -24,10 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *encodedProfiles = [defaults objectForKey:HRUserDefaultsKey];
-    NSMutableArray *profilesData = [NSKeyedUnarchiver unarchiveObjectWithData:encodedProfiles];
-    _profiles = [NSMutableArray arrayWithArray:profilesData];
+    _supportedAccounts = [[NSMutableDictionary alloc] init];
+    NSArray *supportedAccounts = [HRAbstractAccount supportedAccounts];
+    for (HRAbstractAccount *account in supportedAccounts) {
+        [_supportedAccounts setObject:account forKey:[account description]];
+    }
+    
+    [self loadProfiles];
     
     self.navigationItem.backBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:HRBackButtonLabel
@@ -118,11 +121,44 @@
 #pragma mark Save User Defaults
 
 -(void) saveUserDefaults {
+    
+    NSMutableArray *jsonArray = [[NSMutableArray alloc] init];
+    for (HRProfile *profile in _profiles) {
+        NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+        [dictionary setValue:[profile profileName] forKey:HRJSONKeyProfileName];
+        NSMutableArray *accountsJSONArray = [[NSMutableArray alloc] init];
+        for (HRAbstractAccount *account in [profile accounts]) {
+            [accountsJSONArray addObject:[account toNSDistionary]];
+        }
+        
+        [dictionary setValue:accountsJSONArray forKey:HRJSONKeyAccounts];
+        [jsonArray addObject:dictionary];
+    }
+    
+    NSData *jsonData = [NSKeyedArchiver archivedDataWithRootObject:jsonArray];
+    [[NSUserDefaults standardUserDefaults] setObject:jsonData forKey:HRUserDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
-    NSData *encodedProfiles = [NSKeyedArchiver archivedDataWithRootObject:_profiles];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:encodedProfiles forKey:HRUserDefaultsKey];
-    [defaults synchronize];
+- (void)loadProfiles {
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:HRUserDefaultsKey];
+    NSArray *savedJSONArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    NSMutableArray *profilesData = [[NSMutableArray alloc] init];
+    for (NSDictionary *JSONDictionary in savedJSONArray) {
+        HRProfile *profile = [[HRProfile alloc] init];
+        [profile setProfileName:[JSONDictionary valueForKey:HRJSONKeyProfileName]];
+        NSArray *savedAccounts = [JSONDictionary valueForKey:HRJSONKeyAccounts];
+        NSMutableArray *accounts = [[NSMutableArray alloc] init];
+        for (NSDictionary *accountDictionary in savedAccounts) {
+            NSString *accountName = [accountDictionary valueForKey:HRJSONKeyAccountName];
+            [accounts addObject:[_supportedAccounts objectForKey:accountName]];
+        }
+        [profile setAccounts:accounts];
+        [profilesData addObject:profile];
+    }
+    
+    _profiles = [NSMutableArray arrayWithArray:profilesData];
 }
 
 @end
