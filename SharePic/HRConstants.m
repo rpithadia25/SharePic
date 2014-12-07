@@ -51,10 +51,11 @@ NSString *const HRSettingsStoryboardIdentifier = @"SettingsIdentifier";
 
 NSString *const HRUploadPregressStoryboardIdentifier = @"UploadProgress";
 
-NSString *const HRClose = @"Close";
-NSString *const HRError = @"Error";
-NSString *const HROk = @"Ok";
-NSString *const HRRunInBackground = @"Hide";
+NSString *const HRStringClose = @"Close";
+NSString *const HRStringError = @"Error";
+NSString *const HRStringOk = @"Okay";
+NSString *const HRStringHide = @"Hide";
+NSString *const HSStringSettings = @"Settings";
 
 NSString *const HRImagesUploaded = @"Images Uploaded, Click here.";
 
@@ -67,10 +68,6 @@ NSString *const HRUploadProgressCellNib = @"HRUploadProgressTableViewCell";
 
 NSString *const HRImagePickerAlertMessage = @"Please select only %lu images";
 NSString *const HRImagePickerAlertTitle = @"Cannot select image";
-NSString *const HRAlertCancelButton = @"Okay";
-
-NSString *const HRProfileNameEncodeKey = @"profileName";
-NSString *const HRAccountsEncodeKey = @"accounts";
 
 NSString *const HRSettingsTitle = @"Manage Accounts";
 
@@ -79,5 +76,7 @@ NSString *const HRJSONKeyAccountName = @"accountName";
 NSString *const HRJSONKeyAccounts = @"accounts";
 
 NSString *const HRMinimumImageCountAlertMessage = @"Please Select at least 1 image";
-NSString *const HRUploadButtonAlertTitle = @"No images selected";
+NSString *const HRMinimumImageCountAlertTitle = @"No images selected";
+
+NSString *const HRAccountsNotLoggedInAlertTitle = @"The following accounts need to be logged into for uploading the images.";
 

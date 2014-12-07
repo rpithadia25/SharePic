@@ -11,13 +11,16 @@
 #import "HRFlickr.h"
 #import "HRDropbox.h"
 #import "HRUploadProgressViewController.h"
+#import "HRSettingsViewController.h"
 
 #define kHRImageViewTag 100
 #define kHRAccountImageViewTag 101
+#define kHRNotLoggedInAlertViewTag 102
 #define kHRTableViewRows 2
 #define kHRCollectionViewSections 1
 #define kHRInsetCorrectionSingleAccount 2.5
 #define kHRInsetCorrectionMultipleAccounts 3.75
+#define kHRSettingsButtonIndex 1
 
 @interface HRProfileDetailViewController () {
     AGImagePickerController *imagePicker;
@@ -166,19 +169,50 @@
 #pragma mark IBActions
 
 - (IBAction)uploadButtonPressed:(id)sender {
-    if ([_currentAlbum.photos count] != 0) {
-        HRUploadProgressViewController *progressUpdateViewController = [[UIStoryboard storyboardWithName:HRStoryboardMain bundle:nil] instantiateViewControllerWithIdentifier:HRUploadPregressStoryboardIdentifier];
-        for (HRAbstractAccount *account in _currentProfile.accounts) {
-            [account uploadPhotos:[_currentAlbum photos]];
-            [account setDelegate:progressUpdateViewController];
+    
+    NSMutableArray *loggedOutAccounts = [[NSMutableArray alloc] init];
+    for (HRAbstractAccount *account in _currentProfile.accounts) {
+        if (![account isLoggedIn]) {
+            [loggedOutAccounts addObject:[account description]];
+        }
+    }
+    
+    if ([loggedOutAccounts count] == 0) {
+        if ([_currentAlbum.photos count] != 0) {
+            HRUploadProgressViewController *progressUpdateViewController = [[UIStoryboard storyboardWithName:HRStoryboardMain bundle:nil] instantiateViewControllerWithIdentifier:HRUploadPregressStoryboardIdentifier];
+            for (HRAbstractAccount *account in _currentProfile.accounts) {
+                [account uploadPhotos:[_currentAlbum photos]];
+                [account setDelegate:progressUpdateViewController];
+            }
+            
+            [progressUpdateViewController setCurrentProfile:_currentProfile];
+            [progressUpdateViewController setImageCount:[[_currentAlbum photos] count]];
+            [self.navigationController pushViewController:progressUpdateViewController animated:YES];
+        } else {
+            UIAlertView *minimumImageCountAlert = [[UIAlertView alloc]initWithTitle:HRMinimumImageCountAlertTitle message:HRMinimumImageCountAlertMessage delegate:nil cancelButtonTitle:HRStringOk otherButtonTitles:nil, nil];
+            [minimumImageCountAlert show];
+        }
+    } else {
+        NSMutableString *alertMessage = [[NSMutableString alloc] init];
+        for (int i=0; i < [loggedOutAccounts count]; i++) {
+            [alertMessage appendFormat:@"%d. %@ \r",(i + 1), loggedOutAccounts[i]];
         }
         
-        [progressUpdateViewController setCurrentProfile:_currentProfile];
-        [progressUpdateViewController setImageCount:[[_currentAlbum photos] count]];
-        [self.navigationController pushViewController:progressUpdateViewController animated:YES];
-    } else {
-        UIAlertView *minimumImageCountAlert = [[UIAlertView alloc]initWithTitle:HRUploadButtonAlertTitle message:HRMinimumImageCountAlertMessage delegate:nil cancelButtonTitle:HRAlertCancelButton otherButtonTitles:nil, nil];
-        [minimumImageCountAlert show];
+        UIAlertView *accountsNotLoggedInAlert = [[UIAlertView alloc]initWithTitle:HRAccountsNotLoggedInAlertTitle message:alertMessage delegate:self cancelButtonTitle:HRStringClose otherButtonTitles:HSStringSettings, nil];
+        accountsNotLoggedInAlert.tag = kHRNotLoggedInAlertViewTag;
+        [accountsNotLoggedInAlert show];
     }
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == kHRNotLoggedInAlertViewTag) {
+        if (buttonIndex == kHRSettingsButtonIndex) {
+            HRSettingsViewController *settingsViewController = [[UIStoryboard storyboardWithName:HRStoryboardMain bundle:nil]  instantiateViewControllerWithIdentifier:HRSettingsStoryboardIdentifier];
+            
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+            [self presentViewController:navigationController animated:YES completion:nil];
+        }
+    }
+}
+
 @end

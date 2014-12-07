@@ -58,7 +58,7 @@
             if (!error) {
                 NSLog(@"Flickr %@ Logged in", userName);
             } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:HRError message:error.localizedDescription delegate:nil cancelButtonTitle:HROk otherButtonTitles: nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:HRStringError message:error.localizedDescription delegate:nil cancelButtonTitle:HRStringOk otherButtonTitles: nil];
                 [alert show];
             }
         });

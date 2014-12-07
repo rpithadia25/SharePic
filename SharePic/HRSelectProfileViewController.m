@@ -15,11 +15,6 @@
 
 @implementation HRSelectProfileViewController
 @synthesize supportedAccounts = _supportedAccounts;
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor grayColor]];
-    [[UINavigationBar appearance] setTintColor:[UIColor blueColor]];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
