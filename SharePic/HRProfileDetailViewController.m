@@ -147,19 +147,6 @@
     return nil;
 }
 
-#pragma mark Dropbox upload call back methods
-- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
-              from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
-    NSLog(@"File uploaded successfully to path: %@", metadata.path);
-}
-
-- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
-    NSLog(@"File upload failed with error: %@", error);
-}
-
-- (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath {
-    NSLog(@"%.2f",progress); //Correct way to visualice the float
-
 #pragma mark IBActions
 
 - (IBAction)uploadButtonPressed:(id)sender {
