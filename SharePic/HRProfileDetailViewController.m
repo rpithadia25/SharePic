@@ -118,6 +118,13 @@
 }
 
 #pragma mark Collection View Methods
+//TODO: DO this
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+
+//    if ([_currentProfile.accounts count] == 1) {
+//        return UIEdgeInsetsMake(0, 100, 0, 0);
+//    }
+//}
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return kHRCollectionViewSections;
