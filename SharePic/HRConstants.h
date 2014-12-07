@@ -48,11 +48,12 @@ NSString *const HRSettingsCellIdentifier;
 NSString *const HRSettingsStoryboardIdentifier;
 NSString *const HRUploadPregressStoryboardIdentifier;
 
-NSString *const HRClose;
-NSString *const HRError;
-NSString *const HROk;
+NSString *const HRStringClose;
+NSString *const HRStringError;
+NSString *const HRStringOk;
+NSString *const HSStringSettings;
 NSString *const HRImagesUploaded;
-NSString *const HRRunInBackground;
+NSString *const HRStringHide;
 NSString *const HRDateTimeFormat;
 
 NSString *const HRUploadingTitle;
@@ -61,10 +62,6 @@ NSString *const HRUploadProgressCellNib;
 
 NSString *const HRImagePickerAlertMessage;
 NSString *const HRImagePickerAlertTitle;
-NSString *const HRAlertCancelButton;
-
-NSString *const HRProfileNameEncodeKey;
-NSString *const HRAccountsEncodeKey;
 
 NSString *const HRSettingsTitle;
 
@@ -72,6 +69,7 @@ NSString *const HRJSONKeyProfileName;
 NSString *const HRJSONKeyAccountName;
 NSString *const HRJSONKeyAccounts;
 NSString *const HRMinimumImageCountAlertMessage;
-NSString *const HRUploadButtonAlertTitle;
+NSString *const HRMinimumImageCountAlertTitle;
+NSString *const HRAccountsNotLoggedInAlertTitle;
 
 

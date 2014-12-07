@@ -54,7 +54,7 @@ static NSUInteger numberOfSelectedGridItems = 0;
                 if ([self.delegate respondsToSelector:@selector(agGridItemCanSelect:)])
                 {
                     if (![self.delegate agGridItemCanSelect:self]) {
-                        UIAlertView *maximumImageCountAlert = [[UIAlertView alloc]initWithTitle:HRImagePickerAlertTitle message:[NSString stringWithFormat:HRImagePickerAlertMessage, (unsigned long)self.imagePickerController.maximumNumberOfPhotosToBeSelected]  delegate:nil cancelButtonTitle:HRAlertCancelButton otherButtonTitles:nil, nil];
+                        UIAlertView *maximumImageCountAlert = [[UIAlertView alloc]initWithTitle:HRImagePickerAlertTitle message:[NSString stringWithFormat:HRImagePickerAlertMessage, (unsigned long)self.imagePickerController.maximumNumberOfPhotosToBeSelected]  delegate:nil cancelButtonTitle:HRStringOk otherButtonTitles:nil, nil];
                         [maximumImageCountAlert show];
                         return;
                     }
