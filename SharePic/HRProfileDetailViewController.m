@@ -34,6 +34,7 @@
     _currentAlbum = [HRAlbum new];
     _gridView.delegate = self;
     _accountImageView.delegate = self;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)setProfile:(id)profile {
@@ -147,19 +148,6 @@
     return nil;
 }
 
-#pragma mark Dropbox upload call back methods
-- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
-              from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
-    NSLog(@"File uploaded successfully to path: %@", metadata.path);
-}
-
-- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
-    NSLog(@"File upload failed with error: %@", error);
-}
-
-- (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath {
-    NSLog(@"%.2f",progress); //Correct way to visualice the float
-
 #pragma mark IBActions
 
 - (IBAction)uploadButtonPressed:(id)sender {
@@ -173,6 +161,9 @@
         [progressUpdateViewController setCurrentProfile:_currentProfile];
         [progressUpdateViewController setImageCount:[[_currentAlbum photos] count]];
         [self.navigationController pushViewController:progressUpdateViewController animated:YES];
+    } else {
+        UIAlertView *minimumImageCountAlert = [[UIAlertView alloc]initWithTitle:HRUploadButtonAlertTitle message:HRMinimumImageCountAlertMessage delegate:nil cancelButtonTitle:HRAlertCancelButton otherButtonTitles:nil, nil];
+        [minimumImageCountAlert show];
     }
 }
 @end
