@@ -26,7 +26,7 @@
     _supportedAccounts = [HRAbstractAccount supportedAccounts];
     
     self.clearsSelectionOnViewWillAppear = NO;
-    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:HRClose style:UIBarButtonItemStyleDone target:self action:@selector(close:)];
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:HRStringClose style:UIBarButtonItemStyleDone target:self action:@selector(close:)];
     self.navigationItem.rightBarButtonItem = closeButton;
     
     UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
@@ -91,7 +91,7 @@
 }
 
 -(IBAction)infoButtonPressed:(id)sender {
-    UIAlertView *infoAlert = [[UIAlertView alloc]initWithTitle:@"" message:HRSettingInfoAlertMessage delegate:nil cancelButtonTitle:HROk otherButtonTitles:nil, nil];
+    UIAlertView *infoAlert = [[UIAlertView alloc]initWithTitle:@"" message:HRSettingInfoAlertMessage delegate:nil cancelButtonTitle:HRStringOk otherButtonTitles:nil, nil];
     [infoAlert show];
 }
 

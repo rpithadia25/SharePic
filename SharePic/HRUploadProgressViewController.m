@@ -30,8 +30,8 @@
     _completedAccounts = [[NSMutableArray alloc] init];
     _delta = (1.0 / _imageCount);
     
-    UIBarButtonItem *runInBackgroundButton = [[UIBarButtonItem alloc] initWithTitle:HRRunInBackground style:UIBarButtonItemStyleDone target:self action:@selector(runInBackground:)];
-    self.navigationItem.rightBarButtonItem = runInBackgroundButton;
+    UIBarButtonItem *hideButton = [[UIBarButtonItem alloc] initWithTitle:HRStringHide style:UIBarButtonItemStyleDone target:self action:@selector(runInBackground:)];
+    self.navigationItem.rightBarButtonItem = hideButton;
     
     _doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_doneButton setTitle:HRImagesUploaded forState:UIControlStateNormal];

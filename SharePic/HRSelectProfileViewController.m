@@ -17,9 +17,6 @@
 
 @implementation HRSelectProfileViewController
 @synthesize supportedAccounts = _supportedAccounts;
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
