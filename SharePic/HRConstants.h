@@ -46,11 +46,16 @@ NSString *const HRAccountCell;
 
 NSString *const HRSettingsCellIdentifier;
 NSString *const HRSettingsStoryboardIdentifier;
+NSString *const HRUploadPregressStoryboardIdentifier;
 
 NSString *const HRClose;
 NSString *const HRError;
 NSString *const HROk;
 NSString *const HRDateTimeFormat;
+
+NSString *const HRUploadingTitle;
+NSString *const HRUploadProgressCellIdentifier;
+NSString *const HRUploadProgressCellNib;
 
 NSString *const HRImagePickerAlertMessage;
 NSString *const HRImagePickerAlertTitle;
@@ -62,4 +67,6 @@ NSString *const HRImagePickerAlertCancelButton;
 
 NSString *const HRProfileNameEncodeKey;
 NSString *const HRAccountsEncodeKey;
+
+NSString *const HRSettingsTitle;
 

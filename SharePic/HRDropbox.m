@@ -16,6 +16,8 @@
 @end
 
 @implementation HRDropbox
+@synthesize uploadedImagesCount = _uploadedImagesCount, totalImages = _totalImages;
+@synthesize delegate = _delegate;
 
 + (id)sharedDropbox {
     
@@ -57,6 +59,8 @@
 }
 
 - (void)uploadPhotos:(NSArray *)photos {
+    _totalImages = [photos count];
+    _uploadedImagesCount = 0;
     int imageNumber = 0;
     NSString *date = [NSString dateTime];
     for (UIImage *image in photos) {
@@ -82,15 +86,20 @@
 
 - (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
               from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
-    NSLog(@"File uploaded successfully to path: %@", metadata.path);
+    _uploadedImagesCount++;
+    if (_delegate != nil) {
+        if (_uploadedImagesCount == _totalImages) {
+            [_delegate uploadCompleteToAccount:[self description]];
+        } else {
+            [_delegate imageUploadedToAccount:[self description]];
+        }
+    }
 }
 
 - (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
-    NSLog(@"File upload failed with error: %@", error);
-}
-
-- (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath {
-    NSLog(@"%.2f",progress);
+    if (_delegate != nil) {
+        [_delegate errorUploadingImageToAccount:[self description]];
+    }
 }
 
 

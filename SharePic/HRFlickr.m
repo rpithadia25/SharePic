@@ -20,6 +20,9 @@
 @end
 
 @implementation HRFlickr
+@synthesize uploadedImagesCount = _uploadedImagesCount, totalImages = _totalImages;
+@synthesize delegate = _delegate;
+
 
 + (id)sharedFlickr {
     static HRFlickr *sharedFlickr = nil;
@@ -67,6 +70,8 @@
 }
 
 - (void)uploadPhotos:(NSArray *)photos {
+    _totalImages = [photos count];
+    _uploadedImagesCount = 0;
     int imageNumber = 0;
     NSString *date = [NSString dateTime];
     for (UIImage *image in photos) {
@@ -75,10 +80,18 @@
         
         self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:image args:uploadArgs completion:^(NSString *imageID, NSError *error) {
             if (error) {
-                NSLog(@"Could not upload");
+                if (_delegate != nil) {
+                    [_delegate errorUploadingImageToAccount:[self description]];
+                }
             } else {
-                NSString *msg = [NSString stringWithFormat:@"Uploaded image ID %@", imageID];
-                NSLog(@"%@ uploaded", msg);
+                _uploadedImagesCount++;
+                if (_delegate != nil) {
+                    if (_uploadedImagesCount == _totalImages) {
+                        [_delegate uploadCompleteToAccount:[self description]];
+                    } else {
+                        [_delegate imageUploadedToAccount:[self description]];
+                    }
+                }
             }
         }];
     }
