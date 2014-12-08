@@ -85,3 +85,5 @@ NSString *const HRSettingInfoAlertMessage = @"Please toggle switch to login & lo
 NSString *const HRNoAccountSelectedAlertMessage = @"Please select at least one account";
 NSString *const HRProfileNameTextFieldIsBlankAlertMessage = @"Profile Name cannot be blank";
 
+NSString *const HRSettingsButtonImage = @"Settings.png";
+

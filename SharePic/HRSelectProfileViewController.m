@@ -26,9 +26,7 @@
     for (HRAbstractAccount *account in supportedAccounts) {
         [_supportedAccounts setObject:account forKey:[account description]];
     }
-    
     [self loadProfiles];
-    
     self.navigationItem.backBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:HRBackButtonLabel
                                      style:UIBarButtonItemStylePlain
@@ -37,7 +35,7 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushNewViewController)];
     self.navigationItem.rightBarButtonItem = addButton;
     
-    UIImage* settingsImage = [UIImage imageNamed:@"Settings.png"];
+    UIImage* settingsImage = [UIImage imageNamed:HRSettingsButtonImage];
     CGRect frame = CGRectMake(0, 0, settingsImage.size.width / kHRSettingImageResizeFactor, settingsImage.size.height / kHRSettingImageResizeFactor);
     UIButton *settingsButton = [[UIButton alloc] initWithFrame:frame];
     [settingsButton setBackgroundImage:settingsImage forState:UIControlStateNormal];
