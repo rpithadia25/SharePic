@@ -86,4 +86,8 @@ NSString *const HRSettingInfoAlertMessage = @"Please toggle switch to login & lo
 
 NSString *const HRImageUploadErrorAlert = @"Could not upload all images to %@";
 NSString *const HRImageUploadSuccessAlert = @"Images uploaded successfully to %@";
+NSString *const HRNoAccountSelectedAlertMessage = @"Please select at least one account";
+NSString *const HRProfileNameTextFieldIsBlankAlertMessage = @"Profile Name cannot be blank";
+
+NSString *const HRSettingsButtonImage = @"Settings.png";
 

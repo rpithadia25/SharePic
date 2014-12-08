@@ -80,4 +80,9 @@ NSString *const HRSettingInfoAlertMessage;
 NSString *const HRImageUploadErrorAlert;
 NSString *const HRImageUploadSuccessAlert;
 
+NSString *const HRNoAccountSelectedAlertMessage;
+NSString *const HRProfileNameTextFieldIsBlankAlertMessage;
+
+NSString *const HRSettingsButtonImage;
+
 

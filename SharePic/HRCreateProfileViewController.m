@@ -120,7 +120,18 @@
         _profile.accounts = [NSArray arrayWithArray:_selectedAccounts];
         [self.delegate HRCreateProfileViewWasDismissedWithProfile: _profile];
         [self.navigationController popViewControllerAnimated:YES];
+    } else if ([profileName length] == 0) {
+        UIAlertView *profileNameFieldIsBlankAlert = [[UIAlertView alloc]initWithTitle:@"" message:HRProfileNameTextFieldIsBlankAlertMessage delegate:nil cancelButtonTitle:HRStringOk otherButtonTitles:nil , nil];
+        [profileNameFieldIsBlankAlert show];
+    } else {
+        UIAlertView *noAccountSelectedAlert = [[UIAlertView alloc]initWithTitle:@"" message:HRNoAccountSelectedAlertMessage delegate:nil cancelButtonTitle:HRStringOk otherButtonTitles:nil , nil];
+        [noAccountSelectedAlert show];
     }
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [_profileNameField resignFirstResponder];
+    return NO;
 }
 
 @end
