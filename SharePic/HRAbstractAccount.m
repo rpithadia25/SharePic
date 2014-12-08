@@ -49,7 +49,7 @@
 }
 
 - (void)uploadInBackground {
-    _delegate = nil;
+    mustOverride();
 }
 
 -(NSDictionary *)toNSDistionary {

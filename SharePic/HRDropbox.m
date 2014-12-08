@@ -18,6 +18,8 @@
 @implementation HRDropbox
 @synthesize uploadedImagesCount = _uploadedImagesCount, totalImages = _totalImages;
 @synthesize delegate = _delegate;
+@synthesize isError = _isError;
+
 
 + (id)sharedDropbox {
     
@@ -61,6 +63,7 @@
 - (void)uploadPhotos:(NSArray *)photos {
     _totalImages = [photos count];
     _uploadedImagesCount = 0;
+    _isError = NO;
     int imageNumber = 0;
     NSString *date = [NSString dateTime];
     for (UIImage *image in photos) {
@@ -83,9 +86,8 @@
 }
 
 -(void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath {
-        NSLog(@"Dropbox %.2f",progress); //Correct way to visualice the float
+    NSLog(@"Dropbox %.2f",progress);
 }
-
 
 #pragma mark - Dropbox upload call back methods
 
@@ -98,14 +100,38 @@
         } else {
             [_delegate imageUploadedToAccount:[self description]];
         }
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!_isError) {
+                if (_uploadedImagesCount == _totalImages) {
+                    NSString *alertMessage = [NSString stringWithFormat:HRImageUploadSuccessAlert, [self description]];
+                    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"" message:alertMessage delegate:nil cancelButtonTitle:HRStringOk otherButtonTitles:nil, nil];
+                    [errorAlert show];
+                }
+            }
+        });
+
     }
 }
 
 - (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
     if (_delegate != nil) {
+        _isError = YES;
         [_delegate errorUploadingImageToAccount:[self description]];
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!_isError) {
+                _isError = YES;
+                NSString *alertMessage = [NSString stringWithFormat:HRImageUploadErrorAlert, [self description]];
+                UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"" message:alertMessage delegate:nil cancelButtonTitle:HRStringOk otherButtonTitles:nil, nil];
+                [errorAlert show];
+            }
+        });
     }
 }
 
+-(void)uploadInBackground {
+    _delegate = nil;
+}
 
 @end

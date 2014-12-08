@@ -20,6 +20,7 @@
 @property NSInteger totalImages;
 @property NSInteger uploadedImagesCount;
 @property id <HRUploadProgressNotificationDelegate> delegate;
+@property BOOL isError;
 
 + (NSArray *) supportedAccounts;
 - (BOOL)isLoggedIn;

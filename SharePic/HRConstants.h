@@ -51,12 +51,15 @@ NSString *const HRUploadPregressStoryboardIdentifier;
 NSString *const HRStringClose;
 NSString *const HRStringError;
 NSString *const HRStringOk;
-NSString *const HSStringSettings;
+NSString *const HRStringSettings;
+NSString *const HRStringDone;
+
 NSString *const HRImagesUploaded;
 NSString *const HRStringHide;
 NSString *const HRDateTimeFormat;
 
 NSString *const HRUploadingTitle;
+NSString *const HRUploadDoneTitle;
 NSString *const HRUploadProgressCellIdentifier;
 NSString *const HRUploadProgressCellNib;
 
@@ -73,5 +76,8 @@ NSString *const HRMinimumImageCountAlertTitle;
 NSString *const HRAccountsNotLoggedInAlertTitle;
 
 NSString *const HRSettingInfoAlertMessage;
+
+NSString *const HRImageUploadErrorAlert;
+NSString *const HRImageUploadSuccessAlert;
 
 
