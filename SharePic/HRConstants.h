@@ -74,4 +74,7 @@ NSString *const HRAccountsNotLoggedInAlertTitle;
 
 NSString *const HRSettingInfoAlertMessage;
 
+NSString *const HRNoAccountSelectedAlertMessage;
+NSString *const HRProfileNameTextFieldIsBlankAlertMessage;
+
 

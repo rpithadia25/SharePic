@@ -82,3 +82,6 @@ NSString *const HRAccountsNotLoggedInAlertTitle = @"The following accounts need 
 
 NSString *const HRSettingInfoAlertMessage = @"Please toggle switch to login & logout";
 
+NSString *const HRNoAccountSelectedAlertMessage = @"Please select at least one account";
+NSString *const HRProfileNameTextFieldIsBlankAlertMessage = @"Profile Name cannot be blank";
+
