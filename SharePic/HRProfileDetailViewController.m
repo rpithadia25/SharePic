@@ -196,7 +196,7 @@
             [alertMessage appendFormat:@"%d. %@ \r",(i + 1), loggedOutAccounts[i]];
         }
         
-        UIAlertView *accountsNotLoggedInAlert = [[UIAlertView alloc]initWithTitle:HRAccountsNotLoggedInAlertTitle message:alertMessage delegate:self cancelButtonTitle:HRStringClose otherButtonTitles:HSStringSettings, nil];
+        UIAlertView *accountsNotLoggedInAlert = [[UIAlertView alloc]initWithTitle:HRAccountsNotLoggedInAlertTitle message:alertMessage delegate:self cancelButtonTitle:HRStringClose otherButtonTitles:HRStringSettings, nil];
         accountsNotLoggedInAlert.tag = kHRNotLoggedInAlertViewTag;
         [accountsNotLoggedInAlert show];
     }

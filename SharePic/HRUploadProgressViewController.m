@@ -13,7 +13,7 @@
 @interface HRUploadProgressViewController()
 @property float delta;
 @property NSMutableArray *completedAccounts;
-@property UIButton *doneButton;
+@property UIBarButtonItem *doneButton;
 @end
 
 @implementation HRUploadProgressViewController
@@ -30,21 +30,9 @@
     _completedAccounts = [[NSMutableArray alloc] init];
     _delta = (1.0 / _imageCount);
     
-    UIBarButtonItem *hideButton = [[UIBarButtonItem alloc] initWithTitle:HRStringHide style:UIBarButtonItemStyleDone target:self action:@selector(runInBackground:)];
-    self.navigationItem.rightBarButtonItem = hideButton;
-    
-    _doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_doneButton setTitle:HRImagesUploaded forState:UIControlStateNormal];
-    [_doneButton addTarget:self action:@selector(doneWithUpload:) forControlEvents:UIControlEventTouchUpInside];
-    [_doneButton sizeToFit];
-    _doneButton.hidden = YES;
-}
+    _doneButton = [[UIBarButtonItem alloc] initWithTitle:HRStringHide style:UIBarButtonItemStyleDone target:self action:@selector(doneWithUpload:)];
 
-- (void)runInBackground:(UIBarButtonItem *)sender {
-    for (HRAbstractAccount *account in _currentProfile.accounts) {
-        [account uploadInBackground];
-    }
-    [self doneWithUpload:nil];
+    self.navigationItem.rightBarButtonItem = _doneButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +40,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)doneWithUpload:(id)sender {
+- (void)doneWithUpload:(UIBarButtonItem *)sender {
+    if ([sender.title isEqualToString:HRStringHide]) {
+        for (HRAbstractAccount *account in _currentProfile.accounts) {
+            [account uploadInBackground];
+        }
+    }
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -96,19 +89,6 @@
     return [NSIndexPath indexPathForRow:row inSection:section];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    CGRect screenRect = [[UIScreen mainScreen]bounds];
-    UIView *footerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screenRect.size.width, 40)];
-    footerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    _doneButton.center = footerView.center;
-    [footerView addSubview:_doneButton];
-    return footerView;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 100.0f;
-}
-
 #pragma mark - Upload progress notification methods
 - (void)uploadCompleteToAccount:(NSString *)accountName {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -116,13 +96,14 @@
         [cell.uploadProgress setProgress:1.0 animated:YES];
         [_completedAccounts addObject:accountName];
         if ([self isUploadComplete]) {
-            _doneButton.hidden = NO;
+            self.title = HRUploadDoneTitle;
         }
     });
 }
 
 - (BOOL)isUploadComplete {
     if ([_completedAccounts count] == [_currentProfile.accounts count]) {
+        _doneButton.title = HRStringDone;
         return YES;
     }
     return NO;
@@ -146,7 +127,8 @@
         [cell.uploadProgress setProgress:1.0 animated:YES];
         [_completedAccounts addObject:accountName];
         if ([self isUploadComplete]) {
-            _doneButton.hidden = NO;
+            self.title = HRStringError;
+            [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]}];
         }
     });
 }

@@ -40,7 +40,7 @@ NSString *const HRProfileDetailsSegueIdentifier = @"profileDetails";
 
 NSString *const HRCreateProfileStoryBoardIdentifier = @"HRCreateProfile";
 NSString *const HRStoryboardMain = @"Main";
-NSString *const HRBackButtonLabel = @"Back";
+NSString *const HRBackButtonLabel = @"back";
 
 NSString *const HRUserDefaultsKey = @"Profiles";
 
@@ -53,15 +53,17 @@ NSString *const HRUploadPregressStoryboardIdentifier = @"UploadProgress";
 
 NSString *const HRStringClose = @"Close";
 NSString *const HRStringError = @"Error";
-NSString *const HRStringOk = @"Okay";
+NSString *const HRStringOk = @"Ok";
 NSString *const HRStringHide = @"Hide";
-NSString *const HSStringSettings = @"Settings";
+NSString *const HRStringSettings = @"Settings";
+NSString *const HRStringDone = @"Done";
 
 NSString *const HRImagesUploaded = @"Images Uploaded, Click here.";
 
 NSString *const HRDateTimeFormat = @"MM-dd-yy_HH:mm";
 
 NSString *const HRUploadingTitle = @"Uploading...";
+NSString *const HRUploadDoneTitle = @"Upload Finished";
 NSString *const HRUploadProgressCellIdentifier = @"UploadProgressCell";
 
 NSString *const HRUploadProgressCellNib = @"HRUploadProgressTableViewCell";
@@ -82,6 +84,8 @@ NSString *const HRAccountsNotLoggedInAlertTitle = @"The following accounts need 
 
 NSString *const HRSettingInfoAlertMessage = @"Please toggle switch to login & logout";
 
+NSString *const HRImageUploadErrorAlert = @"Could not upload all images to %@";
+NSString *const HRImageUploadSuccessAlert = @"Images uploaded successfully to %@";
 NSString *const HRNoAccountSelectedAlertMessage = @"Please select at least one account";
 NSString *const HRProfileNameTextFieldIsBlankAlertMessage = @"Profile Name cannot be blank";
 

@@ -22,7 +22,7 @@
 @implementation HRFlickr
 @synthesize uploadedImagesCount = _uploadedImagesCount, totalImages = _totalImages;
 @synthesize delegate = _delegate;
-
+@synthesize isError = _isError;
 
 + (id)sharedFlickr {
     static HRFlickr *sharedFlickr = nil;
@@ -79,22 +79,45 @@
         NSDictionary *uploadArgs = @{@"title": imageTitle, @"description": @"A Photo via Share-a-Pic App", @"is_public": @"0", @"is_friend": @"0", @"is_family": @"0", @"hidden": @"2"};
         
         self.uploadOp = [[FlickrKit sharedFlickrKit] uploadImage:image args:uploadArgs completion:^(NSString *imageID, NSError *error) {
-            if (error) {
-                if (_delegate != nil) {
+            if (_delegate != nil) {
+                if (error) {
+                    _isError = YES;
                     [_delegate errorUploadingImageToAccount:[self description]];
-                }
-            } else {
-                _uploadedImagesCount++;
-                if (_delegate != nil) {
+                } else {
+                    _uploadedImagesCount++;
                     if (_uploadedImagesCount == _totalImages) {
                         [_delegate uploadCompleteToAccount:[self description]];
                     } else {
                         [_delegate imageUploadedToAccount:[self description]];
                     }
                 }
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (error) {
+                        if (!_isError) {
+                            _isError = YES;
+                            NSString *alertMessage = [NSString stringWithFormat:HRImageUploadErrorAlert, [self description]];
+                            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"" message:alertMessage delegate:nil cancelButtonTitle:HRStringOk otherButtonTitles:nil, nil];
+                            [errorAlert show];
+                        }
+                    } else {
+                        if (!_isError) {
+                            _uploadedImagesCount++;
+                            if (_uploadedImagesCount == _totalImages) {
+                                NSString *alertMessage = [NSString stringWithFormat:HRImageUploadSuccessAlert, [self description]];
+                                UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"" message:alertMessage delegate:nil cancelButtonTitle:HRStringOk otherButtonTitles:nil, nil];
+                                [errorAlert show];
+                            }
+                        }
+                    }
+                });
             }
         }];
     }
+}
+
+- (void)uploadInBackground {
+    _delegate = nil;
 }
 
 - (NSString *)description {
