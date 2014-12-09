@@ -125,7 +125,6 @@
         [_completedAccounts addObject:accountName];
         cell.uploadProgress.progressTintColor = [UIColor redColor];
         [cell.uploadProgress setProgress:1.0 animated:YES];
-        [_completedAccounts addObject:accountName];
         if ([self isUploadComplete]) {
             self.title = HRStringError;
             [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]}];
