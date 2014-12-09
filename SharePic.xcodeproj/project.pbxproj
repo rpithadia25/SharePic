@@ -26,6 +26,7 @@
 		0361C23B1A2FFC4E0027F2E3 /* HRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0361C23A1A2FFC4E0027F2E3 /* HRSettingsViewController.m */; };
 		0361C23F1A300E070027F2E3 /* HRFlickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0361C23E1A300E070027F2E3 /* HRFlickr.m */; };
 		0361C2431A300F3B0027F2E3 /* HRDropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 0361C2421A300F3B0027F2E3 /* HRDropbox.m */; };
+		03A23D2D1A36965E00383AAA /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03A23D2C1A36965E00383AAA /* ReadMe.txt */; };
 		03E881281A2E8F970072ADC3 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E881271A2E8F970072ADC3 /* DropboxSDK.framework */; };
 		03E8812A1A2E8FAF0072ADC3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E881291A2E8FAF0072ADC3 /* Security.framework */; };
 		03E8812C1A2E8FC30072ADC3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E8812B1A2E8FC30072ADC3 /* QuartzCore.framework */; };
@@ -120,6 +121,7 @@
 		0361C23E1A300E070027F2E3 /* HRFlickr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRFlickr.m; sourceTree = "<group>"; };
 		0361C2411A300F3B0027F2E3 /* HRDropbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRDropbox.h; sourceTree = "<group>"; };
 		0361C2421A300F3B0027F2E3 /* HRDropbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRDropbox.m; sourceTree = "<group>"; };
+		03A23D2C1A36965E00383AAA /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
 		03E881271A2E8F970072ADC3 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		03E881291A2E8FAF0072ADC3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		03E8812B1A2E8FC30072ADC3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -194,6 +196,7 @@
 		0345150A1A2C0632008E091D = {
 			isa = PBXGroup;
 			children = (
+				03A23D2C1A36965E00383AAA /* ReadMe.txt */,
 				03E8812B1A2E8FC30072ADC3 /* QuartzCore.framework */,
 				03E881291A2E8FAF0072ADC3 /* Security.framework */,
 				03E881271A2E8F970072ADC3 /* DropboxSDK.framework */,
@@ -441,6 +444,7 @@
 				034515271A2C0632008E091D /* Images.xcassets in Resources */,
 				BA2B03D41A32E91D00D983DB /* Share.png in Resources */,
 				BAA2A24C1A34F0570035DE2A /* Flickr.png in Resources */,
+				03A23D2D1A36965E00383AAA /* ReadMe.txt in Resources */,
 				BAA2A25C1A35143B0035DE2A /* Settings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
